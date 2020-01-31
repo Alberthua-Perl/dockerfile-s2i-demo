@@ -1,2 +1,0 @@
-1. The dockerfile includes Nginx installed through source.
-2. CA certification is included in docker image.  
