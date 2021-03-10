@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <title>第八章 利用角色简化Playbook</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #content-info{
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #author-info{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #title{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-top: 10px;
+            margin-bottom: 2px;
+            font-size: 34px;
+            color: #505050;
+        }
+        .text{
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            font-size: 20px;
+            color: #8c8c8c;
+        }
+        #navBar{
+            width: auto;
+            height: auto;
+            position: fixed;
+            right:0;
+            bottom: 0;
+            background-color: #f0f3f4;
+            overflow-y: auto;
+            text-align: center;
+        }
+        #svg-container{
+            width: 100%;
+            overflow-x: scroll;
+            min-width: 0px;
+            margin: 0 10px;
+        }
+        #nav-thumbs{
+            overflow-y: scroll;
+            padding: 0 5px;
+        }
+        .nav-thumb{
+            position: relative;
+            margin: 10px auto;
+        }
+        .nav-thumb >p{
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+        }
+        .nav-thumb >div{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #c6cfd5;
+        }
+        .nav-thumb img{
+            display: block;
+        }
+        #main-content{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d0cfd8;
+            display: flex;
+            height: auto;
+            flex-flow: row wrap;
+            text-align:center;
+        }
+        #svg-container >svg{
+            overflow: visible;
+            display: block;
+            margin:5px auto;
+            margin-bottom: 5px;
+        }
+        #copyright{
+            bottom: 0;
+            left: 50%;
+            margin: 5px auto;
+            font-size: 16px;
+            color: #515151;
+        }
+        #copyright >a{
+            text-decoration: none;
+            color: #77C;
+        }
+        .number{
+            position: absolute;
+            top:0;
+            left:0;
+            border-top:22px solid #08a1ef;
+            border-right: 22px solid transparent;
+        }
+        .pagenum{
+            font-size: 12px;
+            color: #fff;
+            position: absolute;
+            top: -23px;
+            left: 2px;
+        }
+            #navBar::-webkit-scrollbar{
+            width: 8px;
+            background-color: #f5f5f5;
+        }
+            #navBar::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+            #navBar::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            background-color: #6b6b70;
+        }
+        #navBar::-webkit-scrollbar-thumb:hover{
+            background-color: #4a4a4f;
+        }
+</style>
+  </head>
+  <body>
+    <div id="main-area">
+      <div id="content-info">
+        <div id="content-info">
+          <div id="title">第八章 利用角色简化Playbook</div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="svg-container"><svg id="page0" height="9641" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" ed:vSpacing="30" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" width="1796" ed:name="页面-1" ed:hSpacing="30" preserveAspectRadio="xMinYMin meet" viewBox="0 0 1796 9641">
+    <style type="text/css"><![CDATA[
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st4 {fill:#000000;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st9 {fill:#0000ff;font-family:Consolas;font-size:10pt;font-style:italic;font-weight:bold}
+.st21 {fill:#0000ff;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st11 {fill:#0000ff;font-style:italic;font-weight:bold}
+.st6 {fill:#0000ff;font-style:italic}
+.st2 {fill:#303030;font-family:Consolas;font-size:10pt}
+.st22 {fill:#454545;font-family:Consolas;font-size:10pt;font-style:italic;font-weight:bold}
+.st8 {fill:#454545;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st3 {fill:#454545;font-family:Consolas;font-size:10pt}
+.st10 {fill:#454545;font-style:normal;font-weight:normal}
+.st14 {fill:#454545;font-style:normal}
+.st5 {fill:#454545;font-weight:normal}
+.st7 {fill:#454545}
+.st20 {fill:#ff0000;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st12 {fill:#ff00ff;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st17 {fill:#ff00ff;font-style:italic}
+.st16 {fill:#ff00ff;font-weight:bold}
+.st1 {fill:#ffffff;font-family:Consolas;font-size:12pt;font-weight:bold}
+.st18 {font-style:italic;font-weight:bold}
+.st19 {font-style:italic}
+.st24 {font-style:normal;font-weight:normal}
+.st23 {font-style:normal}
+.st15 {font-weight:bold}
+.st13 {font-weight:normal}
+]]></style>
+    <defs/>
+    <rect y="0" height="9641" fill="#ffffff" x="0" width="1796"/>
+    <path id="575" ed:idlist="554,568,562,560,558,556" stroke="#da9915" fill="none" ed:type="summary" d="M0.1,0C6,0,5.9,8.9,5.9,8.9L5.9,63.1C5.9,63.1,6.9,70.8,12,70.8C6.9,71.1,5.9,78.4,5.9,78.4L5.9,132.6C5.9,132.6,5.8,141.5,0,141.5" stroke-linejoin="round" transform="matrix(1,0,0,1,1454.6,6944)" ed:parentid="554"/>
+    <path id="103" stroke="#696969" fill="none" d="M37.4,1786.5L65.3,1786.5L65.3,-1780.5C65.3,-1783.8,68,-1786.5,71.3,-1786.5L100.3,-1786.5" ed:tosuperid="102" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,261.05,3031.83)" ed:parentid="101"/>
+    <path id="105" stroke="#696969" fill="none" d="M37.4,412L65.3,412L65.3,-406C65.3,-409.3,68,-412,71.3,-412L100.3,-412" ed:tosuperid="104" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,261.05,4406.28)" ed:parentid="101"/>
+    <path id="107" stroke="#696969" fill="none" d="M37.4,-797.2L65.3,-797.2L65.3,791.2C65.3,794.5,68,797.2,71.3,797.2L100.3,797.2" ed:tosuperid="106" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,261.05,5615.53)" ed:parentid="101"/>
+    <path id="109" stroke="#696969" fill="none" d="M37.4,-1830.7L65.3,-1830.7L65.3,1824.7C65.3,1828,68,1830.7,71.3,1830.7L100.3,1830.7" ed:tosuperid="108" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,261.05,6648.98)" ed:parentid="101"/>
+    <path id="111" stroke="#696969" fill="none" d="M-13.5,564.6L3.7,564.6L3.7,-558.6C3.7,-561.9,6.4,-564.6,9.7,-564.6L13.5,-564.6" ed:tosuperid="110" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,551.5,680.72)" ed:parentid="102"/>
+    <path id="113" stroke="#696969" fill="none" d="M-13.5,37L3.7,37L3.7,-31C3.7,-34.3,6.4,-37,9.7,-37L13.5,-37" ed:tosuperid="112" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,793.3,79.1)" ed:parentid="110"/>
+    <path id="115" stroke="#696969" fill="none" d="M3.7,-0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="114" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,793.3,116.1)" ed:parentid="110"/>
+    <path id="119" stroke="#696969" fill="none" d="M-13.5,22.2L3.7,22.2L3.7,-16.2C3.7,-19.5,6.4,-22.2,9.7,-22.2L13.5,-22.2" ed:tosuperid="118" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,956.7,93.9)" ed:parentid="114"/>
+    <path id="122" stroke="#696969" fill="none" d="M3.7,7.4L3.7,-1.4C3.7,-4.7,6.4,-7.4,9.7,-7.4L13.5,-7.4" ed:tosuperid="121" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,956.7,108.7)" ed:parentid="114"/>
+    <path id="125" stroke="#696969" fill="none" d="M3.7,-7.4L3.7,1.4C3.7,4.7,6.4,7.4,9.7,7.4L13.5,7.4" ed:tosuperid="124" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,956.7,123.5)" ed:parentid="114"/>
+    <path id="128" stroke="#696969" fill="none" d="M3.7,-22.2L3.7,16.2C3.7,19.5,6.4,22.2,9.7,22.2L13.5,22.2" ed:tosuperid="127" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,956.7,138.3)" ed:parentid="114"/>
+    <path id="131" stroke="#696969" fill="none" d="M3.7,-37L3.7,31C3.7,34.3,6.4,37,9.7,37L13.5,37" ed:tosuperid="130" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,793.3,153.1)" ed:parentid="110"/>
+    <path id="133" stroke="#696969" fill="none" d="M3.7,328L3.7,-322C3.7,-325.3,6.4,-328,9.7,-328L13.5,-328" ed:tosuperid="132" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,551.5,917.32)" ed:parentid="102"/>
+    <path id="135" stroke="#696969" fill="none" d="M-13.5,184.8L3.7,184.8L3.7,-178.8C3.7,-182.1,6.4,-184.8,9.7,-184.8L13.5,-184.8" ed:tosuperid="134" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,404.5)" ed:parentid="132"/>
+    <path id="137" stroke="#696969" fill="none" d="M3.7,170L3.7,-164C3.7,-167.3,6.4,-170,9.7,-170L13.5,-170" ed:tosuperid="136" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,419.3)" ed:parentid="132"/>
+    <path id="139" stroke="#696969" fill="none" d="M3.7,155.2L3.7,-149.2C3.7,-152.5,6.4,-155.2,9.7,-155.2L13.5,-155.2" ed:tosuperid="138" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,434.1)" ed:parentid="132"/>
+    <path id="141" stroke="#696969" fill="none" d="M3.7,140.4L3.7,-134.4C3.7,-137.7,6.4,-140.4,9.7,-140.4L13.5,-140.4" ed:tosuperid="140" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,448.9)" ed:parentid="132"/>
+    <path id="158" stroke="#696969" fill="none" d="M3.7,-12.4L3.7,6.4C3.7,9.7,6.4,12.4,9.7,12.4L13.5,12.4" ed:tosuperid="157" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,601.7)" ed:parentid="132"/>
+    <path id="161" stroke="#696969" fill="none" d="M3.7,-170L3.7,164C3.7,167.3,6.4,170,9.7,170L13.5,170" ed:tosuperid="160" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,759.3)" ed:parentid="132"/>
+    <path id="164" stroke="#696969" fill="none" d="M3.7,-184.8L3.7,178.8C3.7,182.1,6.4,184.8,9.7,184.8L13.5,184.8" ed:tosuperid="163" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,728.5,774.1)" ed:parentid="132"/>
+    <path id="167" stroke="#696969" fill="none" d="M3.7,39.6L3.7,-33.6C3.7,-36.9,6.4,-39.6,9.7,-39.6L13.5,-39.6" ed:tosuperid="166" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,551.5,1205.72)" ed:parentid="102"/>
+    <path id="169" stroke="#696969" fill="none" d="M-13.5,88.8L3.7,88.8L3.7,-82.8C3.7,-86.1,6.4,-88.8,9.7,-88.8L13.5,-88.8" ed:tosuperid="168" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1077.3)" ed:parentid="166"/>
+    <path id="171" stroke="#696969" fill="none" d="M3.7,74L3.7,-68C3.7,-71.3,6.4,-74,9.7,-74L13.5,-74" ed:tosuperid="170" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1092.1)" ed:parentid="166"/>
+    <path id="173" stroke="#696969" fill="none" d="M3.7,44.4L3.7,-38.4C3.7,-41.7,6.4,-44.4,9.7,-44.4L13.5,-44.4" ed:tosuperid="172" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1121.7)" ed:parentid="166"/>
+    <path id="177" stroke="#696969" fill="none" d="M3.7,29.6L3.7,-23.6C3.7,-26.9,6.4,-29.6,9.7,-29.6L13.5,-29.6" ed:tosuperid="176" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1136.5)" ed:parentid="166"/>
+    <path id="179" stroke="#696969" fill="none" d="M3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" ed:tosuperid="178" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1151.3)" ed:parentid="166"/>
+    <path id="181" stroke="#696969" fill="none" d="M3.7,0C3.7,-0,6.4,-0,9.7,-0L13.5,-0" ed:tosuperid="180" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1166.1)" ed:parentid="166"/>
+    <path id="183" stroke="#696969" fill="none" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" ed:tosuperid="182" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1180.9)" ed:parentid="166"/>
+    <path id="186" stroke="#696969" fill="none" d="M3.7,59.2L3.7,-53.2C3.7,-56.5,6.4,-59.2,9.7,-59.2L13.5,-59.2" ed:tosuperid="185" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1106.9)" ed:parentid="166"/>
+    <path id="188" stroke="#696969" fill="none" d="M3.7,-29.6L3.7,23.6C3.7,26.9,6.4,29.6,9.7,29.6L13.5,29.6" ed:tosuperid="187" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1195.7)" ed:parentid="166"/>
+    <path id="195" stroke="#696969" fill="none" d="M3.7,-44.4L3.7,38.4C3.7,41.7,6.4,44.4,9.7,44.4L13.5,44.4" ed:tosuperid="194" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1210.5)" ed:parentid="166"/>
+    <path id="197" stroke="#696969" fill="none" d="M3.7,-59.2L3.7,53.2C3.7,56.5,6.4,59.2,9.7,59.2L13.5,59.2" ed:tosuperid="196" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1225.3)" ed:parentid="166"/>
+    <path id="199" stroke="#696969" fill="none" d="M3.7,-74L3.7,68C3.7,71.3,6.4,74,9.7,74L13.5,74" ed:tosuperid="198" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1240.1)" ed:parentid="166"/>
+    <path id="203" stroke="#696969" fill="none" d="M3.7,-88.8L3.7,82.8C3.7,86.1,6.4,88.8,9.7,88.8L13.5,88.8" ed:tosuperid="202" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,1254.9)" ed:parentid="166"/>
+    <path id="209" stroke="#696969" fill="none" d="M3.7,-138.8L3.7,132.8C3.7,136.1,6.4,138.8,9.7,138.8L13.5,138.8" ed:tosuperid="208" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,551.5,1384.12)" ed:parentid="102"/>
+    <path id="211" stroke="#696969" fill="none" d="M-13.5,74.8L3.7,74.8L3.7,-68.8C3.7,-72.1,6.4,-74.8,9.7,-74.8L13.5,-74.8" ed:tosuperid="210" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,786.1,1448.1)" ed:parentid="208"/>
+    <path id="213" stroke="#696969" fill="none" d="M3.7,51.2L3.7,-45.2C3.7,-48.5,6.4,-51.2,9.7,-51.2L13.5,-51.2" ed:tosuperid="212" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,786.1,1471.7)" ed:parentid="208"/>
+    <path id="215" stroke="#696969" fill="none" d="M3.7,36.4L3.7,-30.4C3.7,-33.7,6.4,-36.4,9.7,-36.4L13.5,-36.4" ed:tosuperid="214" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,786.1,1486.5)" ed:parentid="208"/>
+    <path id="217" stroke="#696969" fill="none" d="M3.7,21.6L3.7,-15.6C3.7,-18.9,6.4,-21.6,9.7,-21.6L13.5,-21.6" ed:tosuperid="216" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,786.1,1501.3)" ed:parentid="208"/>
+    <path id="220" stroke="#696969" fill="none" d="M3.7,-74.8L3.7,68.8C3.7,72.1,6.4,74.8,9.7,74.8L13.5,74.8" ed:tosuperid="219" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,786.1,1597.7)" ed:parentid="208"/>
+    <path id="224" stroke="#696969" fill="none" d="M3.7,-420.8L3.7,414.8C3.7,418.1,6.4,420.8,9.7,420.8L13.5,420.8" ed:tosuperid="223" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,551.5,1666.12)" ed:parentid="102"/>
+    <path id="226" stroke="#696969" fill="none" d="M-13.5,192.4L3.7,192.4L3.7,-186.4C3.7,-189.7,6.4,-192.4,9.7,-192.4L13.5,-192.4" ed:tosuperid="225" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1894.5)" ed:parentid="223"/>
+    <path id="228" stroke="#696969" fill="none" d="M3.7,177.6L3.7,-171.6C3.7,-174.9,6.4,-177.6,9.7,-177.6L13.5,-177.6" ed:tosuperid="227" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1909.3)" ed:parentid="223"/>
+    <path id="230" stroke="#696969" fill="none" d="M3.7,162.8L3.7,-156.8C3.7,-160.1,6.4,-162.8,9.7,-162.8L13.5,-162.8" ed:tosuperid="229" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1924.1)" ed:parentid="223"/>
+    <path id="232" stroke="#696969" fill="none" d="M3.7,148L3.7,-142C3.7,-145.3,6.4,-148,9.7,-148L13.5,-148" ed:tosuperid="231" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1938.9)" ed:parentid="223"/>
+    <path id="234" stroke="#696969" fill="none" d="M3.7,133.2L3.7,-127.2C3.7,-130.5,6.4,-133.2,9.7,-133.2L13.5,-133.2" ed:tosuperid="233" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1953.7)" ed:parentid="223"/>
+    <path id="236" stroke="#696969" fill="none" d="M3.7,118.4L3.7,-112.4C3.7,-115.7,6.4,-118.4,9.7,-118.4L13.5,-118.4" ed:tosuperid="235" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1968.5)" ed:parentid="223"/>
+    <path id="238" stroke="#696969" fill="none" d="M3.7,103.6L3.7,-97.6C3.7,-100.9,6.4,-103.6,9.7,-103.6L13.5,-103.6" ed:tosuperid="237" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1983.3)" ed:parentid="223"/>
+    <path id="240" stroke="#696969" fill="none" d="M3.7,88.8L3.7,-82.8C3.7,-86.1,6.4,-88.8,9.7,-88.8L13.5,-88.8" ed:tosuperid="239" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,1998.1)" ed:parentid="223"/>
+    <path id="242" stroke="#696969" fill="none" d="M3.7,74L3.7,-68C3.7,-71.3,6.4,-74,9.7,-74L13.5,-74" ed:tosuperid="241" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2012.9)" ed:parentid="223"/>
+    <path id="246" stroke="#696969" fill="none" d="M3.7,-77.2L3.7,71.2C3.7,74.5,6.4,77.2,9.7,77.2L13.5,77.2" ed:tosuperid="245" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2164.1)" ed:parentid="223"/>
+    <path id="250" stroke="#696969" fill="none" d="M3.7,-162.8L3.7,156.8C3.7,160.1,6.4,162.8,9.7,162.8L13.5,162.8" ed:tosuperid="249" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2249.7)" ed:parentid="223"/>
+    <path id="253" stroke="#696969" fill="none" d="M3.7,-177.6L3.7,171.6C3.7,174.9,6.4,177.6,9.7,177.6L13.5,177.6" ed:tosuperid="252" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2264.5)" ed:parentid="223"/>
+    <path id="255" stroke="#696969" fill="none" d="M3.7,-192.4L3.7,186.4C3.7,189.7,6.4,192.4,9.7,192.4L13.5,192.4" ed:tosuperid="254" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2279.3)" ed:parentid="223"/>
+    <path id="258" stroke="#696969" fill="none" d="M-13.5,614.8L3.7,614.8L3.7,-608.8C3.7,-612.1,6.4,-614.8,9.7,-614.8L13.5,-614.8" ed:tosuperid="257" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,549.9,3379.42)" ed:parentid="104"/>
+    <path id="284" stroke="#696969" fill="none" d="M3.7,103.6L3.7,-97.6C3.7,-100.9,6.4,-103.6,9.7,-103.6L13.5,-103.6" ed:tosuperid="283" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2661)" ed:parentid="257"/>
+    <path id="286" stroke="#696969" fill="none" d="M3.7,-59.2L3.7,53.2C3.7,56.5,6.4,59.2,9.7,59.2L13.5,59.2" ed:tosuperid="285" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2823.8)" ed:parentid="257"/>
+    <path id="290" stroke="#696969" fill="none" d="M-13.5,118.4L3.7,118.4L3.7,-112.4C3.7,-115.7,6.4,-118.4,9.7,-118.4L13.5,-118.4" ed:tosuperid="289" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2646.2)" ed:parentid="257"/>
+    <path id="292" stroke="#696969" fill="none" d="M3.7,-74L3.7,68C3.7,71.3,6.4,74,9.7,74L13.5,74" ed:tosuperid="291" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2838.6)" ed:parentid="257"/>
+    <path id="294" stroke="#696969" fill="none" d="M3.7,-88.8L3.7,82.8C3.7,86.1,6.4,88.8,9.7,88.8L13.5,88.8" ed:tosuperid="293" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2853.4)" ed:parentid="257"/>
+    <path id="297" stroke="#696969" fill="none" d="M3.7,-103.6L3.7,97.6C3.7,100.9,6.4,103.6,9.7,103.6L13.5,103.6" ed:tosuperid="296" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2868.2)" ed:parentid="257"/>
+    <path id="299" stroke="#696969" fill="none" d="M3.7,-118.4L3.7,112.4C3.7,115.7,6.4,118.4,9.7,118.4L13.5,118.4" ed:tosuperid="298" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,678.1,2883)" ed:parentid="257"/>
+    <path id="313" stroke="#696969" fill="none" d="M3.7,-131.6L3.7,125.6C3.7,128.9,6.4,131.6,9.7,131.6L13.5,131.6" ed:tosuperid="312" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,549.9,4125.82)" ed:parentid="104"/>
+    <path id="315" stroke="#696969" fill="none" d="M-13.5,613.2L3.7,613.2L3.7,-607.2C3.7,-610.5,6.4,-613.2,9.7,-613.2L13.5,-613.2" ed:tosuperid="314" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,3644.2)" ed:parentid="312"/>
+    <path id="317" stroke="#696969" fill="none" d="M3.7,598.4L3.7,-592.4C3.7,-595.7,6.4,-598.4,9.7,-598.4L13.5,-598.4" ed:tosuperid="316" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,3659)" ed:parentid="312"/>
+    <path id="320" stroke="#696969" fill="none" d="M3.7,583.6L3.7,-577.6C3.7,-580.9,6.4,-583.6,9.7,-583.6L13.5,-583.6" ed:tosuperid="319" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,3673.8)" ed:parentid="312"/>
+    <path id="322" stroke="#696969" fill="none" d="M3.7,548.4L3.7,-542.4C3.7,-545.7,6.4,-548.4,9.7,-548.4L13.5,-548.4" ed:tosuperid="321" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,3709)" ed:parentid="312"/>
+    <path id="325" stroke="#696969" fill="none" d="M3.7,533.6L3.7,-527.6C3.7,-530.9,6.4,-533.6,9.7,-533.6L13.5,-533.6" ed:tosuperid="324" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,3723.8)" ed:parentid="312"/>
+    <path id="327" stroke="#696969" fill="none" d="M3.7,436.4L3.7,-430.4C3.7,-433.7,6.4,-436.4,9.7,-436.4L13.5,-436.4" ed:tosuperid="326" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,3821)" ed:parentid="312"/>
+    <path id="329" stroke="#696969" fill="none" d="M-13.5,21.2L3.7,21.2L3.7,-15.2C3.7,-18.5,6.4,-21.2,9.7,-21.2L13.5,-21.2" ed:tosuperid="328" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3363.4)" ed:parentid="326"/>
+    <path id="332" stroke="#696969" fill="none" d="M3.7,6.4L3.7,-0.4C3.7,-3.7,6.4,-6.4,9.7,-6.4L13.5,-6.4" ed:tosuperid="331" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3378.2)" ed:parentid="326"/>
+    <path id="334" stroke="#696969" fill="none" d="M3.7,-8.4L3.7,2.4C3.7,5.7,6.4,8.4,9.7,8.4L13.5,8.4" ed:tosuperid="333" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3393)" ed:parentid="326"/>
+    <path id="336" stroke="#696969" fill="none" d="M3.7,-38L3.7,32C3.7,35.3,6.4,38,9.7,38L13.5,38" ed:tosuperid="335" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3422.6)" ed:parentid="326"/>
+    <path id="338" stroke="#696969" fill="none" d="M3.7,-23.2L3.7,17.2C3.7,20.5,6.4,23.2,9.7,23.2L13.5,23.2" ed:tosuperid="337" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3407.8)" ed:parentid="326"/>
+    <path id="340" stroke="#696969" fill="none" d="M3.7,-52.8L3.7,46.8C3.7,50.1,6.4,52.8,9.7,52.8L13.5,52.8" ed:tosuperid="339" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3437.4)" ed:parentid="326"/>
+    <path id="342" stroke="#696969" fill="none" d="M3.7,-67.6L3.7,61.6C3.7,64.9,6.4,67.6,9.7,67.6L13.5,67.6" ed:tosuperid="341" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3452.2)" ed:parentid="326"/>
+    <path id="344" stroke="#696969" fill="none" d="M3.7,125.2L3.7,-119.2C3.7,-122.5,6.4,-125.2,9.7,-125.2L13.5,-125.2" ed:tosuperid="343" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,4132.2)" ed:parentid="312"/>
+    <path id="346" stroke="#696969" fill="none" d="M-13.5,214L3.7,214L3.7,-208C3.7,-211.3,6.4,-214,9.7,-214L13.5,-214" ed:tosuperid="345" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,3793)" ed:parentid="343"/>
+    <path id="348" stroke="#696969" fill="none" d="M3.7,199.2L3.7,-193.2C3.7,-196.5,6.4,-199.2,9.7,-199.2L13.5,-199.2" ed:tosuperid="347" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,3807.8)" ed:parentid="343"/>
+    <path id="350" stroke="#696969" fill="none" d="M3.7,115.6L3.7,-109.6C3.7,-112.9,6.4,-115.6,9.7,-115.6L13.5,-115.6" ed:tosuperid="349" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,3891.4)" ed:parentid="343"/>
+    <path id="354" stroke="#696969" fill="none" d="M3.7,-40.4L3.7,34.4C3.7,37.7,6.4,40.4,9.7,40.4L13.5,40.4" ed:tosuperid="353" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,4047.4)" ed:parentid="343"/>
+    <path id="357" stroke="#696969" fill="none" d="M3.7,-55.2L3.7,49.2C3.7,52.5,6.4,55.2,9.7,55.2L13.5,55.2" ed:tosuperid="356" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,4062.2)" ed:parentid="343"/>
+    <path id="359" stroke="#696969" fill="none" d="M3.7,-70L3.7,64C3.7,67.3,6.4,70,9.7,70L13.5,70" ed:tosuperid="358" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,4077)" ed:parentid="343"/>
+    <path id="364" stroke="#696969" fill="none" d="M3.7,-214L3.7,208C3.7,211.3,6.4,214,9.7,214L13.5,214" ed:tosuperid="363" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,865.5,4221)" ed:parentid="343"/>
+    <path id="369" stroke="#696969" fill="none" d="M3.7,-358.4L3.7,352.4C3.7,355.7,6.4,358.4,9.7,358.4L13.5,358.4" ed:tosuperid="368" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,705.3,4615.8)" ed:parentid="312"/>
+    <path id="371" stroke="#696969" fill="none" d="M-13.5,225.2L3.7,225.2L3.7,-219.2C3.7,-222.5,6.4,-225.2,9.7,-225.2L13.5,-225.2" ed:tosuperid="370" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,858.3,4749)" ed:parentid="368"/>
+    <path id="373" stroke="#696969" fill="none" d="M-13.5,29.6L3.7,29.6L3.7,-23.6C3.7,-26.9,6.4,-29.6,9.7,-29.6L13.5,-29.6" ed:tosuperid="372" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1025.7,4494.2)" ed:parentid="370"/>
+    <path id="375" stroke="#696969" fill="none" d="M3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" ed:tosuperid="374" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1025.7,4509)" ed:parentid="370"/>
+    <path id="377" stroke="#696969" fill="none" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="376" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1025.7,4523.8)" ed:parentid="370"/>
+    <path id="379" stroke="#696969" fill="none" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" ed:tosuperid="378" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1025.7,4538.6)" ed:parentid="370"/>
+    <path id="381" stroke="#696969" fill="none" d="M3.7,-29.6L3.7,23.6C3.7,26.9,6.4,29.6,9.7,29.6L13.5,29.6" ed:tosuperid="380" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1025.7,4553.4)" ed:parentid="370"/>
+    <path id="383" stroke="#696969" fill="none" d="M3.7,101.2L3.7,-95.2C3.7,-98.5,6.4,-101.2,9.7,-101.2L13.5,-101.2" ed:tosuperid="382" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,858.3,4873)" ed:parentid="368"/>
+    <path id="385" stroke="#696969" fill="none" d="M-13.5,79.6L3.7,79.6L3.7,-73.6C3.7,-76.9,6.4,-79.6,9.7,-79.6L13.5,-79.6" ed:tosuperid="384" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,4692.2)" ed:parentid="382"/>
+    <path id="387" stroke="#696969" fill="none" d="M3.7,-79.6L3.7,73.6C3.7,76.9,6.4,79.6,9.7,79.6L13.5,79.6" ed:tosuperid="386" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,4851.4)" ed:parentid="382"/>
+    <path id="390" stroke="#696969" fill="none" d="M3.7,-124L3.7,118C3.7,121.3,6.4,124,9.7,124L13.5,124" ed:tosuperid="389" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,858.3,5098.2)" ed:parentid="368"/>
+    <path id="392" stroke="#696969" fill="none" d="M-13.5,130.8L3.7,130.8L3.7,-124.8C3.7,-128.1,6.4,-130.8,9.7,-130.8L13.5,-130.8" ed:tosuperid="391" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,5091.4)" ed:parentid="389"/>
+    <path id="394" stroke="#696969" fill="none" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="393" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1182.7,4960.6)" ed:parentid="391"/>
+    <path id="396" stroke="#696969" fill="none" d="M3.7,76.6L3.7,-70.6C3.7,-73.9,6.4,-76.6,9.7,-76.6L13.5,-76.6" ed:tosuperid="395" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,5145.6)" ed:parentid="389"/>
+    <path id="398" stroke="#696969" fill="none" d="M-13.5,39.4L3.7,39.4L3.7,-33.4C3.7,-36.7,6.4,-39.4,9.7,-39.4L13.5,-39.4" ed:tosuperid="397" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1204.3,5029.6)" ed:parentid="395"/>
+    <path id="400" stroke="#696969" fill="none" d="M3.7,24.6L3.7,-18.6C3.7,-21.9,6.4,-24.6,9.7,-24.6L13.5,-24.6" ed:tosuperid="399" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1204.3,5044.4)" ed:parentid="395"/>
+    <path id="402" stroke="#696969" fill="none" d="M3.7,-39.4L3.7,33.4C3.7,36.7,6.4,39.4,9.7,39.4L13.5,39.4" ed:tosuperid="401" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1204.3,5108.4)" ed:parentid="395"/>
+    <path id="405" stroke="#696969" fill="none" d="M3.7,-4.4L3.7,-1.6C3.7,1.7,6.4,4.4,9.7,4.4L13.5,4.4" ed:tosuperid="404" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,5226.6)" ed:parentid="389"/>
+    <path id="407" stroke="#696969" fill="none" d="M-13.5,26.8L3.7,26.8L3.7,-20.8C3.7,-24.1,6.4,-26.8,9.7,-26.8L13.5,-26.8" ed:tosuperid="406" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1204.3,5204.2)" ed:parentid="404"/>
+    <path id="409" stroke="#696969" fill="none" d="M3.7,-26.8L3.7,20.8C3.7,24.1,6.4,26.8,9.7,26.8L13.5,26.8" ed:tosuperid="408" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1204.3,5257.8)" ed:parentid="404"/>
+    <path id="412" stroke="#696969" fill="none" d="M3.7,-57.2L3.7,51.2C3.7,54.5,6.4,57.2,9.7,57.2L13.5,57.2" ed:tosuperid="411" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,5279.4)" ed:parentid="389"/>
+    <path id="414" stroke="#696969" fill="none" d="M-13.5,-11.2L3.7,-11.2L3.7,5.2C3.7,8.5,6.4,11.2,9.7,11.2L13.5,11.2" ed:tosuperid="413" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1233.1,5347.8)" ed:parentid="411"/>
+    <path id="417" stroke="#696969" fill="none" d="M3.7,-107L3.7,101C3.7,104.3,6.4,107,9.7,107L13.5,107" ed:tosuperid="416" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1008.1,5329.2)" ed:parentid="389"/>
+    <path id="419" stroke="#696969" fill="none" d="M-13.5,-23.8L3.7,-23.8L3.7,17.8C3.7,21.1,6.4,23.8,9.7,23.8L13.5,23.8" ed:tosuperid="418" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1182.7,5460)" ed:parentid="416"/>
+    <path id="425" stroke="#696969" fill="none" d="M3.7,-82.4L3.7,76.4C3.7,79.7,6.4,82.4,9.7,82.4L13.5,82.4" ed:tosuperid="424" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,887.9,3467)" ed:parentid="326"/>
+    <path id="428" stroke="#696969" fill="none" d="M-13.5,429L3.7,429L3.7,-423C3.7,-426.3,6.4,-429,9.7,-429L13.5,-429" ed:tosuperid="427" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,468.3,5983.73)" ed:parentid="106"/>
+    <path id="430" stroke="#696969" fill="none" d="M-13.5,7.4L3.7,7.4L3.7,-1.4C3.7,-4.7,6.4,-7.4,9.7,-7.4L13.5,-7.4" ed:tosuperid="429" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,594.9,5547.3)" ed:parentid="427"/>
+    <path id="432" stroke="#696969" fill="none" d="M3.7,-7.4L3.7,1.4C3.7,4.7,6.4,7.4,9.7,7.4L13.5,7.4" ed:tosuperid="431" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,594.9,5562.1)" ed:parentid="427"/>
+    <path id="434" stroke="#696969" fill="none" d="M3.7,321L3.7,-315C3.7,-318.3,6.4,-321,9.7,-321L13.5,-321" ed:tosuperid="433" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,468.3,6091.72)" ed:parentid="106"/>
+    <path id="438" stroke="#696969" fill="none" d="M-13.5,85.8L3.7,85.8L3.7,-79.8C3.7,-83.1,6.4,-85.8,9.7,-85.8L13.5,-85.8" ed:tosuperid="437" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,622.1,5684.9)" ed:parentid="433"/>
+    <path id="440" stroke="#696969" fill="none" d="M3.7,-41.4L3.7,35.4C3.7,38.7,6.4,41.4,9.7,41.4L13.5,41.4" ed:tosuperid="439" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,622.1,5812.1)" ed:parentid="433"/>
+    <path id="443" stroke="#696969" fill="none" d="M3.7,-56.2L3.7,50.2C3.7,53.5,6.4,56.2,9.7,56.2L13.5,56.2" ed:tosuperid="442" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,622.1,5826.9)" ed:parentid="433"/>
+    <path id="445" stroke="#696969" fill="none" d="M3.7,-71L3.7,65C3.7,68.3,6.4,71,9.7,71L13.5,71" ed:tosuperid="444" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,622.1,5841.7)" ed:parentid="433"/>
+    <path id="449" stroke="#696969" fill="none" d="M3.7,-85.8L3.7,79.8C3.7,83.1,6.4,85.8,9.7,85.8L13.5,85.8" ed:tosuperid="448" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,622.1,5856.5)" ed:parentid="433"/>
+    <path id="452" stroke="#696969" fill="none" d="M3.7,77.8L3.7,-71.8C3.7,-75.1,6.4,-77.8,9.7,-77.8L13.5,-77.8" ed:tosuperid="451" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,468.3,6334.93)" ed:parentid="106"/>
+    <path id="454" stroke="#696969" fill="none" d="M-13.5,142.6L3.7,142.6L3.7,-136.6C3.7,-139.9,6.4,-142.6,9.7,-142.6L13.5,-142.6" ed:tosuperid="453" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,594.9,6114.5)" ed:parentid="451"/>
+    <path id="456" stroke="#696969" fill="none" d="M3.7,127.8L3.7,-121.8C3.7,-125.1,6.4,-127.8,9.7,-127.8L13.5,-127.8" ed:tosuperid="455" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,594.9,6129.3)" ed:parentid="451"/>
+    <path id="458" stroke="#696969" fill="none" d="M3.7,-24.2L3.7,18.2C3.7,21.5,6.4,24.2,9.7,24.2L13.5,24.2" ed:tosuperid="457" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,594.9,6281.3)" ed:parentid="451"/>
+    <path id="461" stroke="#696969" fill="none" d="M3.7,-90.8L3.7,84.8C3.7,88.1,6.4,90.8,9.7,90.8L13.5,90.8" ed:tosuperid="460" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,594.9,6347.9)" ed:parentid="451"/>
+    <path id="463" stroke="#696969" fill="none" d="M-13.5,51.8L3.7,51.8L3.7,-45.8C3.7,-49.1,6.4,-51.8,9.7,-51.8L13.5,-51.8" ed:tosuperid="462" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6386.9)" ed:parentid="460"/>
+    <path id="466" stroke="#696969" fill="none" d="M3.7,37L3.7,-31C3.7,-34.3,6.4,-37,9.7,-37L13.5,-37" ed:tosuperid="465" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6401.7)" ed:parentid="460"/>
+    <path id="468" stroke="#696969" fill="none" d="M3.7,7.4L3.7,-1.4C3.7,-4.7,6.4,-7.4,9.7,-7.4L13.5,-7.4" ed:tosuperid="467" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6431.3)" ed:parentid="460"/>
+    <path id="471" stroke="#696969" fill="none" d="M3.7,-7.4L3.7,1.4C3.7,4.7,6.4,7.4,9.7,7.4L13.5,7.4" ed:tosuperid="470" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6446.1)" ed:parentid="460"/>
+    <path id="474" stroke="#696969" fill="none" d="M3.7,-22.2L3.7,16.2C3.7,19.5,6.4,22.2,9.7,22.2L13.5,22.2" ed:tosuperid="473" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6460.9)" ed:parentid="460"/>
+    <path id="477" stroke="#696969" fill="none" d="M3.7,-37L3.7,31C3.7,34.3,6.4,37,9.7,37L13.5,37" ed:tosuperid="476" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6475.7)" ed:parentid="460"/>
+    <path id="482" stroke="#696969" fill="none" d="M3.7,-51.8L3.7,45.8C3.7,49.1,6.4,51.8,9.7,51.8L13.5,51.8" ed:tosuperid="481" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6490.5)" ed:parentid="460"/>
+    <path id="487" stroke="#696969" fill="none" d="M3.7,-156.2L3.7,150.2C3.7,153.5,6.4,156.2,9.7,156.2L13.5,156.2" ed:tosuperid="486" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,468.3,6568.93)" ed:parentid="106"/>
+    <path id="489" stroke="#696969" fill="none" d="M3.7,22.2L3.7,-16.2C3.7,-19.5,6.4,-22.2,9.7,-22.2L13.5,-22.2" ed:tosuperid="488" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,789.5,6416.5)" ed:parentid="460"/>
+    <path id="532" stroke="#696969" fill="none" d="M-13.5,76.6L3.7,76.6L3.7,-70.6C3.7,-73.9,6.4,-76.6,9.7,-76.6L13.5,-76.6" ed:tosuperid="531" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6648.5)" ed:parentid="486"/>
+    <path id="534" stroke="#696969" fill="none" d="M3.7,61.8L3.7,-55.8C3.7,-59.1,6.4,-61.8,9.7,-61.8L13.5,-61.8" ed:tosuperid="533" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6663.3)" ed:parentid="486"/>
+    <path id="536" stroke="#696969" fill="none" d="M3.7,-17.4L3.7,11.4C3.7,14.7,6.4,17.4,9.7,17.4L13.5,17.4" ed:tosuperid="535" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6742.5)" ed:parentid="486"/>
+    <path id="539" stroke="#696969" fill="none" d="M3.7,-32.2L3.7,26.2C3.7,29.5,6.4,32.2,9.7,32.2L13.5,32.2" ed:tosuperid="538" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6757.3)" ed:parentid="486"/>
+    <path id="541" stroke="#696969" fill="none" d="M3.7,-47L3.7,41C3.7,44.3,6.4,47,9.7,47L13.5,47" ed:tosuperid="540" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6772.1)" ed:parentid="486"/>
+    <path id="543" stroke="#696969" fill="none" d="M3.7,-61.8L3.7,55.8C3.7,59.1,6.4,61.8,9.7,61.8L13.5,61.8" ed:tosuperid="542" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6786.9)" ed:parentid="486"/>
+    <path id="546" stroke="#696969" fill="none" d="M3.7,-76.6L3.7,70.6C3.7,73.9,6.4,76.6,9.7,76.6L13.5,76.6" ed:tosuperid="545" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,743.7,6801.7)" ed:parentid="486"/>
+    <path id="549" stroke="#696969" fill="none" d="M3.7,-347.8L3.7,341.8C3.7,345.1,6.4,347.8,9.7,347.8L13.5,347.8" ed:tosuperid="548" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,468.3,6760.53)" ed:parentid="106"/>
+    <path id="551" stroke="#696969" fill="none" d="M-13.5,100.2L3.7,100.2L3.7,-94.2C3.7,-97.5,6.4,-100.2,9.7,-100.2L13.5,-100.2" ed:tosuperid="550" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,657.3,7008.1)" ed:parentid="548"/>
+    <path id="553" stroke="#696969" fill="none" d="M3.7,85.4L3.7,-79.4C3.7,-82.7,6.4,-85.4,9.7,-85.4L13.5,-85.4" ed:tosuperid="552" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,657.3,7022.9)" ed:parentid="548"/>
+    <path id="555" stroke="#696969" fill="none" d="M3.7,41L3.7,-35C3.7,-38.3,6.4,-41,9.7,-41L13.5,-41" ed:tosuperid="554" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,657.3,7067.3)" ed:parentid="548"/>
+    <path id="557" stroke="#696969" fill="none" d="M3.7,-29.6L3.7,23.6C3.7,26.9,6.4,29.6,9.7,29.6L13.5,29.6" ed:tosuperid="556" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1026.3,7055.9)" ed:parentid="554"/>
+    <path id="559" stroke="#696969" fill="none" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" ed:tosuperid="558" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1026.3,7041.1)" ed:parentid="554"/>
+    <path id="561" stroke="#696969" fill="none" d="M3.7,-0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="560" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1026.3,7026.3)" ed:parentid="554"/>
+    <path id="563" stroke="#696969" fill="none" d="M3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" ed:tosuperid="562" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1026.3,7011.5)" ed:parentid="554"/>
+    <path id="569" stroke="#696969" fill="none" d="M-13.5,29.6L3.7,29.6L3.7,-23.6C3.7,-26.9,6.4,-29.6,9.7,-29.6L13.5,-29.6" ed:tosuperid="568" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1026.3,6996.7)" ed:parentid="554"/>
+    <path id="579" stroke="#696969" fill="none" d="M3.7,-100.2L3.7,94.2C3.7,97.5,6.4,100.2,9.7,100.2L13.5,100.2" ed:tosuperid="578" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,657.3,7208.5)" ed:parentid="548"/>
+    <path id="590" stroke="#696969" fill="none" d="M-13.5,474L3.7,474L3.7,-468C3.7,-471.3,6.4,-474,9.7,-474L13.5,-474" ed:tosuperid="589" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,596.3,8005.63)" ed:parentid="108"/>
+    <path id="592" stroke="#696969" fill="none" d="M-13.5,83.4L3.7,83.4L3.7,-77.4C3.7,-80.7,6.4,-83.4,9.7,-83.4L13.5,-83.4" ed:tosuperid="591" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,769.3,7448.2)" ed:parentid="589"/>
+    <path id="594" stroke="#696969" fill="none" d="M3.7,68.6L3.7,-62.6C3.7,-65.9,6.4,-68.6,9.7,-68.6L13.5,-68.6" ed:tosuperid="593" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,769.3,7463)" ed:parentid="589"/>
+    <path id="596" stroke="#696969" fill="none" d="M3.7,-68.6L3.7,62.6C3.7,65.9,6.4,68.6,9.7,68.6L13.5,68.6" ed:tosuperid="595" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,769.3,7600.2)" ed:parentid="589"/>
+    <path id="599" stroke="#696969" fill="none" d="M3.7,-83.4L3.7,77.4C3.7,80.7,6.4,83.4,9.7,83.4L13.5,83.4" ed:tosuperid="598" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,769.3,7615)" ed:parentid="589"/>
+    <path id="601" stroke="#696969" fill="none" d="M3.7,-96.6L3.7,90.6C3.7,93.9,6.4,96.6,9.7,96.6L13.5,96.6" ed:tosuperid="600" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,596.3,8576.23)" ed:parentid="108"/>
+    <path id="603" stroke="#696969" fill="none" d="M-13.5,472.4L3.7,472.4L3.7,-466.4C3.7,-469.7,6.4,-472.4,9.7,-472.4L13.5,-472.4" ed:tosuperid="602" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,814.1,8200.4)" ed:parentid="600"/>
+    <path id="605" stroke="#696969" fill="none" d="M3.7,305.4L3.7,-299.4C3.7,-302.7,6.4,-305.4,9.7,-305.4L13.5,-305.4" ed:tosuperid="604" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,814.1,8367.4)" ed:parentid="600"/>
+    <path id="607" stroke="#696969" fill="none" d="M-13.5,35.4L3.7,35.4L3.7,-29.4C3.7,-32.7,6.4,-35.4,9.7,-35.4L13.5,-35.4" ed:tosuperid="606" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,967.9,8026.6)" ed:parentid="604"/>
+    <path id="610" stroke="#696969" fill="none" d="M3.7,-107.8L3.7,101.8C3.7,105.1,6.4,107.8,9.7,107.8L13.5,107.8" ed:tosuperid="609" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,967.9,8169.8)" ed:parentid="604"/>
+    <path id="613" stroke="#696969" fill="none" d="M3.7,-122.6L3.7,116.6C3.7,119.9,6.4,122.6,9.7,122.6L13.5,122.6" ed:tosuperid="612" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,967.9,8184.6)" ed:parentid="604"/>
+    <path id="615" stroke="#696969" fill="none" d="M3.7,-137.4L3.7,131.4C3.7,134.7,6.4,137.4,9.7,137.4L13.5,137.4" ed:tosuperid="614" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,967.9,8199.4)" ed:parentid="604"/>
+    <path id="617" stroke="#696969" fill="none" d="M3.7,-152.2L3.7,146.2C3.7,149.5,6.4,152.2,9.7,152.2L13.5,152.2" ed:tosuperid="616" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,967.9,8214.2)" ed:parentid="604"/>
+    <path id="620" stroke="#696969" fill="none" d="M3.7,119.2L3.7,-113.2C3.7,-116.5,6.4,-119.2,9.7,-119.2L13.5,-119.2" ed:tosuperid="619" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,814.1,8553.6)" ed:parentid="600"/>
+    <path id="622" stroke="#696969" fill="none" d="M-13.5,19.2L3.7,19.2L3.7,-13.2C3.7,-16.5,6.4,-19.2,9.7,-19.2L13.5,-19.2" ed:tosuperid="621" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1041.5,8415.2)" ed:parentid="619"/>
+    <path id="624" stroke="#696969" fill="none" d="M3.7,4.4L3.7,1.6C3.7,-1.7,6.4,-4.4,9.7,-4.4L13.5,-4.4" ed:tosuperid="623" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1041.5,8430)" ed:parentid="619"/>
+    <path id="626" stroke="#696969" fill="none" d="M3.7,-19.2L3.7,13.2C3.7,16.5,6.4,19.2,9.7,19.2L13.5,19.2" ed:tosuperid="625" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1041.5,8453.6)" ed:parentid="619"/>
+    <path id="632" stroke="#696969" fill="none" d="M3.7,-111L3.7,105C3.7,108.3,6.4,111,9.7,111L13.5,111" ed:tosuperid="631" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,814.1,8783.8)" ed:parentid="600"/>
+    <path id="634" stroke="#696969" fill="none" d="M-13.5,172.2L3.7,172.2L3.7,-166.2C3.7,-169.5,6.4,-172.2,9.7,-172.2L13.5,-172.2" ed:tosuperid="633" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,8722.6)" ed:parentid="631"/>
+    <path id="637" stroke="#696969" fill="none" d="M3.7,157.4L3.7,-151.4C3.7,-154.7,6.4,-157.4,9.7,-157.4L13.5,-157.4" ed:tosuperid="636" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,8737.4)" ed:parentid="631"/>
+    <path id="639" stroke="#696969" fill="none" d="M3.7,142.6L3.7,-136.6C3.7,-139.9,6.4,-142.6,9.7,-142.6L13.5,-142.6" ed:tosuperid="638" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,8752.2)" ed:parentid="631"/>
+    <path id="644" stroke="#696969" fill="none" d="M3.7,119L3.7,-113C3.7,-116.3,6.4,-119,9.7,-119L13.5,-119" ed:tosuperid="643" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,8775.8)" ed:parentid="631"/>
+    <path id="647" stroke="#696969" fill="none" d="M3.7,-63L3.7,57C3.7,60.3,6.4,63,9.7,63L13.5,63" ed:tosuperid="646" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,8957.8)" ed:parentid="631"/>
+    <path id="651" stroke="#696969" fill="none" d="M3.7,-85.2L3.7,79.2C3.7,82.5,6.4,85.2,9.7,85.2L13.5,85.2" ed:tosuperid="650" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,8980)" ed:parentid="631"/>
+    <path id="657" stroke="#696969" fill="none" d="M3.7,-166.6L3.7,160.6C3.7,163.9,6.4,166.6,9.7,166.6L13.5,166.6" ed:tosuperid="656" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,9061.4)" ed:parentid="631"/>
+    <path id="659" stroke="#696969" fill="none" d="M-13.5,7.4L3.7,7.4L3.7,-1.4C3.7,-4.7,6.4,-7.4,9.7,-7.4L13.5,-7.4" ed:tosuperid="658" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1112.1,9057.8)" ed:parentid="650"/>
+    <path id="661" stroke="#696969" fill="none" d="M3.7,-7.4L3.7,1.4C3.7,4.7,6.4,7.4,9.7,7.4L13.5,7.4" ed:tosuperid="660" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1112.1,9072.6)" ed:parentid="650"/>
+    <path id="663" stroke="#696969" fill="none" d="M3.7,-107.4L3.7,101.4C3.7,104.7,6.4,107.4,9.7,107.4L13.5,107.4" ed:tosuperid="662" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,9002.2)" ed:parentid="631"/>
+    <path id="669" stroke="#696969" fill="none" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" ed:tosuperid="668" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1112.1,9183.6)" ed:parentid="670"/>
+    <path id="671" stroke="#696969" fill="none" d="M3.7,-137L3.7,131C3.7,134.3,6.4,137,9.7,137L13.5,137" ed:tosuperid="670" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,9031.8)" ed:parentid="631"/>
+    <path id="673" stroke="#696969" fill="none" d="M-13.5,14.8L3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" ed:tosuperid="672" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1112.1,9154)" ed:parentid="670"/>
+    <path id="675" stroke="#696969" fill="none" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="674" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1112.1,9168.8)" ed:parentid="670"/>
+    <path id="682" stroke="#696969" fill="none" d="M3.7,-188.8L3.7,182.8C3.7,186.1,6.4,188.8,9.7,188.8L13.5,188.8" ed:tosuperid="681" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,995.1,9083.6)" ed:parentid="631"/>
+    <path id="684" stroke="#696969" fill="none" d="M-13.5,0L3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="683" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1119.3,9228)" ed:parentid="656"/>
+    <path id="686" stroke="#696969" fill="none" d="M-13.5,7.4L3.7,7.4L3.7,-1.4C3.7,-4.7,6.4,-7.4,9.7,-7.4L13.5,-7.4" ed:tosuperid="685" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1140.9,9265)" ed:parentid="681"/>
+    <path id="688" stroke="#696969" fill="none" d="M3.7,-7.4L3.7,1.4C3.7,4.7,6.4,7.4,9.7,7.4L13.5,7.4" ed:tosuperid="687" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,1140.9,9279.8)" ed:parentid="681"/>
+    <path id="692" stroke="#696969" fill="none" d="M3.7,-397.2L3.7,391.2C3.7,394.5,6.4,397.2,9.7,397.2L13.5,397.2" ed:tosuperid="691" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,814.1,9070)" ed:parentid="600"/>
+    <path id="694" stroke="#696969" fill="none" d="M-13.5,75.2L3.7,75.2L3.7,-69.2C3.7,-72.5,6.4,-75.2,9.7,-75.2L13.5,-75.2" ed:tosuperid="693" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,954.3,9392)" ed:parentid="691"/>
+    <path id="697" stroke="#696969" fill="none" d="M3.7,60.4L3.7,-54.4C3.7,-57.7,6.4,-60.4,9.7,-60.4L13.5,-60.4" ed:tosuperid="696" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,954.3,9406.8)" ed:parentid="691"/>
+    <path id="700" stroke="#696969" fill="none" d="M3.7,-75.2L3.7,69.2C3.7,72.5,6.4,75.2,9.7,75.2L13.5,75.2" ed:tosuperid="699" stroke-linejoin="round" stroke-linecap="round" transform="matrix(1,0,0,1,954.3,9542.4)" ed:parentid="691"/>
+    <g id="101" ed:layout="rightmap" ed:topictype="mainidea" ed:width="275.4" transform="matrix(1,0,0,1,23,4791.9)" ed:height="52.8">
+        <path stroke-width="3" stroke="#435fbc" fill="#435fbc" d="M4,0L271.4,0C274.1,0,275.4,1.3,275.4,4L275.4,48.8C275.4,51.5,274.1,52.8,271.4,52.8L4,52.8C1.3,52.8,0,51.5,0,48.8L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round"/>
+        <text class="st1">
+            <tspan y="32.2" style="white-space:pre" x="21">第八章 利用角色简化Playbook</tspan>
+        </text>
+    </g>
+    <g id="102" ed:width="176.6" transform="matrix(1,0,0,1,361.4,1228.55)" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" fill="#ebecf3" d="M4,0L172.6,0C175.3,0,176.6,1.3,176.6,4L176.6,29.6C176.6,32.3,175.3,33.6,172.6,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round"/>
+        <text class="st2">
+            <tspan y="21.8" style="white-space:pre" x="18">描述角色（role）结构</tspan>
+        </text>
+    </g>
+    <g id="104" ed:width="175" transform="matrix(1,0,0,1,361.4,3977.45)" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" fill="#ebecf3" d="M4,0L171,0C173.7,0,175,1.3,175,4L175,29.6C175,32.3,173.7,33.6,171,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round"/>
+        <text class="st2">
+            <tspan y="21.8" style="white-space:pre" x="18">利用系统角色重用内容</tspan>
+        </text>
+    </g>
+    <g id="106" ed:width="93.40000000000001" transform="matrix(1,0,0,1,361.4,6395.95)" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" fill="#ebecf3" d="M4,0L89.4,0C92.1,0,93.4,1.3,93.4,4L93.4,29.6C93.4,32.3,92.1,33.6,89.4,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round"/>
+        <text class="st2">
+            <tspan y="21.8" style="white-space:pre" x="18">创建角色</tspan>
+        </text>
+    </g>
+    <g id="108" ed:width="221.4" transform="matrix(1,0,0,1,361.4,8462.85)" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" fill="#ebecf3" d="M4,0L217.4,0C220.1,0,221.4,1.3,221.4,4L221.4,29.6C221.4,32.3,220.1,33.6,217.4,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round"/>
+        <text class="st2">
+            <tspan y="21.8" style="white-space:pre" x="18">使用Ansible Galaxy部署角色</tspan>
+        </text>
+    </g>
+    <g id="110" ed:width="214.8" transform="matrix(1,0,0,1,565,93)" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L214.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">利用角色构造Ansible Playbook</tspan>
+        </text>
+    </g>
+    <g id="112" ed:width="350" transform="matrix(1,0,0,1,806.8,19)" ed:parentid="110" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L350,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">可使用Ansible角色更加轻松地重复利用Ansible代码。</tspan>
+        </text>
+    </g>
+    <g id="114" ed:width="136.4" transform="matrix(1,0,0,1,806.8,93)" ed:parentid="110" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L136.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible角色的优点</tspan>
+        </text>
+    </g>
+    <g id="118" ed:width="295.4" transform="matrix(1,0,0,1,970.2,48.6)" ed:parentid="114" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L295.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">角色可以分组内容，与他人轻松共享代码。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority1">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDM1QTY0MTQ0RjFFMTFFNzk5OTg5NzAxRkFDRkJENTQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDM1QTY0MTM0RjFFMTFFNzk5OTg5NzAxRkFDRkJENTQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g id="121" ed:width="637.8" transform="matrix(1,0,0,1,970.2,78.2)" ed:parentid="114" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L637.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">可编写角色来定义系统类型的基本要素：Web服务器、数据库服务器、Git存储库，或满足其他用途。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority2">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDY5M0Q3Mzc0RjFFMTFFNzgzRkJDQTZFQkVEQThDMkYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDY5M0Q3MzY0RjFFMTFFNzgzRkJDQTZFQkVEQThDMkYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g id="124" ed:width="227.4" transform="matrix(1,0,0,1,970.2,107.8)" ed:parentid="114" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L227.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority3" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">角色使得较大型项目更容易管理</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority3">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDk4RkI2NjM0RjFFMTFFNzhBQzhGNjM2M0I4NUNFOEQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDk4RkI2NjI0RjFFMTFFNzhBQzhGNjM2M0I4NUNFOEQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M2RhODcyYzEtZTY3ZS01NjRhLTg4OGUtOGMxNThkNWE3YzExIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g id="127" ed:width="241" transform="matrix(1,0,0,1,970.2,137.4)" ed:parentid="114" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L241,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority4" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">角色可以由不同的管理员并行开发</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority4">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEMyQUFFRjk0RjFFMTFFNzk2NkM4RTM1QkFDMEZDNEQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEMyQUFFRjg0RjFFMTFFNzk2NkM4RTM1QkFDMEZDNEQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g id="130" ed:width="558" transform="matrix(1,0,0,1,806.8,167)" ed:parentid="110" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L558,23.1" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan y="16.4" style="white-space:pre" class="st5" x="8">获取Ansible角色的途径：</tspan>
+            <tspan style="white-space:pre" class="st6">rhel-system-roles</tspan>
+            <tspan style="white-space:pre" class="st7">软件包</tspan>
+            <tspan style="white-space:pre" class="st5">、</tspan>
+            <tspan style="white-space:pre" class="st7">社区支持的</tspan>
+            <tspan style="white-space:pre" class="st6">Ansible Galaxy</tspan>
+            <tspan style="white-space:pre">网站</tspan>
+        </text>
+    </g>
+    <g id="132" ed:width="150" transform="matrix(1,0,0,1,565,566.2)" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L150,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">检查Ansible角色结构</tspan>
+        </text>
+    </g>
+    <g id="134" ed:width="313.2" transform="matrix(1,0,0,1,742,196.6)" ed:parentid="132" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L313.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible角色由子目录和文件的标准化结构定义。</tspan>
+        </text>
+    </g>
+    <g id="136" ed:width="219.6" transform="matrix(1,0,0,1,742,226.2)" ed:parentid="132" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L219.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">顶级目录定义角色本身的名称。</tspan>
+        </text>
+    </g>
+    <g id="138" ed:width="595.6" transform="matrix(1,0,0,1,742,255.8)" ed:parentid="132" ed:height="23.1">
+        <path fill="#ffffff" d="M0,0L595.6,0L595.6,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L595.6,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" class="st10" x="8">文件整理到子目录中，子目录按照各个文件在角色中的用途进行命名，如 </tspan>
+            <tspan style="white-space:pre">tasks</tspan>
+            <tspan style="white-space:pre" class="st10"> 和 </tspan>
+            <tspan style="white-space:pre">handlers</tspan>
+            <tspan style="white-space:pre" class="st10">。</tspan>
+        </text>
+    </g>
+    <g id="140" ed:width="468.4" transform="matrix(1,0,0,1,742,285.4)" ed:parentid="132" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L468.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st11" x="8">files</tspan>
+            <tspan style="white-space:pre"> 和</tspan>
+            <tspan style="white-space:pre" class="st11"> templates </tspan>
+            <tspan style="white-space:pre">子目录中包含由其他YAML文件中的任务引用的文件。</tspan>
+        </text>
+    </g>
+    <g id="157" ed:width="479.6" transform="matrix(1,0,0,1,742,315)" ed:parentid="132" ed:height="299.1">
+        <path stroke="#696969" fill="none" d="M0,299.1L479.6,299.1" stroke-linejoin="round"/>
+        <image id="shape1" y="33" height="276" xlink:href="chapter8.html.files/image1.png" x="4" width="461.6"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible角色结构示例：</tspan>
+        </text>
+    </g>
+    <g id="160" ed:width="463.6" transform="matrix(1,0,0,1,742,620.6)" ed:parentid="132" ed:height="308.7">
+        <path stroke="#696969" fill="none" d="M0,308.7L463.6,308.7" stroke-linejoin="round"/>
+        <image id="shape2" y="33" height="285.6" xlink:href="chapter8.html.files/image2.png" x="4" width="445.6"/>
+        <text class="st3">
+            <tspan y="16.5" style="white-space:pre" x="8">Ansible角色子目录说明：</tspan>
+        </text>
+    </g>
+    <g id="163" ed:width="267.4" transform="matrix(1,0,0,1,742,935.8)" ed:parentid="132" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L267.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="26">并非每个角色都拥有所有这些目录。</tspan>
+        </text>
+    </g>
+    <symbol id="imgAttention">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjk3NUE4NjQ5MUI2QTExRTc5OERCQjQ1MTZGMTA2RDM2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjk3NUE4NjRBMUI2QTExRTc5OERCQjQ1MTZGMTA2RDM2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTc1QTg2NDcxQjZBMTFFNzk4REJCNDUxNkYxMDZEMzYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTc1QTg2NDgxQjZBMTFFNzk4REJCNDUxNkYxMDZEMzYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6H3G2rAAAC60lEQVR42uxbv2sUURD+3rsN8c4fiYqgSDQEYxEUNZ2NtY2HlRzaWVhYCSIIWoqI2BoQxFKChchxYBEIIf+AEcFCIRamSRDEeGbRy+04713uxwp6KWTusbMDe8nOvs3bmffNNzPvNoaI4GXWjKGIMgjX+WwK2ZT3MJhBjCoq9NkpjHdA1Zxjw5/zsZd1JWRbNtgJX/m4jDItGnqJ86x8wYrd0CSE7/x5yTlgiY0/BY1CeGvVrXyvsO2WvTCh1gFsu4VzgVZh2535pBgBFHnzjeCkF/v4uzYCbK5LOQDhhUBpXDwEgsOl5FRWdsbtPFQiOpsVjf/QEGB8FIQWBImkrwPkANLOAZDmgNAwIIkAnwYTxQhIWgiAYgTkWSDAQkj0cSi0AJDOAnCVoF4EmCD3A+Q5QG8vgLwbDDALQDoLhNYOSyIgzHZYtBsMMAuQdBawihFgcwTku8IBlsKiWSCvA3IOyL8XyHuBvBdQngWU9wKRR4CkC14FxLph1gEQ5gDl7whZ3esPRAPLAjuPA/vPAj9XgbU5fpjmQDggGggHnHkKHLzAZdhwa/rGOvDxIfDpsTgGIs8BksR8+gkwdoWN39HVDY0CJx7wzxHgw33xXkAOAePXgMOVtPFtKewCJm8BR69mOA0eu8mrvOfv1x0SJm9nNA0OH+CVH+o/zo3Zzrj/FgJSibDxDSge6T+uUAKShowDrGQIJL+ALwv9G6HV1xmuBJeYBJsb/yAlTkdvBElQ/A2RH8vA/EmesZGe1qGjGQO1feIbIvKFkHNCjdl+ivP96DSwWefQmOdC6NFAimH5dtiJC4N3NwJph9V3g+r3A4BYsQNi54AVxQ5YcZXgMyaDNXWmO5vZdosyVdHEHWaCuiLyq3ub2XbT+ff5qqmw8i57pshnE36YaTGlp8l0vkhfQ2dPoX1GW985UUdnOtfan109/fG3bY/O9IxF6t70/cChntVtvW5oto7u3cv8e4wC7rHxs07xW4ABAOmMUmthDITaAAAAAElFTkSuQmCC" width="16"/>
+    </symbol>
+    <g id="166" ed:width="126.8" transform="matrix(1,0,0,1,565,1143)" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L126.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">定义变量和默认值</tspan>
+        </text>
+    </g>
+    <g id="168" ed:width="220.4" transform="matrix(1,0,0,1,718.8,965.4)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L220.4,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" class="st10" x="8">角色变量的定义：</tspan>
+            <tspan style="white-space:pre">vars/main.yml</tspan>
+        </text>
+    </g>
+    <g id="170" ed:width="507.6" transform="matrix(1,0,0,1,718.8,995)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L507.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">该变量具有较高优先级，无法被清单变量覆盖，旨在供角色的内部功能使用。</tspan>
+        </text>
+    </g>
+    <g id="172" ed:width="565.2" transform="matrix(1,0,0,1,718.8,1054.2)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L565.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">默认角色变量允许为可在play中使用的变量设置默认值，以配置角色或自定义其行为。</tspan>
+        </text>
+    </g>
+    <g id="176" ed:width="320.4" transform="matrix(1,0,0,1,718.8,1083.8)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L320.4,23.1" stroke-linejoin="round"/>
+        <text class="st12">
+            <tspan y="16.4" style="white-space:pre" x="8">默认角色变量具有任何可用变量中最低优先级。</tspan>
+        </text>
+    </g>
+    <g id="178" ed:width="363.6" transform="matrix(1,0,0,1,718.8,1113.4)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L363.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">它们很容易被包括清单变量在内的任何其他变量覆盖。</tspan>
+        </text>
+    </g>
+    <g id="180" ed:width="522.8" transform="matrix(1,0,0,1,718.8,1143)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L522.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="7">这些变量旨在编写使用该角色的play时可以准确地自定义或控制它将要执行的操作。</tspan>
+        </text>
+    </g>
+    <g id="182" ed:width="426" transform="matrix(1,0,0,1,718.8,1172.6)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L426,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">它们可用于向角色提供所需的信息，以正确地配置或部署某些对象。</tspan>
+        </text>
+    </g>
+    <g id="185" ed:width="276.4" transform="matrix(1,0,0,1,718.8,1024.6)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L276.4,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" class="st10" x="8">默认角色变量的定义：</tspan>
+            <tspan style="white-space:pre">defaults/main.yml</tspan>
+        </text>
+    </g>
+    <g id="187" ed:width="613" transform="matrix(1,0,0,1,718.8,1202.2)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L613,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgCorrect" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">可在 vars/main.yml 或 defaults/main.yml 中定义变量，但不要同时在两个文件中定义！</tspan>
+        </text>
+    </g>
+    <symbol id="imgCorrect">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjc0QUJBOTYzMUI2ODExRTc4QzI1QjIzOEUwRERCODY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjc0QUJBOTY0MUI2ODExRTc4QzI1QjIzOEUwRERCODY3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzRBQkE5NjExQjY4MTFFNzhDMjVCMjM4RTBEREI4NjciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzRBQkE5NjIxQjY4MTFFNzhDMjVCMjM4RTBEREI4NjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz53d789AAAGOUlEQVR42uRbCWxUVRQ973W6Q1lqaSm0FBCrDTtKWaXThEWJARKWsIYUFIRIZVNRoVIQhYIISFgilTVVYlwSMbEJO1UKCApGIFAEBASLLZRu0878532/sgU78990pu3wb9pJ/2ydc+9955573xsmhIC00bvTRgmwlfRnczzOxkQeY3xZljVto34pb0btTtsBgeF0GQAIPO5GQbdxC9KykhYuZSOyF6T6cb5CQPjBXHaLMZHCySaYELy0xprgc7mA1gQmNVr/YRyMx8G8FsP53TJgUqMlwEzrAME0Rg4wcwZwcM7MmwFMCMoAocHUHEA/pvYAN3cNgOSAx8MD454c4NbrLEKSoI+nwaqeMxAe1BhxYc2x+PgWBSVIfaGvN387khcgMqQpLJwjvlEM3uw8VlUI+a4Ltia9Az+K4V3zpx736UaxmPjUC8aEEEkhznzUAZn93kKAn/8j9wdbAtE3qhMGtuxutAz6XhXc2HcuQixB1T4e6h+EkW2s6Bje1pUWlg5gPgV+be9ZaOgf4vJ5of7BmNVhFJoFNXHJAb7D9r1moElgA+JuY0EL8gvAoucmwxrdtZoyoEkO8A0hsLzHNERQqeMPkJ7BoQcuF99wogOIA1g9XwZLur+CqJBwZfBldhsWn9jqxAHUDTI3VsGKHtOxNPHVWgH/XrcUxIRGwsLUxpal9nIX4KtYkKuqwKzkNLQIjUCrBpHYbp3vVfBvdxmPtmHRVN/VwJcQ+IyTnyOv6KqBMqiQ/VJ1PUhAFvpgmf3meQX8nI6jEd84Vhc3SuAry7D6ty9xuvCiIYIwXAa3Wd99SHXdFx4BWN93jkfBp7YfjvZNWyOQ+yuDX3f6W/z6z3mVeYBr20KSs7pISAINo7q8qleqR8BPTRiCLk+000uYihUT+Myz3+NY/hnjL9IMNEOfJc1DoJ/zSEh2jghqhGU1JMaU+BeRGJFA4APVwNvLsON8NnJunHJjIsSqZ8EMAhRs8MNIJ0SHhiP92UlugR9L/XyfqI66llcjvDLszNuDvddOuDcQqU4EyJQ3qrjukSKzIK5hlM7eKjaiTRKSW3R1qu+rY/uvLx5E9pWj7qUcczISq9TseCN3vXKrGEDEJdl7ZoeRhp7/UqveGNQyEaFugN916Ud8R781Me4sxprQMH7PIqhuHkn27kSd2NRnhjh93sCY7hjaqo/euKiKHBn1ry4eqCnnutaWduHAhH3vkzPUnCCJLLFZAia0G/S/j1uju2BEa6sb4G36ev8ib7dHqo4hHSyXw8R9S/SMUDFJaP2iO9Matz50f6/I9jrpNVAEL7V9zvWT2HbuB4+AZ1QHDXcXFVolUvZ/CAdlhIrJtT2IUn1wbE/9ultEPJW7wcrgyx02HMk/jU1nd3lUdCkNRModFXh5/zLYNVUnBGNY3PMY124ApiUMcwN8BY7fPId1v3/jccnNFSsdSikSUw5mKDtBgpZZoMr2Nsq8UwUXdH3vaROyHSZuUx4GyBI09eBynRvU1pzav6pwVOJM4SWsoM7OW8bdnYVI+Tn90EriBrtXPph07nlqZz/4ZbvXwFeNxTX3x0FFlSV4LedjnSA9aXZhxx93/kL68c1eH7hQBtRsLH67ohipOav1dPUMeAf+LM7HgmObvA5eLknuiTcqrLiD1w+vga2GTpA643ppAeYd2YDaMg7P+AAF5UWYnfsJRVBzdz3i77JbmHN4LWrTuCcHwjfLbmPmT6vhzsGzQhtlEb22dk3Th6IenYnnUxRn565R5pFphz5CXRj3xpteKynA3FxjqSxHWVNIU6CO4Mtzgl7ZFZFM7orMpMSdfGAp6tI48+KmkKzl849+6rTDrEvTj8lR7fHqvti5oitI+znz0UHL3sWoD8ZrY1vw7K3LmLTvAz3qV0vyMWZPer0ALyj9LVXtsPc3iEuoi6wvUX+YA2Bek9jlYWnT+kD777S4mZPAu2Ww3i8BIQ9ICGbuDBAw82lp/YSIyTMA5q6DF7hgotK8KwDl8oBEoUmjX6xpWgZlgGMoEWGpqQIvUCCEtmhn//TNTI6vxmQvTHZwbQPjLJYyIuB+s6hRmaj6Zp3+xYp7B6vlforcUaEiSveJqlP3AT4ReIFDBGZTVv+0zfL6XwEGAKMGSbaaeAspAAAAAElFTkSuQmCC" width="16"/>
+    </symbol>
+    <g id="194" ed:width="325" transform="matrix(1,0,0,1,718.8,1231.8)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L325,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">角色绝对不应包含任何机密，如密码或私钥。</tspan>
+        </text>
+    </g>
+    <g id="196" ed:width="322.6" transform="matrix(1,0,0,1,718.8,1261.4)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L322.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">角色应该是通用的、可以重复利用并自由共享。</tspan>
+        </text>
+    </g>
+    <g id="198" ed:width="526.6" transform="matrix(1,0,0,1,718.8,1291)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L526.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority3" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">特定于站点的详细信息不应硬编码到角色中，机密应当通过其他途径提供给角色。</tspan>
+        </text>
+    </g>
+    <g id="202" ed:width="577" transform="matrix(1,0,0,1,718.8,1320.6)" ed:parentid="166" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L577,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority4" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">play中设置的角色变量可以提供机密，或指向含有该机密的Ansible Vault加密文件。</tspan>
+        </text>
+    </g>
+    <g id="208" ed:width="207.6" transform="matrix(1,0,0,1,565,1499.8)" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L207.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">在playbook中使用Ansible角色</tspan>
+        </text>
+    </g>
+    <g id="210" ed:width="646.8" transform="matrix(1,0,0,1,799.6,1350.2)" ed:parentid="208" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L646.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">对于每个指定的角色，角色任务、角色处理程序、角色变量和角色依赖项将按照顺序导入到playbook中。</tspan>
+        </text>
+    </g>
+    <g id="212" ed:width="513.3" transform="matrix(1,0,0,1,799.6,1379.8)" ed:parentid="208" ed:height="40.7">
+        <path stroke="#696969" fill="none" d="M0,40.7L513.3,40.7" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="7">角色中的任何 copy、script、template 或 include_tasks/import_tasks 任务</tspan>
+            <tspan y="34" style="white-space:pre" x="7">都可引用角色中相关的文件、模板或任务文件，且无需相对或绝对路径名称。</tspan>
+        </text>
+    </g>
+    <g id="214" ed:width="493.2" transform="matrix(1,0,0,1,799.6,1427)" ed:parentid="208" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L493.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible将分别在角色的 files、templates 或 tasks 子目录中寻找它们。</tspan>
+        </text>
+    </g>
+    <g id="216" ed:width="574.8" transform="matrix(1,0,0,1,799.6,1456.6)" ed:parentid="208" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L574.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">如果使用 roles 部分将目录导入到play中，这些角色会在该play定义的任何任务之前运行。</tspan>
+        </text>
+    </g>
+    <g id="219" ed:width="513" transform="matrix(1,0,0,1,799.6,1486.2)" ed:parentid="208" ed:height="186.3">
+        <path stroke="#696969" fill="none" d="M0,186.3L513,186.3" stroke-linejoin="round"/>
+        <g transform="translate(7,84.15)">
+            <use xlink:href="#imgCorrect" transform="translate(0,0)"/>
+        </g>
+        <image id="shape3" y="33" height="163.2" xlink:href="chapter8.html.files/image3.png" x="4" width="476"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st13" x="27">示例：</tspan>
+            <tspan style="white-space:pre">该内嵌角色变量具有极高的优先级</tspan>
+        </text>
+    </g>
+    <g id="223" ed:width="99.59999999999999" transform="matrix(1,0,0,1,565,2063.8)" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L99.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">控制执行顺序</tspan>
+        </text>
+    </g>
+    <g id="225" ed:width="386.8" transform="matrix(1,0,0,1,691.6,1679)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L386.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">在角色添加到play中后，角色任务将添加到任务列表的开头。</tspan>
+        </text>
+    </g>
+    <g id="227" ed:width="421.2" transform="matrix(1,0,0,1,691.6,1708.6)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L421.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">若play中包含第二个角色，其任务列表添加到第一个角色之后。</tspan>
+        </text>
+    </g>
+    <g id="229" ed:width="415.6" transform="matrix(1,0,0,1,691.6,1738.2)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L415.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">角色处理程序添加到play中的方式与角色任务添加到play中相同。</tspan>
+        </text>
+    </g>
+    <g id="231" ed:width="223.6" transform="matrix(1,0,0,1,691.6,1767.8)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L223.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">每个play定义一个处理程序列表。</tspan>
+        </text>
+    </g>
+    <g id="233" ed:width="553.2" transform="matrix(1,0,0,1,691.6,1797.4)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L553.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">角色处理程序先添加到处理程序列表，后跟play的handlers部分中定义的任何处理程序。</tspan>
+        </text>
+    </g>
+    <g id="235" ed:width="378" transform="matrix(1,0,0,1,691.6,1827)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L378,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">在某些情形中，可能需要在角色之前执行一些play任务。</tspan>
+        </text>
+    </g>
+    <g id="237" ed:width="381" transform="matrix(1,0,0,1,691.6,1856.6)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L381,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" x="27">pre_tasks</tspan>
+            <tspan style="white-space:pre" class="st10"> 关键字：所有任务将在执行任何角色之前执行</tspan>
+        </text>
+    </g>
+    <g id="239" ed:width="622.8" transform="matrix(1,0,0,1,691.6,1886.2)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L622.8,23.1" stroke-linejoin="round"/>
+        <text class="st12">
+            <tspan y="16.4" style="white-space:pre" x="8">若这些任务中有任何一个通知了处理程序，则这些处理程序任务也在角色或普通任务之前执行。</tspan>
+        </text>
+    </g>
+    <g id="241" ed:width="580.2" transform="matrix(1,0,0,1,691.6,1915.8)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L580.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" x="27">post_tasks</tspan>
+            <tspan style="white-space:pre" class="st10"> 关键字：这些任务在play的普通任务和它们通知的任何处理程序运行之后执行</tspan>
+        </text>
+    </g>
+    <g id="245" ed:width="458" transform="matrix(1,0,0,1,691.6,1945.4)" ed:parentid="223" ed:height="295.9">
+        <path stroke="#696969" fill="none" d="M0,295.9L458,295.9" stroke-linejoin="round"/>
+        <image id="shape4" y="15" height="290.4" xlink:href="chapter8.html.files/image4.png" x="4" width="440"/>
+        <text class="st3"/>
+    </g>
+    <g id="249" ed:width="527.6" transform="matrix(1,0,0,1,691.6,2247.8)" ed:parentid="223" ed:height="164.7">
+        <path stroke="#696969" fill="none" d="M0,164.7L527.6,164.7" stroke-linejoin="round"/>
+        <image id="shape5" y="33" height="141.6" xlink:href="chapter8.html.files/image5.png" x="4" width="509.6"/>
+        <text class="st8">
+            <tspan y="16.5" style="white-space:pre" class="st6" x="8">include_role</tspan>
+            <tspan style="white-space:pre"> 模块</tspan>
+            <tspan style="white-space:pre" class="st13">动态包含角色，</tspan>
+            <tspan style="white-space:pre" class="st6">import_role</tspan>
+            <tspan style="white-space:pre"> 模块</tspan>
+            <tspan style="white-space:pre" class="st13">静态导入角色。</tspan>
+        </text>
+    </g>
+    <g id="252" ed:width="622" transform="matrix(1,0,0,1,691.6,2419)" ed:parentid="223" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L622,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">include_role 模块是在Ansible 2.3中新增的，而 import_role 模块则是Ansible 2.4中新增的。</tspan>
+        </text>
+    </g>
+    <g id="254" ed:width="533.8" transform="matrix(1,0,0,1,691.6,2448.6)" ed:parentid="223" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L533.8,0L533.8,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L533.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgCorrect" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="26">使用角色的2种方法：play中的roles部分、import_role或include_role模块。</tspan>
+        </text>
+    </g>
+    <g id="257" ed:width="101.2" transform="matrix(1,0,0,1,563.4,2741.5)" ed:parentid="104" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L101.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">RHEL系统角色</tspan>
+        </text>
+    </g>
+    <g id="283" ed:width="346.8" transform="matrix(1,0,0,1,691.6,2534.3)" ed:parentid="257" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L346.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">在RHEL 8中，该软件包可从AppStream channel获取。</tspan>
+        </text>
+    </g>
+    <g id="285" ed:width="425.2" transform="matrix(1,0,0,1,691.6,2563.9)" ed:parentid="257" ed:height="319.1">
+        <path stroke="#696969" fill="none" d="M0,319.1L425.2,319.1" stroke-linejoin="round"/>
+        <image id="shape6" y="15" height="313.6" xlink:href="chapter8.html.files/image6.png" x="4" width="407.2"/>
+        <text class="st3"/>
+    </g>
+    <g id="289" ed:width="605.2" transform="matrix(1,0,0,1,691.6,2504.7)" ed:parentid="257" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L605.2,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" class="st10" x="8">RHEL 7.4开始，操作系统随附了多个Ansible角色，作为 </tspan>
+            <tspan style="white-space:pre">rhel-system-roles</tspan>
+            <tspan style="white-space:pre" class="st14"> 软件包</tspan>
+            <tspan style="white-space:pre" class="st10">的一部分。</tspan>
+        </text>
+    </g>
+    <g id="291" ed:width="386.8" transform="matrix(1,0,0,1,691.6,2889.5)" ed:parentid="257" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L386.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">系统角色的目的是在多个版本之间标准化RHEL子系统的配置。</tspan>
+        </text>
+    </g>
+    <g id="293" ed:width="397" transform="matrix(1,0,0,1,691.6,2919.1)" ed:parentid="257" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L397,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">使用系统角色来配置版本 </tspan>
+            <tspan style="white-space:pre" class="st6">6.10</tspan>
+            <tspan style="white-space:pre"> 及以上的任何RHEL主机。</tspan>
+        </text>
+    </g>
+    <g id="296" ed:width="523.6" transform="matrix(1,0,0,1,691.6,2948.7)" ed:parentid="257" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L523.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">RHEL 6中使用ntpd服务实现时间同步，而RHEL 7中使用chronyd服务实现时间同步。</tspan>
+        </text>
+    </g>
+    <g id="298" ed:width="457.2" transform="matrix(1,0,0,1,691.6,2978.3)" ed:parentid="257" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L457.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">rhel-system-roles.timesync 角色简化两种不同时间同步服务的配置。</tspan>
+        </text>
+    </g>
+    <g id="312" ed:width="128.4" transform="matrix(1,0,0,1,563.4,4234.3)" ed:parentid="104" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L128.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">安装RHEL系统角色</tspan>
+        </text>
+    </g>
+    <g id="314" ed:width="654.8" transform="matrix(1,0,0,1,718.8,3007.9)" ed:parentid="312" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L654.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">在Ansible控制节点上安装 rhel-system-roles 软件包，且该节点已注册到 AppStream channel 订阅。</tspan>
+        </text>
+    </g>
+    <g id="316" ed:width="446.6" transform="matrix(1,0,0,1,718.8,3037.5)" ed:parentid="312" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L446.6,0L446.6,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L446.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st15" x="27">$ yum install -y rhel-system-roles</tspan>
+            <tspan style="white-space:pre">：安装RHEL系统角色软件包</tspan>
+        </text>
+    </g>
+    <symbol id="imgflag1">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ0MjdBNzI2MUE5NzExRTc4MUZGODlEQUJFMDNGQ0QwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ0MjdBNzI3MUE5NzExRTc4MUZGODlEQUJFMDNGQ0QwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDQyN0E3MjQxQTk3MTFFNzgxRkY4OURBQkUwM0ZDRDAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDQyN0E3MjUxQTk3MTFFNzgxRkY4OURBQkUwM0ZDRDAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4q+1j7AAACi0lEQVR42uyaLYwTQRTH35suAUuy2SnHhyGIIwFBztAgSBAkBBQoUKcAh8MhEBgUghyXdttAgrhDEAwcOxsuCMCAIoGEIM5AThDau+tBubbzmMWhgGU/ZrrvL7ams2//v33vzZumSETwJ108Nf3bl+Yfv0eYEIm0CxGx2gAmRZimBK4PG/YbA3wVqFajihkwAoJVGYeNypWA6Uqb5vramN/1N5k9UQCM+Z4meCBV62jlmiAhdEcAN+pxOPuva70JePN9ofX5etxZSrPec9z8WI/0ofpyZyXtPTxHjQ9N2q8GUbiveoMQQV8DvJQZmHcRQA8E3q+r8HjlRmGT9l3QcE1GrUtZ3teVHvCNhDgnVfNZ1jf2LH/ryTy3VUM44D9tfs4jhs0Afhjzn6QK91fvOEywgYjP8zZvJQBKmp2gThC1ThYRz7ISoJ4HeNWP2s2iItoEYIC4/bQfzb0oMqgFANAMdjQY1nDvnqW5r0VHLxvAAECvSNWeLusBSmuCiLRuPuIyzZcGwGxxXRP6jtnmzpRdgGWUwJqZ764EKrxnQ+ctGsCwJsQJM9a+sWXrKQQAIehfP10Nd+z2l2/3bZo88gdA8N00mo8m5Q/bOHXn2wQR1gnxia3mcwWQzPSk4VZdtc7afOTOpwTMHm/mu8sybi+A5fKyz3oYE207JuP5t+CAMgRAY3PpfdnZnzq4uLgFjigTAJR0eiHemTP8jAS3lEUTXBNIDxPz4KDE/9V7MtPTzUC1L4CjSl8CBBsj1LNTqv0IHJaX0vxmDUYzUt39AI4rVQkY80f82H3zqQEk5vlvchMiBsAAGAADYAAMgAEwAAbAABgAA2AADIABMAAGwAAYAANgAFXSTwEGAHGGxccyXdAIAAAAAElFTkSuQmCC" width="16"/>
+    </symbol>
+    <g id="319" ed:width="322.8" transform="matrix(1,0,0,1,718.8,3067.1)" ed:parentid="312" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L322.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">RHEL系统角色路径：</tspan>
+            <tspan style="white-space:pre" class="st11">/usr/share/ansible/roles/</tspan>
+        </text>
+    </g>
+    <g id="321" ed:width="724.2" transform="matrix(1,0,0,1,718.8,3096.7)" ed:parentid="312" ed:height="63.9">
+        <path stroke="#696969" fill="none" d="M0,63.9L724.2,63.9" stroke-linejoin="round"/>
+        <g transform="translate(7,22.95)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <image id="shape7" y="33" height="40.8" xlink:href="chapter8.html.files/image7.png" x="4" width="687.2"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st11" x="27">roles_path</tspan>
+            <tspan style="white-space:pre"> 参数定义角色的路径，默认/usr/share/ansible/roles。</tspan>
+        </text>
+    </g>
+    <g id="324" ed:width="367.4" transform="matrix(1,0,0,1,718.8,3167.1)" ed:parentid="312" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L367.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st11" x="27">ANSIBLE_ROLES_PATH</tspan>
+            <tspan style="white-space:pre" class="st15"> 环境变量</tspan>
+            <tspan style="white-space:pre">也可定义角色的路径。</tspan>
+        </text>
+    </g>
+    <g id="326" ed:width="155.6" transform="matrix(1,0,0,1,718.8,3361.5)" ed:parentid="312" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L155.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">访问RHEL系统角色文档</tspan>
+        </text>
+    </g>
+    <g id="328" ed:width="518" transform="matrix(1,0,0,1,901.4,3196.7)" ed:parentid="326" ed:height="145.5">
+        <path stroke="#696969" fill="none" d="M0,145.5L518,145.5" stroke-linejoin="round"/>
+        <image id="shape8" y="33" height="122.4" xlink:href="chapter8.html.files/image8.png" x="4" width="500"/>
+        <text class="st3">
+            <tspan y="16.5" style="white-space:pre" x="8">RHEL系统角色文档：</tspan>
+            <tspan style="white-space:pre" class="st11">/usr/share/doc/rhel-system-roles</tspan>
+        </text>
+    </g>
+    <g id="331" ed:width="342" transform="matrix(1,0,0,1,901.4,3348.7)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L342,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">每个角色的文档目录均包含一个 README.md 文件。</tspan>
+        </text>
+    </g>
+    <g id="333" ed:width="341.2" transform="matrix(1,0,0,1,901.4,3378.3)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L341.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">README.md文件含有角色的说明，以及角色用法信息。</tspan>
+        </text>
+    </g>
+    <g id="335" ed:width="562" transform="matrix(1,0,0,1,901.4,3437.5)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L562,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">通常，README.md文件中含有一个playbook代码片段，用于演示常见配置场景的变量设置。</tspan>
+        </text>
+    </g>
+    <g id="337" ed:width="327.6" transform="matrix(1,0,0,1,901.4,3407.9)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L327.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">README.md文件也会说明影响角色行为的角色变量。</tspan>
+        </text>
+    </g>
+    <g id="339" ed:width="266" transform="matrix(1,0,0,1,901.4,3467.1)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L266,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">部分角色文档目录中含有示例playbook。</tspan>
+        </text>
+    </g>
+    <g id="341" ed:width="346.8" transform="matrix(1,0,0,1,901.4,3496.7)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L346.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible Galaxy网站：</tspan>
+            <tspan style="white-space:pre" class="st11">https://galaxy.ansible.com</tspan>
+        </text>
+    </g>
+    <g id="343" ed:width="133.2" transform="matrix(1,0,0,1,718.8,3983.9)" ed:parentid="312" ed:height="23.1">
+        <path fill="#f0909b" d="M0,0L133.2,0L133.2,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L133.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="7">时间同步角色示例</tspan>
+        </text>
+    </g>
+    <g id="345" ed:width="603.6" transform="matrix(1,0,0,1,879,3555.9)" ed:parentid="343" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L603.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">可自行编写playbook实现系统的时间同步，但更推荐使用 rhel-system-roles.timesync 角色。</tspan>
+        </text>
+    </g>
+    <g id="347" ed:width="453.2" transform="matrix(1,0,0,1,879,3585.5)" ed:parentid="343" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L453.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">参考文档：/usr/share/doc/rhel-system-roles/timesync/README.md</tspan>
+        </text>
+    </g>
+    <g id="349" ed:width="575.6" transform="matrix(1,0,0,1,879,3615.1)" ed:parentid="343" ed:height="160.7">
+        <path stroke="#696969" fill="none" d="M0,160.7L575.6,160.7" stroke-linejoin="round"/>
+        <image id="shape9" y="33" height="137.6" xlink:href="chapter8.html.files/image9.png" x="4" width="557.6"/>
+        <text class="st3">
+            <tspan y="16.5" style="white-space:pre" x="8">rhel-system-roles.timesync 角色的变量 </tspan>
+            <tspan style="white-space:pre" class="st11">timesync_ntp_servers</tspan>
+            <tspan style="white-space:pre"> 属性：</tspan>
+        </text>
+    </g>
+    <g id="353" ed:width="470" transform="matrix(1,0,0,1,879,3782.3)" ed:parentid="343" ed:height="305.5">
+        <path stroke="#696969" fill="none" d="M0,305.5L470,305.5" stroke-linejoin="round"/>
+        <image id="shape10" y="33" height="282.4" xlink:href="chapter8.html.files/image10.png" x="4" width="452"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">rhel-system-roles.timesync角色示例：</tspan>
+        </text>
+    </g>
+    <g id="356" ed:width="231.4" transform="matrix(1,0,0,1,879,4094.3)" ed:parentid="343" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L231.4,0L231.4,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L231.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st15" x="27">$ tzselect</tspan>
+            <tspan style="white-space:pre">：查询时区的有效值</tspan>
+        </text>
+    </g>
+    <g id="358" ed:width="266.6" transform="matrix(1,0,0,1,879,4123.9)" ed:parentid="343" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L266.6,0L266.6,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L266.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st15" x="27">$ timedatectl</tspan>
+            <tspan style="white-space:pre">：查询本地时间与时区</tspan>
+        </text>
+    </g>
+    <g id="363" ed:width="606.7" transform="matrix(1,0,0,1,879,4153.5)" ed:parentid="343" ed:height="281.5">
+        <path stroke="#696969" fill="none" d="M0,281.5L606.7,281.5" stroke-linejoin="round"/>
+        <g transform="translate(7,131.75)">
+            <use xlink:href="#imgCorrect" transform="translate(0,0)"/>
+        </g>
+        <image id="shape11" y="33" height="258.4" xlink:href="chapter8.html.files/image11.png" x="4" width="494.4"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st16" x="27">以上示例推荐做法</tspan>
+            <tspan style="white-space:pre">：将vars块中的变量单独在组变量文件中定义，以将playbook与变量解耦。</tspan>
+        </text>
+    </g>
+    <g id="368" ed:width="126" transform="matrix(1,0,0,1,718.8,4951.1)" ed:parentid="312" ed:height="23.1">
+        <path fill="#f0909b" d="M0,0L126,0L126,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L126,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">SELinux角色示例</tspan>
+        </text>
+    </g>
+    <g id="370" ed:width="140.4" transform="matrix(1,0,0,1,871.8,4500.7)" ed:parentid="368" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L140.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">该角色可执行的任务</tspan>
+        </text>
+    </g>
+    <g id="372" ed:width="222.8" transform="matrix(1,0,0,1,1039.2,4441.5)" ed:parentid="370" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L222.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">设置enforcing或permissive模式</tspan>
+        </text>
+    </g>
+    <g id="374" ed:width="294" transform="matrix(1,0,0,1,1039.2,4471.1)" ed:parentid="370" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L294,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">对文件系统层次结构的各部分运行restorecon</tspan>
+        </text>
+    </g>
+    <g id="376" ed:width="190.8" transform="matrix(1,0,0,1,1039.2,4500.7)" ed:parentid="370" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L190.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">永久设置SELinux文件上下文</tspan>
+        </text>
+    </g>
+    <g id="378" ed:width="136.4" transform="matrix(1,0,0,1,1039.2,4530.3)" ed:parentid="370" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L136.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">设置SELinux布尔值</tspan>
+        </text>
+    </g>
+    <g id="380" ed:width="150" transform="matrix(1,0,0,1,1039.2,4559.9)" ed:parentid="370" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L150,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">设置SELinux用户映射</tspan>
+        </text>
+    </g>
+    <g id="382" ed:width="122.8" transform="matrix(1,0,0,1,871.8,4748.7)" ed:parentid="368" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L122.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">调用SELinux角色</tspan>
+        </text>
+    </g>
+    <g id="384" ed:width="462.8" transform="matrix(1,0,0,1,1021.6,4589.5)" ed:parentid="382" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L462.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">有时SELinux角色必须确保重新引导受管主机，以便能够完整应用其更改。</tspan>
+        </text>
+    </g>
+    <g id="386" ed:width="460.4" transform="matrix(1,0,0,1,1021.6,4619.1)" ed:parentid="382" ed:height="311.9">
+        <path stroke="#696969" fill="none" d="M0,311.9L460.4,311.9" stroke-linejoin="round"/>
+        <image id="shape12" y="33" height="288.8" xlink:href="chapter8.html.files/image12.png" x="4" width="442.4"/>
+        <text class="st8">
+            <tspan y="16.5" style="white-space:pre" x="8">但它本身从不会重新引导主机，可使用如下方法。</tspan>
+        </text>
+    </g>
+    <g id="389" ed:width="122.8" transform="matrix(1,0,0,1,871.8,5199.1)" ed:parentid="368" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L122.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">配置SELinux角色</tspan>
+        </text>
+    </g>
+    <g id="391" ed:width="147.6" transform="matrix(1,0,0,1,1021.6,4937.5)" ed:parentid="389" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L147.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st6" x="8">selinux_state</tspan>
+            <tspan style="white-space:pre"> 变量</tspan>
+        </text>
+    </g>
+    <g id="393" ed:width="412.4" transform="matrix(1,0,0,1,1196.2,4937.5)" ed:parentid="391" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L412.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">设置SELinux的运行模式（enforcing、permissive或disabled）</tspan>
+        </text>
+    </g>
+    <g id="395" ed:width="169.2" transform="matrix(1,0,0,1,1021.6,5045.9)" ed:parentid="389" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L169.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st6" x="8">selinux_booleans</tspan>
+            <tspan style="white-space:pre"> 变量</tspan>
+        </text>
+    </g>
+    <g id="397" ed:width="299.6" transform="matrix(1,0,0,1,1217.8,4967.1)" ed:parentid="395" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L299.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">取一个要调整的SELinux布尔值的列表作为值。</tspan>
+        </text>
+    </g>
+    <g id="399" ed:width="242.8" transform="matrix(1,0,0,1,1217.8,4996.7)" ed:parentid="395" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L242.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">列表中的每一项是变量的散列/字典。</tspan>
+        </text>
+    </g>
+    <g id="401" ed:width="386.8" transform="matrix(1,0,0,1,1217.8,5026.3)" ed:parentid="395" ed:height="121.5">
+        <path stroke="#696969" fill="none" d="M0,121.5L386.8,121.5" stroke-linejoin="round"/>
+        <image id="shape13" y="50" height="80.8" xlink:href="chapter8.html.files/image13.png" x="4" width="368.8"/>
+        <text class="st8">
+            <tspan y="16.5" style="white-space:pre" x="8">布尔值的 name、state（on或off），以及该设置是否应在</tspan>
+            <tspan y="34.1" style="white-space:pre" x="8">重新引导后 persistent。</tspan>
+        </text>
+    </g>
+    <g id="404" ed:width="169.2" transform="matrix(1,0,0,1,1021.6,5207.9)" ed:parentid="389" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L169.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st17" x="8">selinux_fcontext</tspan>
+            <tspan style="white-space:pre"> 变量</tspan>
+        </text>
+    </g>
+    <g id="406" ed:width="371.6" transform="matrix(1,0,0,1,1217.8,5154.3)" ed:parentid="404" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L371.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">取一个要永久设置（或删除）的文件上下文的列表作为值。</tspan>
+        </text>
+    </g>
+    <g id="408" ed:width="386.8" transform="matrix(1,0,0,1,1217.8,5183.9)" ed:parentid="404" ed:height="100.7">
+        <path stroke="#696969" fill="none" d="M0,100.7L386.8,100.7" stroke-linejoin="round"/>
+        <image id="shape14" y="33" height="77.6" xlink:href="chapter8.html.files/image14.png" x="4" width="368.8"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st15" x="8">工作方式与 selinux fcontext 命令非常相似</tspan>
+            <tspan style="white-space:pre">。</tspan>
+        </text>
+    </g>
+    <g id="411" ed:width="198" transform="matrix(1,0,0,1,1021.6,5313.5)" ed:parentid="389" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L198,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st17" x="8">selinux_restore_dirs</tspan>
+            <tspan style="white-space:pre"> 变量</tspan>
+        </text>
+    </g>
+    <g id="413" ed:width="337.2" transform="matrix(1,0,0,1,1246.6,5291.1)" ed:parentid="411" ed:height="67.90000000000001">
+        <path stroke="#696969" fill="none" d="M0,67.9L337.2,67.9" stroke-linejoin="round"/>
+        <image id="shape15" y="33" height="44.8" xlink:href="chapter8.html.files/image15.png" x="4" width="319.2"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">指定要对其运行 restorecon 的目录的列表。</tspan>
+        </text>
+    </g>
+    <g id="416" ed:width="147.6" transform="matrix(1,0,0,1,1021.6,5413.1)" ed:parentid="389" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L147.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st6" x="8">selinux_ports</tspan>
+            <tspan style="white-space:pre"> 变量</tspan>
+        </text>
+    </g>
+    <g id="418" ed:width="337.7" transform="matrix(1,0,0,1,1196.2,5365.5)" ed:parentid="416" ed:height="118.3">
+        <path stroke="#696969" fill="none" d="M0,118.3L337.7,118.3" stroke-linejoin="round"/>
+        <image id="shape16" y="33" height="95.2" xlink:href="chapter8.html.files/image16.png" x="4" width="319.2"/>
+        <text class="st3">
+            <tspan y="16.5" style="white-space:pre" x="8">取应当具有特定SELinux类型的端口的列表作为值。</tspan>
+        </text>
+    </g>
+    <g id="424" ed:width="296.2" transform="matrix(1,0,0,1,901.4,3526.3)" ed:parentid="326" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L296.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">通过各个角色的变量来使用RHEL系统角色</tspan>
+        </text>
+    </g>
+    <g id="427" ed:width="99.59999999999999" transform="matrix(1,0,0,1,481.8,5531.6)" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L99.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">角色创建流程</tspan>
+        </text>
+    </g>
+    <g id="429" ed:width="286" transform="matrix(1,0,0,1,608.4,5516.8)" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L286,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible中创建角色不需要特别的开发工具。</tspan>
+        </text>
+    </g>
+    <g id="431" ed:width="608.4" transform="matrix(1,0,0,1,608.4,5546.4)" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L608.4,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">创建和使用角色包含三个步骤：创建角色目录结构、定义角色内容、在playbook中使用角色。</tspan>
+        </text>
+    </g>
+    <g id="433" ed:width="126.8" transform="matrix(1,0,0,1,481.8,5747.6)" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L126.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">创建角色目录结构</tspan>
+        </text>
+    </g>
+    <g id="437" ed:width="472.4" transform="matrix(1,0,0,1,635.6,5576)" ed:parentid="433" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L472.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">roles_path 参数与 ANSIBLE_ROLES_PATH 环境变量定义角色的存储路径。</tspan>
+        </text>
+    </g>
+    <g id="439" ed:width="386.8" transform="matrix(1,0,0,1,635.6,5605.6)" ed:parentid="433" ed:height="247.9">
+        <path stroke="#696969" fill="none" d="M0,247.9L386.8,247.9" stroke-linejoin="round"/>
+        <image id="shape17" y="15" height="242.4" xlink:href="chapter8.html.files/image17.png" x="4" width="368.8"/>
+        <text class="st3"/>
+    </g>
+    <g id="442" ed:width="414.6" transform="matrix(1,0,0,1,635.6,5860)" ed:parentid="433" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L414.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">若某一目录存在但为空，其将被忽略，如本例中的 handlers。</tspan>
+        </text>
+    </g>
+    <g id="444" ed:width="541.8" transform="matrix(1,0,0,1,635.6,5889.6)" ed:parentid="433" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L541.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="26">若某一角色不使用功能，则其子目录可以完全省略，如本例中的vars子目录被省略。</tspan>
+        </text>
+    </g>
+    <g id="448" ed:width="547.4" transform="matrix(1,0,0,1,635.6,5919.2)" ed:parentid="433" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L547.4,0L547.4,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L547.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" class="st15" x="27">$ ansible-galaxy init [--offline] &lt;</tspan>
+            <tspan style="white-space:pre" class="st18">role_name</tspan>
+            <tspan style="white-space:pre" class="st15">></tspan>
+            <tspan style="white-space:pre">：创建ansible角色的目录结构</tspan>
+        </text>
+    </g>
+    <g id="451" ed:width="99.59999999999999" transform="matrix(1,0,0,1,481.8,6234)" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L99.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">定义角色内容</tspan>
+        </text>
+    </g>
+    <g id="453" ed:width="276.4" transform="matrix(1,0,0,1,608.4,5948.8)" ed:parentid="451" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L276.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">创建角色目录结构后，必须编写角色内容。</tspan>
+        </text>
+    </g>
+    <g id="455" ed:width="559.6" transform="matrix(1,0,0,1,608.4,5978.4)" ed:parentid="451" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L559.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">可从 &lt;</tspan>
+            <tspan style="white-space:pre" class="st19">role_name</tspan>
+            <tspan style="white-space:pre">>/tasks/main.yml 任务文件开始编写，包含角色运行的主要任务列表。</tspan>
+        </text>
+    </g>
+    <g id="457" ed:width="483.6" transform="matrix(1,0,0,1,608.4,6008)" ed:parentid="451" ed:height="297.5">
+        <path stroke="#696969" fill="none" d="M0,297.5L483.6,297.5" stroke-linejoin="round"/>
+        <image id="shape18" y="33" height="274.4" xlink:href="chapter8.html.files/image18.png" x="4" width="465.6"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">motd角色示例：</tspan>
+        </text>
+    </g>
+    <g id="460" ed:width="167.6" transform="matrix(1,0,0,1,608.4,6415.6)" ed:parentid="451" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L167.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">角色内容开发的推荐做法</tspan>
+        </text>
+    </g>
+    <g id="462" ed:width="584.2" transform="matrix(1,0,0,1,803,6312)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L584.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">在角色自己的版本控制存储库中维护每个角色，Ansible很适合使用基于Git的存储库。</tspan>
+        </text>
+    </g>
+    <g id="465" ed:width="357.8" transform="matrix(1,0,0,1,803,6341.6)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L357.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">角色存储库中不应存储敏感信息，如密码或SSH密钥。</tspan>
+        </text>
+    </g>
+    <g id="467" ed:width="730.8" transform="matrix(1,0,0,1,803,6400.8)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L730.8,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">使用角色的playbook负责通过 Ansible Vault 变量文件、环境变量或其他ansible-playbook选项定义敏感变量。</tspan>
+        </text>
+    </g>
+    <g id="470" ed:width="501" transform="matrix(1,0,0,1,803,6430.4)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L501,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority3" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">使用 ansible-galaxy init 启动角色，然后删除不需要的任何目录和文件。</tspan>
+        </text>
+    </g>
+    <g id="473" ed:width="569.8" transform="matrix(1,0,0,1,803,6460)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L569.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority4" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">创建并维护 README.md 和 meta/main.yml 文件，以记录角色的用途、作者和用法。</tspan>
+        </text>
+    </g>
+    <g id="476" ed:width="567.4" transform="matrix(1,0,0,1,803,6489.6)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L567.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority5" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">角色应侧重于特定的用途或功能，可以编写多个角色，而不是让一个角色承担许多任务。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority5">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEYxNzgxQjI0RjFFMTFFNzg3RDc5NDlEMEQ2MjhFMTYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEYxNzgxQjE0RjFFMTFFNzg3RDc5NDlEMEQ2MjhFMTYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g id="481" ed:width="173" transform="matrix(1,0,0,1,803,6519.2)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L173,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority6" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">经常重用和重构角色。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority6">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTFCNjZCQjU0RjFFMTFFNzgyQTBDRDBDMTA1QzRGREMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTFCNjZCQjQ0RjFFMTFFNzgyQTBDRDBDMTA1QzRGREMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g id="486" ed:width="248.4" transform="matrix(1,0,0,1,481.8,6702)" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L248.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">定义角色依赖项（role dependency）</tspan>
+        </text>
+    </g>
+    <g id="488" ed:width="358" transform="matrix(1,0,0,1,803,6371.2)" ed:parentid="460" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L358,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">敏感值应以变量的形式进行参数化，其默认值应不敏感。</tspan>
+        </text>
+    </g>
+    <g id="531" ed:width="371.6" transform="matrix(1,0,0,1,757.2,6548.8)" ed:parentid="486" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L371.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">角色依赖项使得角色可以将其他角色作为依赖项包含在内。</tspan>
+        </text>
+    </g>
+    <g id="533" ed:width="502" transform="matrix(1,0,0,1,757.2,6578.4)" ed:parentid="486" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L502,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">如，一个定义文档服务器的角色可能依赖于另一个安装和配置Web服务器的角色。</tspan>
+        </text>
+    </g>
+    <g id="535" ed:width="412.5" transform="matrix(1,0,0,1,757.2,6608)" ed:parentid="486" ed:height="151.9">
+        <path stroke="#696969" fill="none" d="M0,151.9L412.5,151.9" stroke-linejoin="round"/>
+        <image id="shape19" y="33" height="128.8" xlink:href="chapter8.html.files/image19.png" x="4" width="368"/>
+        <text class="st9">
+            <tspan y="16.5" style="white-space:pre" class="st10" x="8">依赖关系在角色目录层次结构中的 </tspan>
+            <tspan style="white-space:pre">meta/main.yml</tspan>
+            <tspan style="white-space:pre" class="st10"> 文件内定义。</tspan>
+        </text>
+    </g>
+    <g id="538" ed:width="397" transform="matrix(1,0,0,1,757.2,6766.4)" ed:parentid="486" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L397,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">默认情况下，角色仅作为依赖项添加到playbook中一次。</tspan>
+        </text>
+    </g>
+    <g id="540" ed:width="358" transform="matrix(1,0,0,1,757.2,6796)" ed:parentid="486" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L358,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">若有其他角色也将它作为依赖项列出，它不会再次运行。</tspan>
+        </text>
+    </g>
+    <g id="542" ed:width="592.4" transform="matrix(1,0,0,1,757.2,6825.6)" ed:parentid="486" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L592.4,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st13" x="8">此行为可以被覆盖，将 meta/main.yml 文件中的 </tspan>
+            <tspan style="white-space:pre" class="st6">allow_duplicates</tspan>
+            <tspan style="white-space:pre"> 变量</tspan>
+            <tspan style="white-space:pre" class="st13">设置为 yes 即可。</tspan>
+        </text>
+    </g>
+    <g id="545" ed:width="454.6" transform="matrix(1,0,0,1,757.2,6855.2)" ed:parentid="486" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L454.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgCorrect" transform="translate(0,0)"/>
+        </g>
+        <text class="st12">
+            <tspan y="16.4" style="white-space:pre" x="27">推荐做法：</tspan>
+            <tspan style="white-space:pre" class="st7">为了降低维护的复杂性，限制角色对其他角色的依赖。</tspan>
+        </text>
+    </g>
+    <g id="548" ed:width="162" transform="matrix(1,0,0,1,481.8,7085.2)" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L162,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">在Playbook中使用角色</tspan>
+        </text>
+    </g>
+    <g id="550" ed:width="507.6" transform="matrix(1,0,0,1,670.8,6884.8)" ed:parentid="548" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L507.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">编写良好的角色利用默认变量来改变角色行为，使之与相关的配置场景相符。</tspan>
+        </text>
+    </g>
+    <g id="552" ed:width="426" transform="matrix(1,0,0,1,670.8,6914.4)" ed:parentid="548" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L426,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">这有助于让角色变得更为通用，可在各种不同的上下文中重复利用。</tspan>
+        </text>
+    </g>
+    <g id="554" ed:width="342" transform="matrix(1,0,0,1,670.8,7003.2)" ed:parentid="548" ed:height="23.1">
+        <path fill="#f0909b" d="M0,0L342,0L342,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L342,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">覆盖角色子目录 defaults/main.yml 中定义的变量</tspan>
+        </text>
+    </g>
+    <g id="556" ed:width="241" transform="matrix(1,0,0,1,1039.8,7062.4)" ed:parentid="554" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L241,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority5" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">清单文件中定义主机变量与组变量</tspan>
+        </text>
+    </g>
+    <g id="558" ed:width="409.8" transform="matrix(1,0,0,1,1039.8,7032.8)" ed:parentid="554" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L409.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority4" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">playbook项目中的 group_vars 或 host_vars 目录中的变量</tspan>
+        </text>
+    </g>
+    <g id="560" ed:width="224.2" transform="matrix(1,0,0,1,1039.8,7003.2)" ed:parentid="554" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L224.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority3" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">play的 vars 块中定义的变量</tspan>
+        </text>
+    </g>
+    <g id="562" ed:width="332.2" transform="matrix(1,0,0,1,1039.8,6973.6)" ed:parentid="554" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L332.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">play的 roles 关键字下 vars 块中定义的变量</tspan>
+        </text>
+    </g>
+    <g id="568" ed:width="274.6" transform="matrix(1,0,0,1,1039.8,6944)" ed:parentid="554" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L274.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" class="st14" x="27">角色子目录 </tspan>
+            <tspan style="white-space:pre">vars/main.yml</tspan>
+            <tspan style="white-space:pre" class="st14"> 中的变量</tspan>
+        </text>
+    </g>
+    <g id="576" ed:layout="rightmap" ed:width="164.6" transform="matrix(1,0,0,1,1475.6,7000.95)" ed:parentid="575" ed:height="27.6">
+        <path stroke="#f8ae1a" fill="#fef2e7" d="M4,0L160.6,0C163.3,0,164.6,1.3,164.6,4L164.6,23.6C164.6,26.3,163.3,27.6,160.6,27.6L4,27.6C1.3,27.6,0,26.3,0,23.6L0,4C0,1.3,1.3,0,4,0z" stroke-linejoin="round"/>
+        <g transform="translate(6,5.4)">
+            <use xlink:href="#imgarrow2" transform="translate(0,0)"/>
+        </g>
+        <text class="st20">
+            <tspan y="18.8" style="white-space:pre" x="27">变量优先级依次降低</tspan>
+        </text>
+    </g>
+    <symbol id="imgarrow2">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDE2Rjk3RDA1MEE4MTFFNzlCODZGQkFEMUI4NjRENUUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDE2Rjk3Q0Y1MEE4MTFFNzlCODZGQkFEMUI4NjRENUUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Mjk1NjRBMjQ1MDI3MTFFN0JFMDM5RjRGRThDNzM1RDYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Mjk1NjRBMjU1MDI3MTFFN0JFMDM5RjRGRThDNzM1RDYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6jITqdAAAC8UlEQVR42uybMUhbQRjHX4o2KLpJRrs5CIKolWaoXSy0UAqKQ0GCdpE6SUEhUMgSF2sHcSgNDpUW6mQdpFCoS8ViKTWTODmJW5xctIOk/0f/hRIk7929u/cuzffBD0y87+77//W9e3eXpKrVqtfMccNr8mh6A1pq30i//2xjHN3rLGW6kF+5B/IfIAaIAWKAGCAGiAFigBggBogBYoAYIAaIAWKAGCAGiAFigBggBogB4aPNYT1tNg24CXLgJ+hxUHwPa8uxVuMGZMEb0MuBRh0SP8qaellj1rQBfeAlaOfrTvAFzDogfpa1dPJ1O2vtM2VABpTA8DW/ew2WExS/zBpqY5g1Z6Ia0AGKYKBOm3nwEbTGKLyVY87XaTPA2juiGFAAMyAd0G4M/ADdMYjv5lhjAe3SrL2ga4B/N51SKKwfHIARi+JHOEa/Qs4UtSgZMAHehbmGaqILfAXTFsRPs+8uxbwMtUyENeAWyEcs9i1YNCh+kX1GiTy1BRrwDQwaKPoF2DDQzwb7ihqD1BZoQNHgX+4J2I+Qv88+TEUxjAH+/HkXVAwNeieh3H+jQk2lsDfBPc6j5f9gwVemlj3VafCUT1SbDSx+kxpOdR+Erjh9LDWg+CXWfmViMZTnU1WjxEzYqVxlObwG7oNzh4Wfs8Y1G/sBfuxwPj10UPwha9tRSdLZEjsGt8G2Q+K3WdOxaqLupugleAxWHBC/wloudZKj7go/B3MJip9jDdphYlt8FTwCFzEKv+CYq1E7MnUu8AkM6VyDmvegIY7puWKAH0c6d2HNWejIVIemT4b+zsMlC+JLNp5DbB2NPQMLBvtbYJ/Gw+bZ4CswHvQsHmItMs6+vEYzwI8trsZONHJPmLtls8A4TofLvHHtKuTsMsf6fkRcx+Nn4B5YD9F2nW3P4igs7s8HPPXqH1QU2Ca2SOIDEv7G5OQ17096ZjdknTXAjw/enyPsA5Lle7FHS4ILme/gIX+uJFVESr493uTxW4ABAPiNfI+t6/EzAAAAAElFTkSuQmCC" width="16"/>
+    </symbol>
+    <g id="578" ed:width="694.6" transform="matrix(1,0,0,1,670.8,7092)" ed:parentid="548" ed:height="216.7">
+        <path fill="#ffffff" d="M0,0L694.6,0L694.6,216.7L0,216.7L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,216.7L694.6,216.7" stroke-linejoin="round"/>
+        <g transform="translate(7,99.35)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <image id="shape20" y="33" height="193.6" xlink:href="chapter8.html.files/image20.png" x="4" width="657.6"/>
+        <text class="st12">
+            <tspan y="16.5" style="white-space:pre" x="27">嵌套在 vars 关键字内的任何变量定义不会替换在角色的 vars 目录中定义的同一变量的值。</tspan>
+        </text>
+    </g>
+    <g id="589" ed:width="146" transform="matrix(1,0,0,1,609.8,7508.5)" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L146,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">介绍Ansible Galaxy</tspan>
+        </text>
+    </g>
+    <g id="591" ed:width="795.6" transform="matrix(1,0,0,1,782.8,7341.7)" ed:parentid="589" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L795.6,23.1" stroke-linejoin="round"/>
+        <text class="st21">
+            <tspan y="16.4" style="white-space:pre" class="st7" x="8">Ansible Galaxy [</tspan>
+            <tspan style="white-space:pre">https://galaxy.ansible.com</tspan>
+            <tspan style="white-space:pre" class="st7">] 是一个Ansible内容公共资源库，这些内容由Ansible管理员和用户编写。</tspan>
+        </text>
+    </g>
+    <g id="593" ed:width="690" transform="matrix(1,0,0,1,782.8,7371.3)" ed:parentid="589" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L690,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">包含数千个Ansible角色，具有可搜索的数据库，可帮助Ansible用户确定或许有助于他们完成管理任务的角色。</tspan>
+        </text>
+    </g>
+    <g id="595" ed:width="537.2" transform="matrix(1,0,0,1,782.8,7400.9)" ed:parentid="589" ed:height="267.9">
+        <path stroke="#696969" fill="none" d="M0,267.9L537.2,267.9" stroke-linejoin="round"/>
+        <image id="shape21" y="33" height="244.8" xlink:href="chapter8.html.files/image21.png" x="4" width="519.2"/>
+        <text class="st3">
+            <tspan y="16.5" style="white-space:pre" x="8">Ansible Galaxy含有面向新的Ansible用户和角色开发人员的文档和视频链接。</tspan>
+        </text>
+    </g>
+    <g id="598" ed:width="214" transform="matrix(1,0,0,1,782.8,7675.3)" ed:parentid="589" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L214,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">浏览Ansible Galaxy网站（略）</tspan>
+        </text>
+    </g>
+    <g id="600" ed:width="190.8" transform="matrix(1,0,0,1,609.8,8649.7)" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L190.8,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible Galaxy命令行工具</tspan>
+        </text>
+    </g>
+    <g id="602" ed:width="603.6" transform="matrix(1,0,0,1,827.6,7704.9)" ed:parentid="600" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L603.6,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st6" x="8">ansible-galaxy</tspan>
+            <tspan style="white-space:pre" class="st13"> </tspan>
+            <tspan style="white-space:pre">命令</tspan>
+            <tspan style="white-space:pre" class="st13">：搜索角色，显示角色相关的信息，以及安装、列举、删除或初始化角色。</tspan>
+        </text>
+    </g>
+    <g id="604" ed:width="126.8" transform="matrix(1,0,0,1,827.6,8038.9)" ed:parentid="600" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L126.8,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">从命令行搜索角色</tspan>
+        </text>
+    </g>
+    <g id="606" ed:width="565.2" transform="matrix(1,0,0,1,981.4,7734.5)" ed:parentid="604" ed:height="256.7">
+        <path stroke="#696969" fill="none" d="M0,256.7L565.2,256.7" stroke-linejoin="round"/>
+        <image id="shape22" y="33" height="233.6" xlink:href="chapter8.html.files/image22.png" x="4" width="547.2"/>
+        <text class="st9">
+            <tspan y="16.5" style="white-space:pre" x="8">ansible-galaxy search</tspan>
+            <tspan style="white-space:pre" class="st10"> 子命令：在Ansible Galaxy中搜索角色</tspan>
+        </text>
+    </g>
+    <g id="609" ed:width="514" transform="matrix(1,0,0,1,981.4,7997.7)" ed:parentid="604" ed:height="279.9">
+        <path stroke="#696969" fill="none" d="M0,279.9L514,279.9" stroke-linejoin="round"/>
+        <image id="shape23" y="33" height="256.8" xlink:href="chapter8.html.files/image23.png" x="4" width="495.2"/>
+        <text class="st8">
+            <tspan y="16.5" style="white-space:pre" x="8">搜索结果按照字母顺序显示，而不是 Best Match 分数降序排列。</tspan>
+        </text>
+    </g>
+    <g id="612" ed:width="379.6" transform="matrix(1,0,0,1,981.4,8284.1)" ed:parentid="604" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L379.6,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" x="8">ansible-galaxy info</tspan>
+            <tspan style="white-space:pre" class="st10"> 子命令：查看与角色相关的详细信息</tspan>
+        </text>
+    </g>
+    <g id="614" ed:width="610" transform="matrix(1,0,0,1,981.4,8313.7)" ed:parentid="604" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L610,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">Ansible Galaxy从多个位置获取详细信息，包括角色的 meta/main.yml 文件及其GitHub存储库。</tspan>
+        </text>
+    </g>
+    <g id="616" ed:width="525" transform="matrix(1,0,0,1,981.4,8343.3)" ed:parentid="604" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L525,0L525,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L525,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st22">
+            <tspan y="16.4" style="white-space:pre" class="st23" x="27">$ ansible-galaxy info &lt;</tspan>
+            <tspan style="white-space:pre">role_name</tspan>
+            <tspan style="white-space:pre" class="st23">></tspan>
+            <tspan style="white-space:pre" class="st24">：查看Ansible Galaxy中角色的详细信息</tspan>
+        </text>
+    </g>
+    <g id="619" ed:width="200.4" transform="matrix(1,0,0,1,827.6,8411.3)" ed:parentid="600" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L200.4,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">从Ansible Galaxy中安装角色</tspan>
+        </text>
+    </g>
+    <g id="621" ed:width="615.6" transform="matrix(1,0,0,1,1055,8372.9)" ed:parentid="619" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L615.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">定义 roles_path 参数或 ANSIBLE_ROLES_PATH 环境变量指定角色安装路径以覆盖默认安装路径。</tspan>
+        </text>
+    </g>
+    <g id="623" ed:width="644.4" transform="matrix(1,0,0,1,1055,8402.5)" ed:parentid="619" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L644.4,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">角色默认安装于 roles_path 参数定义的第一个可写目录中，定义的多个目录使用冒号（:）分隔。</tspan>
+        </text>
+    </g>
+    <g id="625" ed:width="489.9" transform="matrix(1,0,0,1,1055,8432.1)" ed:parentid="619" ed:height="40.7">
+        <path fill="#fcf384" d="M0,0L489.9,0L489.9,40.7L0,40.7L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,40.7L489.9,40.7" stroke-linejoin="round"/>
+        <g transform="translate(7,11.35)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st22">
+            <tspan y="16.4" style="white-space:pre" class="st23" x="27">$ ansible-galaxy install [-p &lt;</tspan>
+            <tspan style="white-space:pre">role_install_path</tspan>
+            <tspan style="white-space:pre" class="st23">>] &lt;</tspan>
+            <tspan style="white-space:pre">role_name</tspan>
+            <tspan style="white-space:pre" class="st23">></tspan>
+            <tspan style="white-space:pre" class="st24">：</tspan>
+            <tspan y="34" style="white-space:pre" class="st24" x="27">从Ansible Galaxy中下载并安装角色（可指定目录安装角色）</tspan>
+        </text>
+    </g>
+    <g id="631" ed:width="154" transform="matrix(1,0,0,1,827.6,8871.7)" ed:parentid="600" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L154,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">使用要求文件安装角色</tspan>
+        </text>
+    </g>
+    <g id="633" ed:width="386.8" transform="matrix(1,0,0,1,1008.6,8479.3)" ed:parentid="631" ed:height="71.09999999999999">
+        <path stroke="#696969" fill="none" d="M0,71.1L386.8,71.1" stroke-linejoin="round"/>
+        <image id="shape24" y="33" height="48" xlink:href="chapter8.html.files/image24.png" x="4" width="368.8"/>
+        <text class="st9">
+            <tspan y="16.5" style="white-space:pre" x="8">roles/requirements.yml</tspan>
+            <tspan style="white-space:pre" class="st10">：该要求文件定义安装的角色列表</tspan>
+        </text>
+    </g>
+    <g id="636" ed:width="541" transform="matrix(1,0,0,1,1008.6,8556.9)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L541,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgAttention" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">应在 requirements.yml 文件中指定角色版本，特别是生产环境中的playbook。</tspan>
+        </text>
+    </g>
+    <g id="638" ed:width="277.2" transform="matrix(1,0,0,1,1008.6,8586.5)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L277.2,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="8">若不指定版本，将获取角色的最新版本。</tspan>
+        </text>
+    </g>
+    <g id="643" ed:width="476.3" transform="matrix(1,0,0,1,1008.6,8616.1)" ed:parentid="631" ed:height="40.7">
+        <path fill="#fcf384" d="M0,0L476.3,0L476.3,40.7L0,40.7L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,40.7L476.3,40.7" stroke-linejoin="round"/>
+        <g transform="translate(7,11.35)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">$ ansible-galaxy install -r roles/requirements.yml -p roles</tspan>
+            <tspan style="white-space:pre" class="st13">：</tspan>
+            <tspan y="34" style="white-space:pre" class="st13" x="27">playbook项目目录中根据要求文件安装角色至roles目录中</tspan>
+        </text>
+    </g>
+    <g id="646" ed:width="469.9" transform="matrix(1,0,0,1,1008.6,8663.3)" ed:parentid="631" ed:height="357.5">
+        <path stroke="#696969" fill="none" d="M0,357.5L469.9,357.5" stroke-linejoin="round"/>
+        <g transform="translate(7,169.75)">
+            <use xlink:href="#imgCorrect" transform="translate(0,0)"/>
+        </g>
+        <image id="shape25" y="33" height="334.4" xlink:href="chapter8.html.files/image25.png" x="4" width="420"/>
+        <text class="st12">
+            <tspan y="16.4" style="white-space:pre" x="27">角色托管的方式：Git版本控制系统、Web服务器、Linux归档（tar）</tspan>
+        </text>
+    </g>
+    <g id="650" ed:width="90" transform="matrix(1,0,0,1,1008.6,9042.1)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L90,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st6" x="8">src</tspan>
+            <tspan style="white-space:pre"> 关键字</tspan>
+        </text>
+    </g>
+    <g id="656" ed:width="97.2" transform="matrix(1,0,0,1,1008.6,9204.9)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L97.2,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" x="8">name</tspan>
+            <tspan style="white-space:pre" class="st14"> 关键字</tspan>
+        </text>
+    </g>
+    <g id="658" ed:width="219.4" transform="matrix(1,0,0,1,1125.6,9027.3)" ed:parentid="650" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L219.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">指定Ansible Galaxy角色名称</tspan>
+        </text>
+    </g>
+    <g id="660" ed:width="512.2" transform="matrix(1,0,0,1,1125.6,9056.9)" ed:parentid="650" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L512.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">如果角色没有托管在Ansible Galaxy中，则 src 关键字将指明角色的URL。</tspan>
+        </text>
+    </g>
+    <g id="662" ed:width="533.2" transform="matrix(1,0,0,1,1008.6,9086.5)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L533.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">ansible-galaxy命令能够从基于 Git 或 Mercurial 的软件存储库下载和安装角色。</tspan>
+        </text>
+    </g>
+    <g id="668" ed:width="649" transform="matrix(1,0,0,1,1125.6,9175.3)" ed:parentid="670" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L649,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority3" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">若角色托管在Ansible Galaxy中，或者以 tar 存档形式托管在Web服务器上，则省略scm关键字。</tspan>
+        </text>
+    </g>
+    <g id="670" ed:width="90" transform="matrix(1,0,0,1,1008.6,9145.7)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L90,23.1" stroke-linejoin="round"/>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" class="st6" x="8">scm</tspan>
+            <tspan style="white-space:pre" class="st13"> </tspan>
+            <tspan style="white-space:pre">关键字</tspan>
+        </text>
+    </g>
+    <g id="672" ed:width="209.8" transform="matrix(1,0,0,1,1125.6,9116.1)" ed:parentid="670" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L209.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">基于Git的存储库其值为 git</tspan>
+        </text>
+    </g>
+    <g id="674" ed:width="232.2" transform="matrix(1,0,0,1,1125.6,9145.7)" ed:parentid="670" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L232.2,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">基于Mercurial存储库其值为 hg</tspan>
+        </text>
+    </g>
+    <g id="681" ed:width="118.8" transform="matrix(1,0,0,1,1008.6,9249.3)" ed:parentid="631" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L118.8,23.1" stroke-linejoin="round"/>
+        <text class="st9">
+            <tspan y="16.4" style="white-space:pre" x="8">version</tspan>
+            <tspan style="white-space:pre" class="st14"> 关键字</tspan>
+        </text>
+    </g>
+    <g id="683" ed:width="167.6" transform="matrix(1,0,0,1,1132.8,9204.9)" ed:parentid="656" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L167.6,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">用于覆盖角色的本地名称</tspan>
+        </text>
+    </g>
+    <g id="685" ed:width="159.4" transform="matrix(1,0,0,1,1154.4,9234.5)" ed:parentid="681" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L159.4,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority1" transform="translate(0,0)"/>
+        </g>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="27">用于指定角色的版本</tspan>
+        </text>
+    </g>
+    <g id="687" ed:width="613" transform="matrix(1,0,0,1,1154.4,9264.1)" ed:parentid="681" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L613,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgpriority2" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">可以是来自角色的软件存储库的分支（branch）、标记（tag）或提交哈希（commit hash）</tspan>
+        </text>
+    </g>
+    <g id="691" ed:width="113.2" transform="matrix(1,0,0,1,827.6,9444.15)" ed:parentid="600" ed:height="23.1">
+        <path stroke="#696969" fill="none" d="M0,23.1L113.2,23.1" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan y="16.4" style="white-space:pre" x="8">管理下载的角色</tspan>
+        </text>
+    </g>
+    <g id="693" ed:width="337.8" transform="matrix(1,0,0,1,967.8,9293.7)" ed:parentid="691" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L337.8,0L337.8,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L337.8,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st8">
+            <tspan y="16.4" style="white-space:pre" x="27">$ ansible-galaxy list</tspan>
+            <tspan style="white-space:pre" class="st13">：列出本地已安装的角色</tspan>
+        </text>
+    </g>
+    <g id="696" ed:width="438.6" transform="matrix(1,0,0,1,967.8,9323.3)" ed:parentid="691" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L438.6,0L438.6,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" fill="none" d="M0,23.1L438.6,23.1" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use xlink:href="#imgflag1" transform="translate(0,0)"/>
+        </g>
+        <text class="st22">
+            <tspan y="16.4" style="white-space:pre" class="st23" x="27">$ ansible-galaxy remove &lt;</tspan>
+            <tspan style="white-space:pre">role_name</tspan>
+            <tspan style="white-space:pre" class="st23">></tspan>
+            <tspan style="white-space:pre" class="st24">：删除指定的已安装角色</tspan>
+        </text>
+    </g>
+    <g id="699" ed:width="386.8" transform="matrix(1,0,0,1,967.8,9352.95)" ed:parentid="691" ed:height="264.7">
+        <path stroke="#696969" fill="none" d="M0,264.7L386.8,264.7" stroke-linejoin="round"/>
+        <image id="shape26" y="15" height="259.2" xlink:href="chapter8.html.files/image26.png" x="4" width="368.8"/>
+        <text class="st3"/>
+    </g>
+</svg>
+</div>
+      </div>
+    </div>
+  </body>
+</html>

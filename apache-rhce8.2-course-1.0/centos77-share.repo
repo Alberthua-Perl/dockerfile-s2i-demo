@@ -1,0 +1,5 @@
+[centos77-share]
+name=CentOS 7.7 ISO share repository
+baseurl=http://10.197.11.220/centos77-iso
+enabled=1
+gpgcheck=0

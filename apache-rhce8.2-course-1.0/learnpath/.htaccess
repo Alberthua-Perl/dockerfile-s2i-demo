@@ -1,0 +1,39 @@
+# The file applys several user authentication methods 
+# included basic-file, basic-dbm and digest.
+  
+<RequireAll>
+  AuthName "Learnpath user auth"
+  
+	### basic-file authentication
+  # AuthType Basic
+  # AuthUserFile /webapp/data/learnpath/.auth_basic
+  # Require valid-user
+  
+	### basic-dbm authentication
+  # AuthType Basic
+  # AuthDBMUserFile /webapp/data/learnpath/.auth_dbm
+  # AuthBasicProvider dbm
+  
+	### digest authentication
+  AuthType Digest
+  AuthDigestProvider file
+  AuthDigestDomain /
+  AuthUserFile /webapp/data/learnpath/.auth_digest
+  
+  <Limit GET POST>
+  	Require user foo bar albert developer0
+  
+  	# all required users password: redhat
+  	# based-file: foo, bar
+  	# based-dbm: albert
+  	# digest: developer0
+  
+  	# If previous methods are used at the same time, priority is 
+  	# digest, based-dbm, based-file.
+  </Limit>
+  
+  Require all granted
+  # Require not ip 10.197.11.222
+	
+	# Require expr %{HTTP_USER_AGENT} != 'Chrome'
+</RequireAll>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <title>第一章 介绍Ansible</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #content-info{
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #author-info{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #title{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-top: 10px;
+            margin-bottom: 2px;
+            font-size: 34px;
+            color: #505050;
+        }
+        .text{
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            font-size: 20px;
+            color: #8c8c8c;
+        }
+        #navBar{
+            width: auto;
+            height: auto;
+            position: fixed;
+            right:0;
+            bottom: 0;
+            background-color: #f0f3f4;
+            overflow-y: auto;
+            text-align: center;
+        }
+        #svg-container{
+            width: 100%;
+            overflow-x: scroll;
+            min-width: 0px;
+            margin: 0 10px;
+        }
+        #nav-thumbs{
+            overflow-y: scroll;
+            padding: 0 5px;
+        }
+        .nav-thumb{
+            position: relative;
+            margin: 10px auto;
+        }
+        .nav-thumb >p{
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+        }
+        .nav-thumb >div{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #c6cfd5;
+        }
+        .nav-thumb img{
+            display: block;
+        }
+        #main-content{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d0cfd8;
+            display: flex;
+            height: auto;
+            flex-flow: row wrap;
+            text-align:center;
+        }
+        #svg-container >svg{
+            overflow: visible;
+            display: block;
+            margin:5px auto;
+            margin-bottom: 5px;
+        }
+        #copyright{
+            bottom: 0;
+            left: 50%;
+            margin: 5px auto;
+            font-size: 16px;
+            color: #515151;
+        }
+        #copyright >a{
+            text-decoration: none;
+            color: #77C;
+        }
+        .number{
+            position: absolute;
+            top:0;
+            left:0;
+            border-top:22px solid #08a1ef;
+            border-right: 22px solid transparent;
+        }
+        .pagenum{
+            font-size: 12px;
+            color: #fff;
+            position: absolute;
+            top: -23px;
+            left: 2px;
+        }
+            #navBar::-webkit-scrollbar{
+            width: 8px;
+            background-color: #f5f5f5;
+        }
+            #navBar::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+            #navBar::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            background-color: #6b6b70;
+        }
+        #navBar::-webkit-scrollbar-thumb:hover{
+            background-color: #4a4a4f;
+        }
+</style>
+  </head>
+  <body>
+    <div id="main-area">
+      <div id="content-info">
+        <div id="content-info">
+          <div id="title">第一章 介绍Ansible</div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="svg-container"><svg xmlns:ev="http://www.w3.org/2001/xml-events" height="1930" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" xmlns="http://www.w3.org/2000/svg" ed:name="页面-1" id="page0" ed:vSpacing="30" preserveAspectRadio="xMinYMin meet" xmlns:xlink="http://www.w3.org/1999/xlink" width="1423" ed:hSpacing="30" viewBox="0 0 1423 1930">
+    <style type="text/css"><![CDATA[
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st6 {fill:#000000;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st9 {fill:#000000;font-family:Consolas;font-size:11pt;font-weight:bold}
+.st8 {fill:#000000;font-style:normal;font-weight:normal}
+.st10 {fill:#0000ff;font-family:Consolas;font-size:10pt;font-style:italic;font-weight:bold}
+.st7 {fill:#0000ff;font-family:Consolas;font-size:11pt;font-style:italic;font-weight:bold}
+.st2 {fill:#303030;font-family:Consolas;font-size:10pt}
+.st4 {fill:#454545;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st3 {fill:#454545;font-family:Consolas;font-size:10pt}
+.st11 {fill:#454545;font-style:normal;font-weight:normal}
+.st12 {fill:#454545;font-style:normal}
+.st1 {fill:#ffffff;font-family:Consolas;font-size:12pt;font-weight:bold}
+.st5 {font-weight:normal}
+]]></style>
+    <defs/>
+    <rect height="1930" y="0" x="0" fill="#ffffff" width="1423"/>
+    <path stroke="#696969" ed:tosuperid="102" d="M18.4,115.8L46.4,115.8L46.4,-109.8C46.4,-113.1,49,-115.8,52.4,-115.8L81.3,-115.8" transform="matrix(1,0,0,1,204.05,847.18)" id="103" stroke-linecap="round" ed:parentid="101" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="104" d="M18.4,-364.4L46.4,-364.4L46.4,358.4C46.4,361.7,49,364.4,52.4,364.4L81.3,364.4" transform="matrix(1,0,0,1,204.05,1327.42)" id="105" stroke-linecap="round" ed:parentid="101" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="106" d="M-13.5,304.8L3.7,304.8L3.7,-298.8C3.7,-302.1,6.4,-304.8,9.7,-304.8L13.5,-304.8" transform="matrix(1,0,0,1,546.7,426.52)" id="107" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="108" d="M-13.5,11.8L3.7,11.8L3.7,-5.8C3.7,-9.1,6.4,-11.8,9.7,-11.8L13.5,-11.8" transform="matrix(1,0,0,1,736.5,109.9)" id="109" stroke-linecap="round" ed:parentid="106" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="112" d="M3.7,-35.4L3.7,29.4C3.7,32.7,6.4,35.4,9.7,35.4L13.5,35.4" transform="matrix(1,0,0,1,736.5,157.1)" id="113" stroke-linecap="round" ed:parentid="106" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="118" d="M3.7,235.4L3.7,-229.4C3.7,-232.7,6.4,-235.4,9.7,-235.4L13.5,-235.4" transform="matrix(1,0,0,1,546.7,495.92)" id="119" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="130" d="M-13.5,19.2L3.7,19.2L3.7,-13.2C3.7,-16.5,6.4,-19.2,9.7,-19.2L13.5,-19.2" transform="matrix(1,0,0,1,1069.5,78.9)" id="131" stroke-linecap="round" ed:parentid="108" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="136" d="M3.7,4.4L3.7,1.6C3.7,-1.7,6.4,-4.4,9.7,-4.4L13.5,-4.4" transform="matrix(1,0,0,1,1069.5,93.7)" id="137" stroke-linecap="round" ed:parentid="108" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="142" d="M3.7,-28L3.7,22C3.7,25.3,6.4,28,9.7,28L13.5,28" transform="matrix(1,0,0,1,1069.5,126.1)" id="143" stroke-linecap="round" ed:parentid="108" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="144" d="M-13.5,14.8L3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" transform="matrix(1,0,0,1,696.5,245.7)" id="145" stroke-linecap="round" ed:parentid="118" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="146" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" transform="matrix(1,0,0,1,696.5,260.5)" id="147" stroke-linecap="round" ed:parentid="118" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="148" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" transform="matrix(1,0,0,1,696.5,275.3)" id="149" stroke-linecap="round" ed:parentid="118" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="150" d="M-13.5,-4.4L3.7,-4.4L3.7,-1.6C3.7,1.7,6.4,4.4,9.7,4.4L13.5,4.4" transform="matrix(1,0,0,1,863.1,196.9)" id="151" stroke-linecap="round" ed:parentid="112" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="154" d="M3.7,176.2L3.7,-170.2C3.7,-173.5,6.4,-176.2,9.7,-176.2L13.5,-176.2" transform="matrix(1,0,0,1,546.7,555.13)" id="155" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="156" d="M-13.5,29.6L3.7,29.6L3.7,-23.6C3.7,-26.9,6.4,-29.6,9.7,-29.6L13.5,-29.6" transform="matrix(1,0,0,1,669.3,349.3)" id="157" stroke-linecap="round" ed:parentid="154" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="158" d="M3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" transform="matrix(1,0,0,1,669.3,364.1)" id="159" stroke-linecap="round" ed:parentid="154" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="160" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" transform="matrix(1,0,0,1,669.3,393.7)" id="161" stroke-linecap="round" ed:parentid="154" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="162" d="M-13.5,14.8L3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" transform="matrix(1,0,0,1,787.7,393.7)" id="163" stroke-linecap="round" ed:parentid="160" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="164" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" transform="matrix(1,0,0,1,787.7,408.5)" id="165" stroke-linecap="round" ed:parentid="160" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="166" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" transform="matrix(1,0,0,1,787.7,423.3)" id="167" stroke-linecap="round" ed:parentid="160" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="168" d="M3.7,94.8L3.7,-88.8C3.7,-92.1,6.4,-94.8,9.7,-94.8L13.5,-94.8" transform="matrix(1,0,0,1,546.7,636.52)" id="169" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="170" d="M-13.5,37L3.7,37L3.7,-31C3.7,-34.3,6.4,-37,9.7,-37L13.5,-37" transform="matrix(1,0,0,1,669.3,504.7)" id="171" stroke-linecap="round" ed:parentid="168" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="172" d="M3.7,22.2L3.7,-16.2C3.7,-19.5,6.4,-22.2,9.7,-22.2L13.5,-22.2" transform="matrix(1,0,0,1,669.3,519.5)" id="173" stroke-linecap="round" ed:parentid="168" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="174" d="M3.7,7.4L3.7,-1.4C3.7,-4.7,6.4,-7.4,9.7,-7.4L13.5,-7.4" transform="matrix(1,0,0,1,669.3,534.3)" id="175" stroke-linecap="round" ed:parentid="168" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="176" d="M3.7,-7.4L3.7,1.4C3.7,4.7,6.4,7.4,9.7,7.4L13.5,7.4" transform="matrix(1,0,0,1,669.3,549.1)" id="177" stroke-linecap="round" ed:parentid="168" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="178" d="M3.7,-22.2L3.7,16.2C3.7,19.5,6.4,22.2,9.7,22.2L13.5,22.2" transform="matrix(1,0,0,1,669.3,563.9)" id="179" stroke-linecap="round" ed:parentid="168" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="180" d="M3.7,-37L3.7,31C3.7,34.3,6.4,37,9.7,37L13.5,37" transform="matrix(1,0,0,1,669.3,578.7)" id="181" stroke-linecap="round" ed:parentid="168" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="182" d="M3.7,-42.2L3.7,36.2C3.7,39.5,6.4,42.2,9.7,42.2L13.5,42.2" transform="matrix(1,0,0,1,546.7,773.53)" id="183" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="184" d="M3.7,-191.8L3.7,185.8C3.7,189.1,6.4,191.8,9.7,191.8L13.5,191.8" transform="matrix(1,0,0,1,546.7,923.13)" id="185" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="188" d="M-13.5,134.8L3.7,134.8L3.7,-128.8C3.7,-132.1,6.4,-134.8,9.7,-134.8L13.5,-134.8" transform="matrix(1,0,0,1,710.1,980.1)" id="189" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="190" d="M3.7,120L3.7,-114C3.7,-117.3,6.4,-120,9.7,-120L13.5,-120" transform="matrix(1,0,0,1,710.1,994.9)" id="191" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="198" d="M3.7,96.4L3.7,-90.4C3.7,-93.7,6.4,-96.4,9.7,-96.4L13.5,-96.4" transform="matrix(1,0,0,1,710.1,1018.5)" id="199" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="200" d="M3.7,81.6L3.7,-75.6C3.7,-78.9,6.4,-81.6,9.7,-81.6L13.5,-81.6" transform="matrix(1,0,0,1,710.1,1033.3)" id="201" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="217" d="M3.7,50.8L3.7,-44.8C3.7,-48.1,6.4,-50.8,9.7,-50.8L13.5,-50.8" transform="matrix(1,0,0,1,710.1,1064.1)" id="218" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="219" d="M3.7,27.2L3.7,-21.2C3.7,-24.5,6.4,-27.2,9.7,-27.2L13.5,-27.2" transform="matrix(1,0,0,1,710.1,1087.7)" id="220" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="223" d="M3.7,-134.8L3.7,128.8C3.7,132.1,6.4,134.8,9.7,134.8L13.5,134.8" transform="matrix(1,0,0,1,710.1,1249.7)" id="224" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="225" d="M3.7,-341.4L3.7,335.4C3.7,338.7,6.4,341.4,9.7,341.4L13.5,341.4" transform="matrix(1,0,0,1,546.7,1072.73)" id="226" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="228" d="M3.7,-356.2L3.7,350.2C3.7,353.5,6.4,356.2,9.7,356.2L13.5,356.2" transform="matrix(1,0,0,1,546.7,1087.53)" id="229" stroke-linecap="round" ed:parentid="102" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="230" d="M-13.5,46L3.7,46L3.7,-40C3.7,-43.3,6.4,-46,9.7,-46L13.5,-46" transform="matrix(1,0,0,1,415.5,1645.82)" id="231" stroke-linecap="round" ed:parentid="104" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="232" d="M-13.5,50L3.7,50L3.7,-44C3.7,-47.3,6.4,-50,9.7,-50L13.5,-50" transform="matrix(1,0,0,1,514.9,1549.8)" id="233" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="238" d="M3.7,35.2L3.7,-29.2C3.7,-32.5,6.4,-35.2,9.7,-35.2L13.5,-35.2" transform="matrix(1,0,0,1,514.9,1564.6)" id="239" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="242" d="M3.7,20.4L3.7,-14.4C3.7,-17.7,6.4,-20.4,9.7,-20.4L13.5,-20.4" transform="matrix(1,0,0,1,514.9,1579.4)" id="243" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="244" d="M3.7,5.6L3.7,0.4C3.7,-2.9,6.4,-5.6,9.7,-5.6L13.5,-5.6" transform="matrix(1,0,0,1,514.9,1594.2)" id="245" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="248" d="M3.7,-35.2L3.7,29.2C3.7,32.5,6.4,35.2,9.7,35.2L13.5,35.2" transform="matrix(1,0,0,1,514.9,1635)" id="249" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="250" d="M3.7,-20.4L3.7,14.4C3.7,17.7,6.4,20.4,9.7,20.4L13.5,20.4" transform="matrix(1,0,0,1,514.9,1620.2)" id="251" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="254" d="M3.7,-50L3.7,44C3.7,47.3,6.4,50,9.7,50L13.5,50" transform="matrix(1,0,0,1,514.9,1649.8)" id="255" stroke-linecap="round" ed:parentid="230" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="256" d="M3.7,-63.2L3.7,57.2C3.7,60.5,6.4,63.2,9.7,63.2L13.5,63.2" transform="matrix(1,0,0,1,415.5,1755.02)" id="257" stroke-linecap="round" ed:parentid="104" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="258" d="M-13.5,44.4L3.7,44.4L3.7,-38.4C3.7,-41.7,6.4,-44.4,9.7,-44.4L13.5,-44.4" transform="matrix(1,0,0,1,514.9,1773.8)" id="259" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="261" d="M3.7,29.6L3.7,-23.6C3.7,-26.9,6.4,-29.6,9.7,-29.6L13.5,-29.6" transform="matrix(1,0,0,1,514.9,1788.6)" id="262" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="276" d="M3.7,65.6L3.7,-59.6C3.7,-62.9,6.4,-65.6,9.7,-65.6L13.5,-65.6" transform="matrix(1,0,0,1,710.1,1049.3)" id="277" stroke-linecap="round" ed:parentid="184" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="279" d="M3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" transform="matrix(1,0,0,1,514.9,1803.4)" id="280" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="283" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" transform="matrix(1,0,0,1,514.9,1818.2)" id="284" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="287" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" transform="matrix(1,0,0,1,514.9,1833)" id="288" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="289" d="M3.7,-29.6L3.7,23.6C3.7,26.9,6.4,29.6,9.7,29.6L13.5,29.6" transform="matrix(1,0,0,1,514.9,1847.8)" id="290" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <path stroke="#696969" ed:tosuperid="293" d="M3.7,-44.4L3.7,38.4C3.7,41.7,6.4,44.4,9.7,44.4L13.5,44.4" transform="matrix(1,0,0,1,514.9,1862.6)" id="294" stroke-linecap="round" ed:parentid="256" fill="none" stroke-linejoin="round"/>
+    <g ed:width="199.4" ed:height="52.8" transform="matrix(1,0,0,1,23,936.6)" id="101" ed:layout="rightmap" ed:topictype="mainidea">
+        <path stroke="#435fbc" stroke-width="3" d="M4,0L195.4,0C198.1,0,199.4,1.3,199.4,4L199.4,48.8C199.4,51.5,198.1,52.8,195.4,52.8L4,52.8C1.3,52.8,0,51.5,0,48.8L0,4C0,1.3,1.3,0,4,0z" fill="#435fbc" stroke-linejoin="round"/>
+        <text class="st1">
+            <tspan style="white-space:pre" y="32.2" x="21">第一章 介绍Ansible</tspan>
+        </text>
+    </g>
+    <g ed:width="247.8" ed:height="33.6" transform="matrix(1,0,0,1,285.4,714.55)" id="102" ed:parentid="101">
+        <path stroke="#ebecf3" d="M4,0L243.8,0C246.5,0,247.8,1.3,247.8,4L247.8,29.6C247.8,32.3,246.5,33.6,243.8,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z" fill="#ebecf3" stroke-linejoin="round"/>
+        <text class="st2">
+            <tspan style="white-space:pre" y="21.8" x="18">使用Ansible自动化Linux管理任务</tspan>
+        </text>
+    </g>
+    <g ed:width="116.6" ed:height="33.6" transform="matrix(1,0,0,1,285.4,1675.05)" id="104" ed:parentid="101">
+        <path stroke="#ebecf3" d="M4,0L112.6,0C115.3,0,116.6,1.3,116.6,4L116.6,29.6C116.6,32.3,115.3,33.6,112.6,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z" fill="#ebecf3" stroke-linejoin="round"/>
+        <text class="st2">
+            <tspan style="white-space:pre" y="21.8" x="18">安装Ansible</tspan>
+        </text>
+    </g>
+    <g ed:width="162.8" ed:height="23.1" transform="matrix(1,0,0,1,560.2,98.6)" id="106" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L162.8,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">自动化与Linux系统管理</tspan>
+        </text>
+    </g>
+    <g ed:width="306" ed:height="23.1" transform="matrix(1,0,0,1,750,75)" id="108" ed:parentid="106">
+        <path stroke="#696969" d="M0,23.1L306,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="8">基础架构即代码（Infrastructure as Code）</tspan>
+        </text>
+    </g>
+    <g ed:width="99.59999999999999" ed:height="23.1" transform="matrix(1,0,0,1,750,169.4)" id="112" ed:parentid="106">
+        <path stroke="#696969" d="M0,23.1L99.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">减少人为错误</tspan>
+        </text>
+    </g>
+    <g ed:width="122.8" ed:height="23.1" transform="matrix(1,0,0,1,560.2,237.4)" id="118" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L122.8,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">什么是Ansible？</tspan>
+        </text>
+    </g>
+    <g ed:width="303.9" ed:height="40.7" transform="matrix(1,0,0,1,1083,19)" id="130" ed:parentid="108">
+        <path stroke="#696969" d="M0,40.7L303.9,40.7" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" class="st5" y="16.4" x="8">自动化语言表示为简单文本文件</tspan>
+            <tspan style="white-space:pre">，</tspan>
+            <tspan style="white-space:pre" class="st5">可使用软件</tspan>
+            <tspan style="white-space:pre" class="st5" y="34" x="8">代码版本控制系统轻松管理（Git或SVN）。</tspan>
+        </text>
+    </g>
+    <g ed:width="303.6" ed:height="23.1" transform="matrix(1,0,0,1,1083,66.2)" id="136" ed:parentid="108">
+        <path stroke="#696969" d="M0,23.1L303.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">开发人员可以在自动化语言中定义所需的配置。</tspan>
+        </text>
+    </g>
+    <g ed:width="300.7" ed:height="58.3" transform="matrix(1,0,0,1,1083,95.8)" id="142" ed:parentid="108">
+        <path stroke="#696969" d="M0,58.3L300.7,58.3" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">操作人员可以更轻松地查看这些更改以提供反</tspan>
+            <tspan style="white-space:pre" y="34.1" x="8">馈，并使用该自动化可重复地确保系统处于开</tspan>
+            <tspan style="white-space:pre" y="51.7" x="8">发人员期望的状态。</tspan>
+        </text>
+    </g>
+    <g ed:width="231.6" ed:height="23.1" transform="matrix(1,0,0,1,710,207.8)" id="144" ed:parentid="118">
+        <path stroke="#696969" d="M0,23.1L231.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible是一款开源的自动化平台。</tspan>
+        </text>
+    </g>
+    <g ed:width="542" ed:height="23.1" transform="matrix(1,0,0,1,710,237.4)" id="146" ed:parentid="118">
+        <path stroke="#696969" d="M0,23.1L542,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">它是一种简单的自动化语言，能够在Ansible Playbook中完美地描述IT应用基础架构。</tspan>
+        </text>
+    </g>
+    <g ed:width="337.2" ed:height="23.1" transform="matrix(1,0,0,1,710,267)" id="148" ed:parentid="118">
+        <path stroke="#696969" d="M0,23.1L337.2,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">它也是一个自动化引擎，可运行Ansible Playbook。</tspan>
+        </text>
+    </g>
+    <g ed:width="505.5" ed:height="40.7" transform="matrix(1,0,0,1,876.6,160.6)" id="150" ed:parentid="112">
+        <path stroke="#696969" d="M0,40.7L505.5,40.7" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">通过使用任务自动化和基础架构即代码方法来减少在服务器上手动执行的任务，</tspan>
+            <tspan style="white-space:pre" y="34" x="8">服务器将更频繁地处于一致的配置中。</tspan>
+        </text>
+    </g>
+    <g ed:width="95.59999999999999" ed:height="23.1" transform="matrix(1,0,0,1,560.2,355.8)" id="154" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L95.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible特点</tspan>
+        </text>
+    </g>
+    <g ed:width="519.4" ed:height="23.1" transform="matrix(1,0,0,1,682.8,296.6)" id="156" ed:parentid="154">
+        <path stroke="#696969" d="M0,23.1L519.4,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority1"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">简单明了：易于阅读、易于使用、无需编程技巧、Ansible Playbook顺序执行。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority1">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDM1QTY0MTQ0RjFFMTFFNzk5OTg5NzAxRkFDRkJENTQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDM1QTY0MTM0RjFFMTFFNzk5OTg5NzAxRkFDRkJENTQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g ed:width="417.8" ed:height="23.1" transform="matrix(1,0,0,1,682.8,326.2)" id="158" ed:parentid="154">
+        <path stroke="#696969" d="M0,23.1L417.8,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority2"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">功能强大：部署应用、配置管理、工作流自动化、网络自动化。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority2">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDY5M0Q3Mzc0RjFFMTFFNzgzRkJDQTZFQkVEQThDMkYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDY5M0Q3MzY0RjFFMTFFNzgzRkJDQTZFQkVEQThDMkYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g ed:width="91.40000000000001" ed:height="23.1" transform="matrix(1,0,0,1,682.8,385.4)" id="160" ed:parentid="154">
+        <path stroke="#696969" d="M0,23.1L91.4,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority3"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">无需代理</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority3">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDk4RkI2NjM0RjFFMTFFNzhBQzhGNjM2M0I4NUNFOEQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDk4RkI2NjI0RjFFMTFFNzhBQzhGNjM2M0I4NUNFOEQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M2RhODcyYzEtZTY3ZS01NjRhLTg4OGUtOGMxNThkNWE3YzExIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYtZTk5ODAzOWZiNDVlIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+AI46PQAAB2VJREFUeNrkW2tsFFUUPne7pS2ESoHyKC9FpYpUWjEQSFQSEIjl0YL+AAQkGhM00T8aNYgEg8YfGBIJGiEG8Ik2yFIwSMJDTFqxgIARo2grLba0vLHYFtvu9TszhX3MdDuPu7vTcJo7Ozvdmbnnu+d97xVSSrqVyZ+Qt2wTBeSjXJI0kgSNxvkwXB1AQRwFZeL6JZydRzuD77/hejV+8yMVycp4d03ETQICYjKOT6MVorWAsdvAaE+Ldzdq0Eh8plCA2mgTzZWHvQ/AdjEGx+UYvSLtu6R0RU9uRmvF8z4CICtptmz0FgDbRT8ct2DMHsZn77jJq4RyCGpH20hz5PPeACAgPkTHlqJTqQm0XdzpIP7egGq8nRwASsTjYHlrx7eUJBnx6wD+FNoMqEWdkwf4HI76WjC/sYPxZDHPlAZZyINSVNLXojgxEhAQZTg+iNbDYy69GSqxDirxSnwAWCV8lE91QHyA5qK8SALuNkh7qVjOUqsC3wk/jaUqMD/Qs8zfcLuCplMpDLNSAK5QA44jukl0mwogFmveSYkKBMQxHPNddanvcsCHgDBzCKIEaJA/LD66XEP0Ty3RhV8QCD+rVh0kvYhweoNzAAJiMx60EA/yO2Y8D0xlDbf2+5arRCe/UglEEzzEeJonT9oHoFQsg0F5B2eZjl498nOi++c76/b5U0RluapAOIcgOoeekO3WbUCJ6Avm1yaFeabsUURT6lUZxv6Q3632jGAP+tixn2ex74z5uhNEh95l1Qq1n79A7tdg/G1vOJy8fSpsgQ+tkHaJu62pQEDkA7Vy3JTh6IWPVBt1vq2FqHw10aW3Or9v/HGinLHG6/ueA0AfqJCECsQHE7qWAKFldc6YH7TG3OAdWR+beaaKfN0jRNNdi9Sogo/uQ9Y6MTYApaIQSN3u+CXDpxqvMVP1L1m7v2qPiUqNVGULemFg18UGIEgrHBs+rbMm2J0ps36/mftjW6COciEF95oD8I3IAkoFrh5f9hrRUSSJlfv1kWfdr1rgpSixF3iM6FAowGlFwCNcprZsrLhYdUZhlxlElfGhj57E5wozFVia5Nxejx/MbIhaGgxbNzASgM2Cg/OxSRfQUY8Zr1XuVJ0xMs/FkQD0QaAgkPMli3ov0yO/9NuMIbFVD2JdCVJh7KdG2wAuZ/dNOOMcN7DrHJAbmSFq9qRBZT4QTROiARgN0UhMoeOeUrQuCjbVPxAdmxTPXvSLNoJ3JK5c0Sv2/zlfiC/zbAfSaLdICwGg1/kSQ5lDY/+f84EiqecG8aP/6Dq8wU0ABGUlVPfZuHGwxI1HnAshZkDMuKJnl+qpDTznhGyAQOgikSwkgjozbGwQ85+J9AR8Pul1ooOX1GSEIU9wHZ4gO1wFaijZxO7u2z7G2gB7hwdeVW0DeiDkuxyuAn97JlqvWGW8xik2S4g6CfBDAmpCAPCCBK8Qizq7QSuptnMA0ulEOACC/tAMg1fobLlJtDhI3fODdI1WymC4BNQSr+LwCpmFv2rrAvXRgdBZGIardKuQj45GAjBXVuHM/YIpTmqGbdCruVwcndmsX/MSSQRBkg4YCyKSduDobkpmyvvGa9kP2ffhZhbfrHTuzAAyr9uMBZEU2kS84sINmRUv+o+2/5xsk8pcY70qGaihYnnRCMAseYi4MOaGGk6Yh7R2acg4E89QoUL8g+B4S6Q5iKSAqxfU7ja/biexKSg3FkY4V1AxYaovoPg0FgDr8CPnssa6XteJFJjV+6KJjeeIicbrPGOshg4j0zwdgYnJ1BhbyMmuXsNZXPQo3rARPPkRPprsJdhQcj3Q7B51xZF/MdyzaLY8EBuAHWIYdIUjwzTHr+IUlrM4v8uFoixNFfmqRv84Rr/AGBJE0xzJC5a3k74Y0RnxPCBPhrpxXVwrUMd8M/K/xaZmwXSBRIlIoVTNI7ivE2p6Pcm6NLCa/F6irhrMS67baTeCvULrAOiq8AIs5pvaKm8VxEZw8Dhdz8Pjep75aTwHqfkTXmR/17PI9uk09aQJNE2esweAbhA5YppDyZ4xck7XMPoLaJ7c2XlaEIuK5DwI0Oluyjwvr18fi/muJSAkCU04ZnQj5jnX34sBnN51YmiFMohr2Re7EQCVVpi3LgG6FPSBSF328ELZGyP/K5jPs+wk7K0WFwLZQi1AGJSwqTTriU4revQ9mLdVPLS5XwBoFckcvGwfWpNnmBcIcwW9Z5d5BwDc9A6P4s41eOkFDzBfA1e3CH1yFDm52zP0pRiDjGGzNqsklO0QsyryvBWvjPy0hGbKWsf4Kdk1tktMgwZuQId4uqlnnFlvwnv+ojZ6Cj7+iGsBUrpvMCDmo3MvY3RyO+IGoWi0g1oxg+gniPtqML5HmQbFZedoQNwJG7EE3V6ozcLqW2TTbep2i7aeR1I1zj/BMz7TqteqTUjcN0/ziqx2mt2xqXIU2lAwlYXvvBibjSjvHc7A9yYtziCqwzmv7z/IUMK4xXXtkkja7nFeodGqbaJuAjxnNRebDCdyq2+f/1+AAQBgsWRvu2nK1wAAAABJRU5ErkJggg==" width="16"/>
+    </symbol>
+    <g ed:width="486" ed:height="23.1" transform="matrix(1,0,0,1,801.2,355.8)" id="162" ed:parentid="160">
+        <path stroke="#696969" d="M0,23.1L486,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible通过OpenSSH（默认）或WinRM连接它所管理的主机并且运行任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="340.4" ed:height="23.1" transform="matrix(1,0,0,1,801.2,385.4)" id="164" ed:parentid="160">
+        <path stroke="#696969" d="M0,23.1L340.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">通常是（但不总是）将Ansible模块推送至这些主机。</tspan>
+        </text>
+    </g>
+    <g ed:width="601.2" ed:height="23.1" transform="matrix(1,0,0,1,801.2,415)" id="166" ed:parentid="160">
+        <path stroke="#696969" d="M0,23.1L601.2,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible模块将系统置于需要的特定状态，在运行完其任务后，推送的所有模块都会被删除。</tspan>
+        </text>
+    </g>
+    <g ed:width="95.59999999999999" ed:height="23.1" transform="matrix(1,0,0,1,560.2,518.6)" id="168" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L95.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible优点</tspan>
+        </text>
+    </g>
+    <g ed:width="329" ed:height="23.1" transform="matrix(1,0,0,1,682.8,444.6)" id="170" ed:parentid="168">
+        <path stroke="#696969" d="M0,23.1L329,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority1"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">跨平台支持：Linux、Windows、UNIX与网络设备</tspan>
+        </text>
+    </g>
+    <g ed:width="357.8" ed:height="23.1" transform="matrix(1,0,0,1,682.8,474.2)" id="172" ed:parentid="168">
+        <path stroke="#696969" d="M0,23.1L357.8,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority2"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">可读的自动化：Ansible Playbook使用YAML格式编写</tspan>
+        </text>
+    </g>
+    <g ed:width="118.6" ed:height="23.1" transform="matrix(1,0,0,1,682.8,503.8)" id="174" ed:parentid="168">
+        <path stroke="#696969" d="M0,23.1L118.6,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority3"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">完美描述应用</tspan>
+        </text>
+    </g>
+    <g ed:width="145.8" ed:height="23.1" transform="matrix(1,0,0,1,682.8,533.4)" id="176" ed:parentid="168">
+        <path stroke="#696969" d="M0,23.1L145.8,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority4"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">轻松管理版本控制</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority4">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEMyQUFFRjk0RjFFMTFFNzk2NkM4RTM1QkFDMEZDNEQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEMyQUFFRjg0RjFFMTFFNzk2NkM4RTM1QkFDMEZDNEQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g ed:width="118.6" ed:height="23.1" transform="matrix(1,0,0,1,682.8,563)" id="178" ed:parentid="168">
+        <path stroke="#696969" d="M0,23.1L118.6,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority5"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">支持动态清单</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority5">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEYxNzgxQjI0RjFFMTFFNzg3RDc5NDlEMEQ2MjhFMTYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEYxNzgxQjE0RjFFMTFFNzg3RDc5NDlEMEQ2MjhFMTYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g ed:width="677.8" ed:height="23.1" transform="matrix(1,0,0,1,682.8,592.6)" id="180" ed:parentid="168">
+        <path stroke="#696969" d="M0,23.1L677.8,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority6"/>
+        </g>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="27">与其他系统轻松集成：Puppet、Jenkins、Red Hat Satellite、Red Hat OpenShift、Kubernetes等。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority6">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTFCNjZCQjU0RjFFMTFFNzgyQTBDRDBDMTA1QzRGREMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTFCNjZCQjQ0RjFFMTFFNzgyQTBDRDBDMTA1QzRGREMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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" width="16"/>
+    </symbol>
+    <g ed:width="438" ed:height="193.5" transform="matrix(1,0,0,1,560.2,622.2)" id="182" ed:parentid="102">
+        <path stroke="#696969" d="M0,193.5L438,193.5" fill="none" stroke-linejoin="round"/>
+        <image height="170.4" id="shape1" y="33" x="4" xlink:href="chapter1.html.files/image1.png" width="420"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">Ansible是DevOps的语言</tspan>
+        </text>
+    </g>
+    <g ed:width="136.4" ed:height="23.1" transform="matrix(1,0,0,1,560.2,1091.8)" id="184" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L136.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible概念和架构</tspan>
+        </text>
+    </g>
+    <g ed:width="644.4" ed:height="23.1" transform="matrix(1,0,0,1,723.6,822.2)" id="188" ed:parentid="184">
+        <path stroke="#696969" d="M0,23.1L644.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible架构中有两种计算机类型，即控制节点（control nodes）和受管主机（managed hosts）。</tspan>
+        </text>
+    </g>
+    <g ed:width="499.6" ed:height="23.1" transform="matrix(1,0,0,1,723.6,851.8)" id="190" ed:parentid="184">
+        <path stroke="#696969" d="M0,23.1L499.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible在控制节点上安装和运行，该计算机上也含有Ansible项目文件的副本。</tspan>
+        </text>
+    </g>
+    <g ed:width="508.9" ed:height="40.7" transform="matrix(1,0,0,1,723.6,881.4)" id="198" ed:parentid="184">
+        <path stroke="#696969" d="M0,40.7L508.9,40.7" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" class="st5" y="16.4" x="8">控制节点可以是管理员的笔记本电脑、多个管理员共享的系统，或者运行</tspan>
+            <tspan style="white-space:pre">Red Hat </tspan>
+            <tspan style="white-space:pre" y="34" x="8">Ansible Tower</tspan>
+            <tspan style="white-space:pre" class="st5">的服务器。</tspan>
+        </text>
+    </g>
+    <g ed:width="620.2" ed:height="23.1" transform="matrix(1,0,0,1,723.6,928.6)" id="200" ed:parentid="184">
+        <path stroke="#696969" d="M0,23.1L620.2,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st6">
+            <tspan style="white-space:pre" y="16.4" x="27">Ansible中的task、play、playbook设计具有幂等性（相同系统上多次运行同一playbook）。</tspan>
+        </text>
+    </g>
+    <symbol id="imgAttention">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjk3NUE4NjQ5MUI2QTExRTc5OERCQjQ1MTZGMTA2RDM2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjk3NUE4NjRBMUI2QTExRTc5OERCQjQ1MTZGMTA2RDM2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTc1QTg2NDcxQjZBMTFFNzk4REJCNDUxNkYxMDZEMzYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTc1QTg2NDgxQjZBMTFFNzk4REJCNDUxNkYxMDZEMzYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6H3G2rAAAC60lEQVR42uxbv2sUURD+3rsN8c4fiYqgSDQEYxEUNZ2NtY2HlRzaWVhYCSIIWoqI2BoQxFKChchxYBEIIf+AEcFCIRamSRDEeGbRy+04713uxwp6KWTusbMDe8nOvs3bmffNNzPvNoaI4GXWjKGIMgjX+WwK2ZT3MJhBjCoq9NkpjHdA1Zxjw5/zsZd1JWRbNtgJX/m4jDItGnqJ86x8wYrd0CSE7/x5yTlgiY0/BY1CeGvVrXyvsO2WvTCh1gFsu4VzgVZh2535pBgBFHnzjeCkF/v4uzYCbK5LOQDhhUBpXDwEgsOl5FRWdsbtPFQiOpsVjf/QEGB8FIQWBImkrwPkANLOAZDmgNAwIIkAnwYTxQhIWgiAYgTkWSDAQkj0cSi0AJDOAnCVoF4EmCD3A+Q5QG8vgLwbDDALQDoLhNYOSyIgzHZYtBsMMAuQdBawihFgcwTku8IBlsKiWSCvA3IOyL8XyHuBvBdQngWU9wKRR4CkC14FxLph1gEQ5gDl7whZ3esPRAPLAjuPA/vPAj9XgbU5fpjmQDggGggHnHkKHLzAZdhwa/rGOvDxIfDpsTgGIs8BksR8+gkwdoWN39HVDY0CJx7wzxHgw33xXkAOAePXgMOVtPFtKewCJm8BR69mOA0eu8mrvOfv1x0SJm9nNA0OH+CVH+o/zo3Zzrj/FgJSibDxDSge6T+uUAKShowDrGQIJL+ALwv9G6HV1xmuBJeYBJsb/yAlTkdvBElQ/A2RH8vA/EmesZGe1qGjGQO1feIbIvKFkHNCjdl+ivP96DSwWefQmOdC6NFAimH5dtiJC4N3NwJph9V3g+r3A4BYsQNi54AVxQ5YcZXgMyaDNXWmO5vZdosyVdHEHWaCuiLyq3ub2XbT+ff5qqmw8i57pshnE36YaTGlp8l0vkhfQ2dPoX1GW985UUdnOtfan109/fG3bY/O9IxF6t70/cChntVtvW5oto7u3cv8e4wC7rHxs07xW4ABAOmMUmthDITaAAAAAElFTkSuQmCC" width="16"/>
+    </symbol>
+    <g ed:width="289.2" ed:height="23.1" transform="matrix(1,0,0,1,723.6,990.2)" id="217" ed:parentid="184">
+        <path stroke="#696969" d="M0,23.1L289.2,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible使用插件（plug-ins）以实现扩展。</tspan>
+        </text>
+    </g>
+    <g ed:width="286.5" ed:height="40.7" transform="matrix(1,0,0,1,723.6,1019.8)" id="219" ed:parentid="184">
+        <path stroke="#696969" d="M0,40.7L286.5,40.7" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Red Hat Ansible Tower是企业框架，帮助</tspan>
+            <tspan style="white-space:pre" y="34" x="8">规模化控制、保护和管理Ansible自动化。</tspan>
+        </text>
+    </g>
+    <g ed:width="409.2" ed:height="317.5" transform="matrix(1,0,0,1,723.6,1067)" id="223" ed:parentid="184">
+        <path stroke="#696969" d="M0,317.5L409.2,317.5" fill="none" stroke-linejoin="round"/>
+        <image height="294.4" id="shape2" y="33" x="4" xlink:href="chapter1.html.files/image2.png" width="391.2"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible架构示意：</tspan>
+        </text>
+    </g>
+    <g ed:width="534.8" ed:height="23.1" transform="matrix(1,0,0,1,560.2,1391)" id="225" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L534.8,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" class="st5" y="16.4" x="8">Ansible方式：复杂性会破坏效率、专为易读性优化、</tspan>
+            <tspan style="white-space:pre">声明式思维（declaratively）</tspan>
+        </text>
+    </g>
+    <g ed:width="544.4" ed:height="23.1" transform="matrix(1,0,0,1,560.2,1420.6)" id="228" ed:parentid="102">
+        <path stroke="#696969" d="M0,23.1L544.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" class="st5" y="16.4" x="8">Ansible用例：配置管理、应用部署、调配、</tspan>
+            <tspan style="white-space:pre">持续交付（CI/CD）</tspan>
+            <tspan style="white-space:pre" class="st5">、安全和合规性、编排</tspan>
+        </text>
+    </g>
+    <g ed:width="72.40000000000001" ed:height="23.1" transform="matrix(1,0,0,1,429,1576.7)" id="230" ed:parentid="104">
+        <path stroke="#696969" d="M0,23.1L72.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">控制节点</tspan>
+        </text>
+    </g>
+    <g ed:width="579.6" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1476.7)" id="232" ed:parentid="230">
+        <path stroke="#696969" d="M0,23.1L579.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible只需安装到要运行它的一个（或多个）控制节点上，受管主机无需安装Ansible。</tspan>
+        </text>
+    </g>
+    <g ed:width="218.8" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1506.3)" id="238" ed:parentid="230">
+        <path stroke="#696969" d="M0,23.1L218.8,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">控制节点应是Linux或UNIX系统。</tspan>
+        </text>
+    </g>
+    <g ed:width="490" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1535.9)" id="242" ed:parentid="230">
+        <path stroke="#696969" d="M0,23.1L490,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">不支持将Microsoft Windows用作控制节点，但Windows系统可以是受管主机。</tspan>
+        </text>
+    </g>
+    <g ed:width="536.4" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1565.5)" id="244" ed:parentid="230">
+        <path stroke="#696969" d="M0,23.1L536.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="8">控制节点上需要安装Python 3（版本3.5或以上）或Python 2（版本2.7或以上）。</tspan>
+        </text>
+    </g>
+    <g ed:width="438.8" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1647.1)" id="248" ed:parentid="230">
+        <path stroke="#696969" d="M0,23.1L438.8,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Red Hat Ansible订阅频道：ansible-2.8-for-rhel-8-x86_64-rpms</tspan>
+        </text>
+    </g>
+    <g ed:width="570.3" ed:height="45.5" transform="matrix(1,0,0,1,528.4,1595.1)" id="250" ed:parentid="230">
+        <path stroke="#696969" d="M0,45.5L570.3,45.5" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,13.75)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" class="st8" y="18.1" x="27">RHEL 8中Ansible 2.8可以自动使用 </tspan>
+            <tspan style="white-space:pre">platform-python</tspan>
+            <tspan style="white-space:pre" class="st8"> 软件包，该软件包支持使</tspan>
+            <tspan style="white-space:pre" class="st8" y="38" x="27">用Python的系统实用程序，无需从AppStream安装python36或python27软件包。</tspan>
+        </text>
+    </g>
+    <g ed:width="190.8" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1676.7)" id="254" ed:parentid="230">
+        <path stroke="#696969" d="M0,23.1L190.8,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">使用订阅安装Ansible（略）</tspan>
+        </text>
+    </g>
+    <g ed:width="72.40000000000001" ed:height="23.1" transform="matrix(1,0,0,1,429,1795.1)" id="256" ed:parentid="104">
+        <path stroke="#696969" d="M0,23.1L72.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">受管主机</tspan>
+        </text>
+    </g>
+    <g ed:width="738" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1706.3)" id="258" ed:parentid="256">
+        <path stroke="#696969" d="M0,23.1L738,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Linux和UNIX受管主机需要安装有Python 2（版本2.6或以上）或Python 3（版本 3.5或以上），才能运行大部分模块。</tspan>
+        </text>
+    </g>
+    <g ed:width="652.4" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1735.9)" id="261" ed:parentid="256">
+        <path stroke="#696969" d="M0,23.1L652.4,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">RHEL 8中可以依靠 platform-python 软件包，也可启用并安装python36应用流（或python27应用流）。</tspan>
+        </text>
+    </g>
+    <g ed:width="290.6" ed:height="25.5" transform="matrix(1,0,0,1,723.6,958.2)" id="276" ed:parentid="184">
+        <path stroke="#696969" d="M0,25.5L290.6,25.5" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,3.75)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st9">
+            <tspan style="white-space:pre" y="18.1" x="27">并非所有Ansible模块都具有幂等性！</tspan>
+        </text>
+    </g>
+    <g ed:width="385" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1765.5)" id="279" ed:parentid="256">
+        <path d="M0,0L385,0L385,23.1L0,23.1L0,0z" fill="#fcf384"/>
+        <path stroke="#696969" d="M0,23.1L385,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgflag1"/>
+        </g>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="27">$ yum module install python36</tspan>
+            <tspan style="white-space:pre" class="st5">：安装python36应用流</tspan>
+        </text>
+    </g>
+    <symbol id="imgflag1">
+        <image height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ0MjdBNzI2MUE5NzExRTc4MUZGODlEQUJFMDNGQ0QwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ0MjdBNzI3MUE5NzExRTc4MUZGODlEQUJFMDNGQ0QwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDQyN0E3MjQxQTk3MTFFNzgxRkY4OURBQkUwM0ZDRDAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDQyN0E3MjUxQTk3MTFFNzgxRkY4OURBQkUwM0ZDRDAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4q+1j7AAACi0lEQVR42uyaLYwTQRTH35suAUuy2SnHhyGIIwFBztAgSBAkBBQoUKcAh8MhEBgUghyXdttAgrhDEAwcOxsuCMCAIoGEIM5AThDau+tBubbzmMWhgGU/ZrrvL7ams2//v33vzZumSETwJ108Nf3bl+Yfv0eYEIm0CxGx2gAmRZimBK4PG/YbA3wVqFajihkwAoJVGYeNypWA6Uqb5vramN/1N5k9UQCM+Z4meCBV62jlmiAhdEcAN+pxOPuva70JePN9ofX5etxZSrPec9z8WI/0ofpyZyXtPTxHjQ9N2q8GUbiveoMQQV8DvJQZmHcRQA8E3q+r8HjlRmGT9l3QcE1GrUtZ3teVHvCNhDgnVfNZ1jf2LH/ryTy3VUM44D9tfs4jhs0Afhjzn6QK91fvOEywgYjP8zZvJQBKmp2gThC1ThYRz7ISoJ4HeNWP2s2iItoEYIC4/bQfzb0oMqgFANAMdjQY1nDvnqW5r0VHLxvAAECvSNWeLusBSmuCiLRuPuIyzZcGwGxxXRP6jtnmzpRdgGWUwJqZ764EKrxnQ+ctGsCwJsQJM9a+sWXrKQQAIehfP10Nd+z2l2/3bZo88gdA8N00mo8m5Q/bOHXn2wQR1gnxia3mcwWQzPSk4VZdtc7afOTOpwTMHm/mu8sybi+A5fKyz3oYE207JuP5t+CAMgRAY3PpfdnZnzq4uLgFjigTAJR0eiHemTP8jAS3lEUTXBNIDxPz4KDE/9V7MtPTzUC1L4CjSl8CBBsj1LNTqv0IHJaX0vxmDUYzUt39AI4rVQkY80f82H3zqQEk5vlvchMiBsAAGAADYAAMgAEwAAbAABgAA2AADIABMAAGwAAYAANgAFXSTwEGAHGGxccyXdAIAAAAAElFTkSuQmCC" width="16"/>
+    </symbol>
+    <g ed:width="707.6" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1795.1)" id="283" ed:parentid="256">
+        <path stroke="#696969" d="M0,23.1L707.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st10">
+            <tspan style="white-space:pre" class="st11" y="16.4" x="8">若受管主机启用SELinux，RHEL 8提供 </tspan>
+            <tspan style="white-space:pre">python3-libselinux</tspan>
+            <tspan style="white-space:pre" class="st11"> 软件包，RHEL 7提供 </tspan>
+            <tspan style="white-space:pre">libselinux-python</tspan>
+            <tspan style="white-space:pre" class="st11"> 软件包。</tspan>
+        </text>
+    </g>
+    <g ed:width="713.8" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1824.7)" id="287" ed:parentid="256">
+        <path stroke="#696969" d="M0,23.1L713.8,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st10">
+            <tspan style="white-space:pre" class="st12" y="16.4" x="27">一些模块不需要Python，如Ansible </tspan>
+            <tspan style="white-space:pre">raw</tspan>
+            <tspan style="white-space:pre" class="st12">模块直接通过配置远程受管主机的Shell执行，不通过模块子系统。</tspan>
+        </text>
+    </g>
+    <g ed:width="403.6" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1854.3)" id="289" ed:parentid="256">
+        <path stroke="#696969" d="M0,23.1L403.6,23.1" fill="none" stroke-linejoin="round"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">该方式在管理没有Python可用或无法安装Python的设备时使用。</tspan>
+        </text>
+    </g>
+    <g ed:width="433" ed:height="23.1" transform="matrix(1,0,0,1,528.4,1883.9)" id="293" ed:parentid="256">
+        <path stroke="#696969" d="M0,23.1L433,23.1" fill="none" stroke-linejoin="round"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st4">
+            <tspan style="white-space:pre" y="16.4" x="27">raw模块不能保证运行的幂等性状态，尽量使用其他模块替代！</tspan>
+        </text>
+    </g>
+</svg>
+</div>
+      </div>
+    </div>
+  </body>
+</html>

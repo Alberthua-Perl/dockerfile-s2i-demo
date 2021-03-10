@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>第五章 实施任务控制</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #content-info{
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #author-info{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        #title{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-top: 10px;
+            margin-bottom: 2px;
+            font-size: 34px;
+            color: #505050;
+        }
+        .text{
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 2px;
+            font-size: 20px;
+            color: #8c8c8c;
+        }
+        #navBar{
+            width: auto;
+            height: auto;
+            position: fixed;
+            right:0;
+            bottom: 0;
+            background-color: #f0f3f4;
+            overflow-y: auto;
+            text-align: center;
+        }
+        #svg-container{
+            width: 100%;
+            overflow-x: scroll;
+            min-width: 0px;
+            margin: 0 10px;
+        }
+        #nav-thumbs{
+            overflow-y: scroll;
+            padding: 0 5px;
+        }
+        .nav-thumb{
+            position: relative;
+            margin: 10px auto;
+        }
+        .nav-thumb >p{
+            text-align: center;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+        }
+        .nav-thumb >div{
+            position: relative;
+            display: inline-block;
+            border: 1px solid #c6cfd5;
+        }
+        .nav-thumb img{
+            display: block;
+        }
+        #main-content{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #d0cfd8;
+            display: flex;
+            height: auto;
+            flex-flow: row wrap;
+            text-align:center;
+        }
+        #svg-container >svg{
+            overflow: visible;
+            display: block;
+            margin:5px auto;
+            margin-bottom: 5px;
+        }
+        #copyright{
+            bottom: 0;
+            left: 50%;
+            margin: 5px auto;
+            font-size: 16px;
+            color: #515151;
+        }
+        #copyright >a{
+            text-decoration: none;
+            color: #77C;
+        }
+        .number{
+            position: absolute;
+            top:0;
+            left:0;
+            border-top:22px solid #08a1ef;
+            border-right: 22px solid transparent;
+        }
+        .pagenum{
+            font-size: 12px;
+            color: #fff;
+            position: absolute;
+            top: -23px;
+            left: 2px;
+        }
+            #navBar::-webkit-scrollbar{
+            width: 8px;
+            background-color: #f5f5f5;
+        }
+            #navBar::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+            #navBar::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3);
+            background-color: #6b6b70;
+        }
+        #navBar::-webkit-scrollbar-thumb:hover{
+            background-color: #4a4a4f;
+        }
+</style>
+  </head>
+  <body>
+    <div id="main-area">
+      <div id="content-info">
+        <div id="content-info">
+          <div id="title">第五章 实施任务控制</div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div id="svg-container"><svg height="7622" xmlns:ed="https://www.edrawsoft.cn/xml/2017/SVGExtensions/" ed:vSpacing="30" xmlns="http://www.w3.org/2000/svg" ed:name="页面-1" xmlns:ev="http://www.w3.org/2001/xml-events" width="1654" ed:hSpacing="30" id="page0" preserveAspectRadio="xMinYMin meet" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1654 7622">
+    <style type="text/css"><![CDATA[
+g[ed\:togtopicid],g[ed\:hyperlink],g[ed\:comment],g[ed\:note] {cursor:pointer;}
+g[id] {-moz-user-select: none;-ms-user-select: none;user-select: none;}
+svg text::selection,svg tspan::selection{background-color: #4285f4;color: #ffffff;fill: #ffffff;}
+.st4 {fill:#0000ff;font-family:Consolas;font-size:10pt;font-style:italic;font-weight:bold}
+.st11 {fill:#0000ff;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st14 {fill:#0000ff;font-style:italic;font-weight:bold}
+.st15 {fill:#0000ff;font-style:italic;font-weight:normal}
+.st8 {fill:#0000ff;font-style:italic}
+.st2 {fill:#303030;font-family:Consolas;font-size:10pt}
+.st7 {fill:#454545;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st3 {fill:#454545;font-family:Consolas;font-size:10pt}
+.st5 {fill:#454545;font-style:normal;font-weight:normal}
+.st6 {fill:#454545;font-style:normal}
+.st13 {fill:#454545}
+.st16 {fill:#ff00ff;font-family:Consolas;font-size:10pt;font-weight:bold}
+.st12 {fill:#ff00ff}
+.st1 {fill:#ffffff;font-family:Consolas;font-size:12pt;font-weight:bold}
+.st10 {font-weight:bold}
+.st9 {font-weight:normal}
+]]></style>
+    <defs/>
+    <rect height="7622" width="1654" y="0" fill="#ffffff" x="0"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,208.25,3012.4)" fill="none" id="103" ed:parentid="101" d="M19.8,796.6L47.8,796.6L47.8,-790.6C47.8,-794,50.4,-796.6,53.8,-796.6L82.8,-796.6" ed:tosuperid="102" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,208.25,4375.65)" fill="none" id="105" ed:parentid="101" d="M19.8,-566.6L47.8,-566.6L47.8,560.6C47.8,563.9,50.4,566.6,53.8,566.6L82.8,566.6" ed:tosuperid="104" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,208.25,5172.3)" fill="none" id="107" ed:parentid="101" d="M19.8,-1363.3L47.8,-1363.3L47.8,1357.3C47.8,1360.6,50.4,1363.3,53.8,1363.3L82.8,1363.3" ed:tosuperid="106" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,465.9,1613.72)" fill="none" id="109" ed:parentid="102" d="M-13.5,602L3.7,602L3.7,-596C3.7,-599.3,6.4,-602,9.7,-602L13.5,-602" ed:tosuperid="108" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,526.9)" fill="none" id="111" ed:parentid="108" d="M-13.5,484.8L3.7,484.8L3.7,-478.8C3.7,-482.1,6.4,-484.8,9.7,-484.8L13.5,-484.8" ed:tosuperid="110" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,541.7)" fill="none" id="113" ed:parentid="108" d="M3.7,470L3.7,-464C3.7,-467.3,6.4,-470,9.7,-470L13.5,-470" ed:tosuperid="112" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,556.5)" fill="none" id="115" ed:parentid="108" d="M3.7,455.2L3.7,-449.2C3.7,-452.5,6.4,-455.2,9.7,-455.2L13.5,-455.2" ed:tosuperid="114" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,689.3)" fill="none" id="117" ed:parentid="108" d="M3.7,322.4L3.7,-316.4C3.7,-319.7,6.4,-322.4,9.7,-322.4L13.5,-322.4" ed:tosuperid="116" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,888.7,248.9)" fill="none" id="119" ed:parentid="116" d="M-13.5,118L3.7,118L3.7,-112C3.7,-115.3,6.4,-118,9.7,-118L13.5,-118" ed:tosuperid="118" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,888.7,263.7)" fill="none" id="121" ed:parentid="116" d="M3.7,103.2L3.7,-97.2C3.7,-100.5,6.4,-103.2,9.7,-103.2L13.5,-103.2" ed:tosuperid="120" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,888.7,278.5)" fill="none" id="123" ed:parentid="116" d="M3.7,88.4L3.7,-82.4C3.7,-85.7,6.4,-88.4,9.7,-88.4L13.5,-88.4" ed:tosuperid="122" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,888.7,364.1)" fill="none" id="125" ed:parentid="116" d="M3.7,2.8C3.7,-0.3,6.4,-2.8,9.7,-2.8L13.5,-2.8" ed:tosuperid="124" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,888.7,484.9)" fill="none" id="129" ed:parentid="116" d="M3.7,-118L3.7,112C3.7,115.3,6.4,118,9.7,118L13.5,118" ed:tosuperid="128" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,884.7)" fill="none" id="132" ed:parentid="108" d="M3.7,127L3.7,-121C3.7,-124.3,6.4,-127,9.7,-127L13.5,-127" ed:tosuperid="131" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,695.1)" fill="none" id="134" ed:parentid="131" d="M-13.5,62.6L3.7,62.6L3.7,-56.6C3.7,-59.9,6.4,-62.6,9.7,-62.6L13.5,-62.6" ed:tosuperid="133" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,820.3)" fill="none" id="136" ed:parentid="131" d="M3.7,-62.6L3.7,56.6C3.7,59.9,6.4,62.6,9.7,62.6L13.5,62.6" ed:tosuperid="135" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,709.9)" fill="none" id="138" ed:parentid="131" d="M3.7,47.8L3.7,-41.8C3.7,-45.1,6.4,-47.8,9.7,-47.8L13.5,-47.8" ed:tosuperid="137" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,1085.3)" fill="none" id="142" ed:parentid="108" d="M3.7,-73.6L3.7,67.6C3.7,70.9,6.4,73.6,9.7,73.6L13.5,73.6" ed:tosuperid="141" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,1128.9)" fill="none" id="144" ed:parentid="141" d="M-13.5,30L3.7,30L3.7,-24C3.7,-27.3,6.4,-30,9.7,-30L13.5,-30" ed:tosuperid="143" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,1237.7)" fill="none" id="147" ed:parentid="141" d="M3.7,-78.8L3.7,72.8C3.7,76.1,6.4,78.8,9.7,78.8L13.5,78.8" ed:tosuperid="146" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,1252.5)" fill="none" id="150" ed:parentid="141" d="M3.7,-93.6L3.7,87.6C3.7,90.9,6.4,93.6,9.7,93.6L13.5,93.6" ed:tosuperid="149" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,1267.3)" fill="none" id="152" ed:parentid="141" d="M3.7,-108.4L3.7,102.4C3.7,105.7,6.4,108.4,9.7,108.4L13.5,108.4" ed:tosuperid="151" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,856.7,1282.1)" fill="none" id="154" ed:parentid="141" d="M3.7,-123.2L3.7,117.2C3.7,120.5,6.4,123.2,9.7,123.2L13.5,123.2" ed:tosuperid="153" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,675.7,1359.9)" fill="none" id="156" ed:parentid="108" d="M3.7,-348.2L3.7,342.2C3.7,345.5,6.4,348.2,9.7,348.2L13.5,348.2" ed:tosuperid="155" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,915.9,1571.5)" fill="none" id="158" ed:parentid="155" d="M-13.5,136.6L3.7,136.6L3.7,-130.6C3.7,-133.9,6.4,-136.6,9.7,-136.6L13.5,-136.6" ed:tosuperid="157" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,915.9,1729.1)" fill="none" id="161" ed:parentid="155" d="M3.7,-21L3.7,15C3.7,18.3,6.4,21,9.7,21L13.5,21" ed:tosuperid="160" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,465.9,2564.72)" fill="none" id="163" ed:parentid="102" d="M3.7,-349L3.7,343C3.7,346.3,6.4,349,9.7,349L13.5,349" ed:tosuperid="162" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,915.9,1844.7)" fill="none" id="166" ed:parentid="155" d="M3.7,-136.6L3.7,130.6C3.7,133.9,6.4,136.6,9.7,136.6L13.5,136.6" ed:tosuperid="165" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2462.3)" fill="none" id="169" ed:parentid="162" d="M-13.5,451.4L3.7,451.4L3.7,-445.4C3.7,-448.7,6.4,-451.4,9.7,-451.4L13.5,-451.4" ed:tosuperid="168" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2477.1)" fill="none" id="171" ed:parentid="162" d="M3.7,436.6L3.7,-430.6C3.7,-433.9,6.4,-436.6,9.7,-436.6L13.5,-436.6" ed:tosuperid="170" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2491.9)" fill="none" id="173" ed:parentid="162" d="M3.7,421.8L3.7,-415.8C3.7,-419.1,6.4,-421.8,9.7,-421.8L13.5,-421.8" ed:tosuperid="172" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2506.7)" fill="none" id="175" ed:parentid="162" d="M3.7,407L3.7,-401C3.7,-404.3,6.4,-407,9.7,-407L13.5,-407" ed:tosuperid="174" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2521.5)" fill="none" id="177" ed:parentid="162" d="M3.7,392.2L3.7,-386.2C3.7,-389.5,6.4,-392.2,9.7,-392.2L13.5,-392.2" ed:tosuperid="176" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2570.3)" fill="none" id="179" ed:parentid="162" d="M3.7,343.4L3.7,-337.4C3.7,-340.7,6.4,-343.4,9.7,-343.4L13.5,-343.4" ed:tosuperid="178" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,1056.7,2192.9)" fill="none" id="181" ed:parentid="178" d="M-13.5,34L3.7,34L3.7,-28C3.7,-31.3,6.4,-34,9.7,-34L13.5,-34" ed:tosuperid="180" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,1056.7,2207.7)" fill="none" id="183" ed:parentid="178" d="M3.7,19.2L3.7,-13.2C3.7,-16.5,6.4,-19.2,9.7,-19.2L13.5,-19.2" ed:tosuperid="182" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,1056.7,2222.5)" fill="none" id="185" ed:parentid="178" d="M3.7,4.4L3.7,1.6C3.7,-1.7,6.4,-4.4,9.7,-4.4L13.5,-4.4" ed:tosuperid="184" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,1056.7,2237.3)" fill="none" id="187" ed:parentid="178" d="M3.7,-10.4L3.7,4.4C3.7,7.7,6.4,10.4,9.7,10.4L13.5,10.4" ed:tosuperid="186" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,1056.7,2260.9)" fill="none" id="189" ed:parentid="178" d="M3.7,-34L3.7,28C3.7,31.3,6.4,34,9.7,34L13.5,34" ed:tosuperid="188" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,2875.1)" fill="none" id="196" ed:parentid="162" d="M3.7,38.6L3.7,-32.6C3.7,-35.9,6.4,-38.6,9.7,-38.6L13.5,-38.6" ed:tosuperid="195" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,2580.5)" fill="none" id="198" ed:parentid="195" d="M-13.5,256L3.7,256L3.7,-250C3.7,-253.3,6.4,-256,9.7,-256L13.5,-256" ed:tosuperid="197" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,2595.3)" fill="none" id="200" ed:parentid="195" d="M3.7,241.2L3.7,-235.2C3.7,-238.5,6.4,-241.2,9.7,-241.2L13.5,-241.2" ed:tosuperid="199" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,2706.1)" fill="none" id="202" ed:parentid="195" d="M3.7,130.4L3.7,-124.4C3.7,-127.7,6.4,-130.4,9.7,-130.4L13.5,-130.4" ed:tosuperid="201" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,2792.1)" fill="none" id="205" ed:parentid="195" d="M3.7,44.4L3.7,-38.4C3.7,-41.7,6.4,-44.4,9.7,-44.4L13.5,-44.4" ed:tosuperid="204" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,2975.7)" fill="none" id="208" ed:parentid="195" d="M3.7,-139.2L3.7,133.2C3.7,136.5,6.4,139.2,9.7,139.2L13.5,139.2" ed:tosuperid="207" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3092.5)" fill="none" id="211" ed:parentid="195" d="M3.7,-256L3.7,250C3.7,253.3,6.4,256,9.7,256L13.5,256" ed:tosuperid="210" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,711.7,3255.5)" fill="none" id="214" ed:parentid="162" d="M3.7,-341.8L3.7,335.8C3.7,339.1,6.4,341.8,9.7,341.8L13.5,341.8" ed:tosuperid="213" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3487.7)" fill="none" id="216" ed:parentid="213" d="M-13.5,109.6L3.7,109.6L3.7,-103.6C3.7,-106.9,6.4,-109.6,9.7,-109.6L13.5,-109.6" ed:tosuperid="215" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3557.3)" fill="none" id="218" ed:parentid="213" d="M3.7,40L3.7,-34C3.7,-37.3,6.4,-40,9.7,-40L13.5,-40" ed:tosuperid="217" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3635.7)" fill="none" id="220" ed:parentid="213" d="M3.7,-38.4L3.7,32.4C3.7,35.7,6.4,38.4,9.7,38.4L13.5,38.4" ed:tosuperid="219" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3706.9)" fill="none" id="222" ed:parentid="213" d="M3.7,-109.6L3.7,103.6C3.7,106.9,6.4,109.6,9.7,109.6L13.5,109.6" ed:tosuperid="221" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3606.1)" fill="none" id="224" ed:parentid="213" d="M3.7,-8.8L3.7,2.8C3.7,6.1,6.4,8.8,9.7,8.8L13.5,8.8" ed:tosuperid="223" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3502.5)" fill="none" id="226" ed:parentid="213" d="M3.7,94.8L3.7,-88.8C3.7,-92.1,6.4,-94.8,9.7,-94.8L13.5,-94.8" ed:tosuperid="225" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,838.3,3517.3)" fill="none" id="228" ed:parentid="213" d="M3.7,80L3.7,-74C3.7,-77.3,6.4,-80,9.7,-80L13.5,-80" ed:tosuperid="227" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,465.9,3172.52)" fill="none" id="237" ed:parentid="102" d="M3.7,-956.8L3.7,950.8C3.7,954.1,6.4,956.8,9.7,956.8L13.5,956.8" ed:tosuperid="236" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,654.9,4102.9)" fill="none" id="239" ed:parentid="236" d="M-13.5,26.4L3.7,26.4L3.7,-20.4C3.7,-23.7,6.4,-26.4,9.7,-26.4L13.5,-26.4" ed:tosuperid="238" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,654.9,4256.1)" fill="none" id="243" ed:parentid="236" d="M3.7,-126.8L3.7,120.8C3.7,124.1,6.4,126.8,9.7,126.8L13.5,126.8" ed:tosuperid="242" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,509.9,4866.62)" fill="none" id="248" ed:parentid="104" d="M-13.5,75.6L3.7,75.6L3.7,-69.6C3.7,-72.9,6.4,-75.6,9.7,-75.6L13.5,-75.6" ed:tosuperid="247" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,654.9,4270.9)" fill="none" id="250" ed:parentid="236" d="M3.7,-141.6L3.7,135.6C3.7,138.9,6.4,141.6,9.7,141.6L13.5,141.6" ed:tosuperid="249" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4629.8)" fill="none" id="253" ed:parentid="247" d="M-13.5,161.2L3.7,161.2L3.7,-155.2C3.7,-158.5,6.4,-161.2,9.7,-161.2L13.5,-161.2" ed:tosuperid="252" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4653.4)" fill="none" id="255" ed:parentid="247" d="M3.7,137.6L3.7,-131.6C3.7,-134.9,6.4,-137.6,9.7,-137.6L13.5,-137.6" ed:tosuperid="254" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4677)" fill="none" id="257" ed:parentid="247" d="M3.7,114L3.7,-108C3.7,-111.3,6.4,-114,9.7,-114L13.5,-114" ed:tosuperid="256" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4691.8)" fill="none" id="259" ed:parentid="247" d="M3.7,99.2L3.7,-93.2C3.7,-96.5,6.4,-99.2,9.7,-99.2L13.5,-99.2" ed:tosuperid="258" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4721.4)" fill="none" id="261" ed:parentid="247" d="M3.7,69.6L3.7,-63.6C3.7,-66.9,6.4,-69.6,9.7,-69.6L13.5,-69.6" ed:tosuperid="260" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4736.2)" fill="none" id="263" ed:parentid="247" d="M3.7,54.8L3.7,-48.8C3.7,-52.1,6.4,-54.8,9.7,-54.8L13.5,-54.8" ed:tosuperid="262" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4751)" fill="none" id="265" ed:parentid="247" d="M3.7,40L3.7,-34C3.7,-37.3,6.4,-40,9.7,-40L13.5,-40" ed:tosuperid="264" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4765.8)" fill="none" id="267" ed:parentid="247" d="M3.7,25.2L3.7,-19.2C3.7,-22.5,6.4,-25.2,9.7,-25.2L13.5,-25.2" ed:tosuperid="266" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4780.6)" fill="none" id="269" ed:parentid="247" d="M3.7,10.4L3.7,-4.4C3.7,-7.7,6.4,-10.4,9.7,-10.4L13.5,-10.4" ed:tosuperid="268" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4795.4)" fill="none" id="271" ed:parentid="247" d="M3.7,-4.4L3.7,-1.6C3.7,1.7,6.4,4.4,9.7,4.4L13.5,4.4" ed:tosuperid="270" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4706.6)" fill="none" id="273" ed:parentid="247" d="M3.7,84.4L3.7,-78.4C3.7,-81.7,6.4,-84.4,9.7,-84.4L13.5,-84.4" ed:tosuperid="272" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,744.5,4952.2)" fill="none" id="325" ed:parentid="247" d="M3.7,-161.2L3.7,155.2C3.7,158.5,6.4,161.2,9.7,161.2L13.5,161.2" ed:tosuperid="324" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,509.9,5116.62)" fill="none" id="328" ed:parentid="104" d="M3.7,-174.4L3.7,168.4C3.7,171.7,6.4,174.4,9.7,174.4L13.5,174.4" ed:tosuperid="327" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5217)" fill="none" id="330" ed:parentid="327" d="M-13.5,74L3.7,74L3.7,-68C3.7,-71.3,6.4,-74,9.7,-74L13.5,-74" ed:tosuperid="329" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5246.6)" fill="none" id="332" ed:parentid="327" d="M3.7,44.4L3.7,-38.4C3.7,-41.7,6.4,-44.4,9.7,-44.4L13.5,-44.4" ed:tosuperid="331" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5231.8)" fill="none" id="334" ed:parentid="327" d="M3.7,59.2L3.7,-53.2C3.7,-56.5,6.4,-59.2,9.7,-59.2L13.5,-59.2" ed:tosuperid="333" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5261.4)" fill="none" id="337" ed:parentid="327" d="M3.7,29.6L3.7,-23.6C3.7,-26.9,6.4,-29.6,9.7,-29.6L13.5,-29.6" ed:tosuperid="336" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5276.2)" fill="none" id="340" ed:parentid="327" d="M3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" ed:tosuperid="339" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5291)" fill="none" id="342" ed:parentid="327" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="341" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5305.8)" fill="none" id="345" ed:parentid="327" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" ed:tosuperid="344" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5320.6)" fill="none" id="348" ed:parentid="327" d="M3.7,-29.6L3.7,23.6C3.7,26.9,6.4,29.6,9.7,29.6L13.5,29.6" ed:tosuperid="347" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5335.4)" fill="none" id="350" ed:parentid="327" d="M3.7,-44.4L3.7,38.4C3.7,41.7,6.4,44.4,9.7,44.4L13.5,44.4" ed:tosuperid="349" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5350.2)" fill="none" id="352" ed:parentid="327" d="M3.7,-59.2L3.7,53.2C3.7,56.5,6.4,59.2,9.7,59.2L13.5,59.2" ed:tosuperid="351" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,704.5,5365)" fill="none" id="354" ed:parentid="327" d="M3.7,-74L3.7,68C3.7,71.3,6.4,74,9.7,74L13.5,74" ed:tosuperid="353" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6030.13)" fill="none" id="357" ed:parentid="106" d="M-13.5,505.4L3.7,505.4L3.7,-499.4C3.7,-502.7,6.4,-505.4,9.7,-505.4L13.5,-505.4" ed:tosuperid="356" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,607.7,5509.9)" fill="none" id="359" ed:parentid="356" d="M-13.5,14.8L3.7,14.8L3.7,-8.8C3.7,-12.1,6.4,-14.8,9.7,-14.8L13.5,-14.8" ed:tosuperid="358" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,607.7,5524.7)" fill="none" id="361" ed:parentid="356" d="M3.7,0C3.7,0,6.4,0,9.7,0L13.5,0" ed:tosuperid="360" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,607.7,5539.5)" fill="none" id="363" ed:parentid="356" d="M3.7,-14.8L3.7,8.8C3.7,12.1,6.4,14.8,9.7,14.8L13.5,14.8" ed:tosuperid="362" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6110.13)" fill="none" id="365" ed:parentid="106" d="M3.7,425.4L3.7,-419.4C3.7,-422.7,6.4,-425.4,9.7,-425.4L13.5,-425.4" ed:tosuperid="364" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,570.7,5649.1)" fill="none" id="367" ed:parentid="364" d="M-13.5,35.6L3.7,35.6L3.7,-29.6C3.7,-32.9,6.4,-35.6,9.7,-35.6L13.5,-35.6" ed:tosuperid="366" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,570.7,5720.3)" fill="none" id="369" ed:parentid="364" d="M3.7,-35.6L3.7,29.6C3.7,32.9,6.4,35.6,9.7,35.6L13.5,35.6" ed:tosuperid="368" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6260.53)" fill="none" id="372" ed:parentid="106" d="M3.7,275L3.7,-269C3.7,-272.3,6.4,-275,9.7,-275L13.5,-275" ed:tosuperid="371" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,665.9,5885.5)" fill="none" id="374" ed:parentid="371" d="M-13.5,100L3.7,100L3.7,-94C3.7,-97.3,6.4,-100,9.7,-100L13.5,-100" ed:tosuperid="373" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,665.9,5900.3)" fill="none" id="376" ed:parentid="371" d="M3.7,85.2L3.7,-79.2C3.7,-82.5,6.4,-85.2,9.7,-85.2L13.5,-85.2" ed:tosuperid="375" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,665.9,6070.7)" fill="none" id="378" ed:parentid="371" d="M3.7,-85.2L3.7,79.2C3.7,82.5,6.4,85.2,9.7,85.2L13.5,85.2" ed:tosuperid="377" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,665.9,6085.5)" fill="none" id="381" ed:parentid="371" d="M3.7,-100L3.7,94C3.7,97.3,6.4,100,9.7,100L13.5,100" ed:tosuperid="380" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6466.13)" fill="none" id="384" ed:parentid="106" d="M3.7,69.4L3.7,-63.4C3.7,-66.7,6.4,-69.4,9.7,-69.4L13.5,-69.4" ed:tosuperid="383" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,597.9,6305.9)" fill="none" id="409" ed:parentid="383" d="M-13.5,90.8L3.7,90.8L3.7,-84.8C3.7,-88.1,6.4,-90.8,9.7,-90.8L13.5,-90.8" ed:tosuperid="408" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,597.9,6320.7)" fill="none" id="411" ed:parentid="383" d="M3.7,76L3.7,-70C3.7,-73.3,6.4,-76,9.7,-76L13.5,-76" ed:tosuperid="410" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,597.9,6385.1)" fill="none" id="413" ed:parentid="383" d="M3.7,11.6L3.7,-5.6C3.7,-8.9,6.4,-11.6,9.7,-11.6L13.5,-11.6" ed:tosuperid="412" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,597.9,6487.5)" fill="none" id="416" ed:parentid="383" d="M3.7,-90.8L3.7,84.8C3.7,88.1,6.4,90.8,9.7,90.8L13.5,90.8" ed:tosuperid="415" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6642.93)" fill="none" id="419" ed:parentid="106" d="M3.7,-107.4L3.7,101.4C3.7,104.7,6.4,107.4,9.7,107.4L13.5,107.4" ed:tosuperid="418" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,689.9,6679.1)" fill="none" id="421" ed:parentid="418" d="M-13.5,71.2L3.7,71.2L3.7,-65.2C3.7,-68.5,6.4,-71.2,9.7,-71.2L13.5,-71.2" ed:tosuperid="420" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,689.9,6693.9)" fill="none" id="423" ed:parentid="418" d="M3.7,56.4L3.7,-50.4C3.7,-53.7,6.4,-56.4,9.7,-56.4L13.5,-56.4" ed:tosuperid="422" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,689.9,6821.5)" fill="none" id="425" ed:parentid="418" d="M3.7,-71.2L3.7,65.2C3.7,68.5,6.4,71.2,9.7,71.2L13.5,71.2" ed:tosuperid="424" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6898.13)" fill="none" id="428" ed:parentid="106" d="M3.7,-362.6L3.7,356.6C3.7,359.9,6.4,362.6,9.7,362.6L13.5,362.6" ed:tosuperid="427" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,425.1,6059.73)" fill="none" id="441" ed:parentid="106" d="M3.7,475.8L3.7,-469.8C3.7,-473.1,6.4,-475.8,9.7,-475.8L13.5,-475.8" ed:tosuperid="440" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7091.5)" fill="none" id="444" ed:parentid="427" d="M-13.5,169.2L3.7,169.2L3.7,-163.2C3.7,-166.5,6.4,-169.2,9.7,-169.2L13.5,-169.2" ed:tosuperid="443" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7229.1)" fill="none" id="446" ed:parentid="427" d="M3.7,31.6L3.7,-25.6C3.7,-28.9,6.4,-31.6,9.7,-31.6L13.5,-31.6" ed:tosuperid="445" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7243.9)" fill="none" id="449" ed:parentid="427" d="M3.7,16.8L3.7,-10.8C3.7,-14.1,6.4,-16.8,9.7,-16.8L13.5,-16.8" ed:tosuperid="448" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7258.7)" fill="none" id="451" ed:parentid="427" d="M3.7,2C3.7,-0.2,6.4,-2,9.7,-2L13.5,-2" ed:tosuperid="450" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7273.5)" fill="none" id="453" ed:parentid="427" d="M3.7,-12.8L3.7,6.8C3.7,10.1,6.4,12.8,9.7,12.8L13.5,12.8" ed:tosuperid="452" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7288.3)" fill="none" id="455" ed:parentid="427" d="M3.7,-27.6L3.7,21.6C3.7,24.9,6.4,27.6,9.7,27.6L13.5,27.6" ed:tosuperid="454" stroke-linecap="round"/>
+    <path stroke="#696969" stroke-linejoin="round" transform="matrix(1,0,0,1,684.3,7429.9)" fill="none" id="457" ed:parentid="427" d="M3.7,-169.2L3.7,163.2C3.7,166.5,6.4,169.2,9.7,169.2L13.5,169.2" ed:tosuperid="456" stroke-linecap="round"/>
+    <g ed:topictype="mainidea" ed:width="205" transform="matrix(1,0,0,1,23,3782.65)" ed:layout="rightmap" id="101" ed:height="52.8">
+        <path stroke="#435fbc" stroke-linejoin="round" stroke-width="3" fill="#435fbc" d="M4,0L201,0C203.7,0,205,1.3,205,4L205,48.8C205,51.5,203.7,52.8,201,52.8L4,52.8C1.3,52.8,0,51.5,0,48.8L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st1">
+            <tspan style="white-space:pre" y="32.2" x="21">第五章 实施任务控制</tspan>
+        </text>
+    </g>
+    <g ed:width="161.4" transform="matrix(1,0,0,1,291,2198.95)" id="102" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" stroke-linejoin="round" fill="#ebecf3" d="M4,0L157.4,0C160.1,0,161.4,1.3,161.4,4L161.4,29.6C161.4,32.3,160.1,33.6,157.4,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st2">
+            <tspan style="white-space:pre" y="21.8" x="18">编写循环和条件任务</tspan>
+        </text>
+    </g>
+    <g ed:width="205.4" transform="matrix(1,0,0,1,291,4925.45)" id="104" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" stroke-linejoin="round" fill="#ebecf3" d="M4,0L201.4,0C204.1,0,205.4,1.3,205.4,4L205.4,29.6C205.4,32.3,204.1,33.6,201.4,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st2">
+            <tspan style="white-space:pre" y="21.8" x="18">实施处理程序（handlers）</tspan>
+        </text>
+    </g>
+    <g ed:width="120.6" transform="matrix(1,0,0,1,291,6518.75)" id="106" ed:parentid="101" ed:height="33.6">
+        <path stroke="#ebecf3" stroke-linejoin="round" fill="#ebecf3" d="M4,0L116.6,0C119.3,0,120.6,1.3,120.6,4L120.6,29.6C120.6,32.3,119.3,33.6,116.6,33.6L4,33.6C1.3,33.6,0,32.3,0,29.6L0,4C0,1.3,1.3,0,4,0z"/>
+        <text class="st2">
+            <tspan style="white-space:pre" y="21.8" x="18">处理任务失败</tspan>
+        </text>
+    </g>
+    <g ed:width="182.8" transform="matrix(1,0,0,1,479.4,988.6)" id="108" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L182.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">利用循环迭代任务（loop）</tspan>
+        </text>
+    </g>
+    <g ed:width="371.6" transform="matrix(1,0,0,1,689.2,19)" id="110" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L371.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">通过利用循环，管理员无需编写多个使用同一模块的任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="345.2" transform="matrix(1,0,0,1,689.2,48.6)" id="112" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L345.2,23.1"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.4" x="8">Ansible支持使用 </tspan>
+            <tspan style="white-space:pre">loop</tspan>
+            <tspan class="st6" style="white-space:pre"> 关键字</tspan>
+            <tspan class="st5" style="white-space:pre">对一组项目迭代任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="698" transform="matrix(1,0,0,1,689.2,78.2)" id="114" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L698,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">可以配置循环以利用列表中的各个项目、列表中各个文件的内容、生成的数字序列或更为复杂的结构来重复任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="186" transform="matrix(1,0,0,1,689.2,343.8)" id="116" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L186,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">简单循环（simple loops）</tspan>
+        </text>
+    </g>
+    <g ed:width="208.4" transform="matrix(1,0,0,1,902.2,107.8)" id="118" ed:parentid="116" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L208.4,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">简单循环对一组项目迭代任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="414" transform="matrix(1,0,0,1,902.2,137.4)" id="120" ed:parentid="116" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L414,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">loop关键字添加到任务中，将应对其迭代任务的项目列表取为值。</tspan>
+        </text>
+    </g>
+    <g ed:width="320.4" transform="matrix(1,0,0,1,902.2,167)" id="122" ed:parentid="116" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L320.4,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">循环变量 </tspan>
+            <tspan class="st8" style="white-space:pre">item</tspan>
+            <tspan style="white-space:pre"> 保存每个迭代过程中使用的值。</tspan>
+        </text>
+    </g>
+    <g ed:width="422.8" transform="matrix(1,0,0,1,902.2,196.6)" id="124" ed:parentid="116" ed:height="164.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,164.7L422.8,164.7"/>
+        <image height="141.6" width="404.8" y="33" id="shape1" xlink:href="chapter5.html.files/image1.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">简单循环示例1：</tspan>
+        </text>
+    </g>
+    <g ed:width="422.8" transform="matrix(1,0,0,1,902.2,367.8)" id="128" ed:parentid="116" ed:height="235.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,235.1L422.8,235.1"/>
+        <image height="212" width="404.8" y="33" id="shape2" xlink:href="chapter5.html.files/image2.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">简单循环示例2：</tspan>
+        </text>
+    </g>
+    <g ed:width="154" transform="matrix(1,0,0,1,689.2,734.6)" id="131" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L154,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">循环散列或字典的列表</tspan>
+        </text>
+    </g>
+    <g ed:width="414" transform="matrix(1,0,0,1,870.2,609.4)" id="133" ed:parentid="131" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L414,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">loop关键字指定的列表项，可以是简单值，也可以是散列或字典。</tspan>
+        </text>
+    </g>
+    <g ed:width="423.6" transform="matrix(1,0,0,1,870.2,668.6)" id="135" ed:parentid="131" ed:height="214.3">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,214.3L423.6,214.3"/>
+        <image height="191.2" width="405.6" y="33" id="shape3" xlink:href="chapter5.html.files/image3.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">使用散列或字典的循环变量示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="325" transform="matrix(1,0,0,1,870.2,639)" id="137" ed:parentid="131" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L325,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">loop循环中的每个列表项作为循环变量item。</tspan>
+        </text>
+    </g>
+    <symbol id="imgAttention">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjk3NUE4NjQ5MUI2QTExRTc5OERCQjQ1MTZGMTA2RDM2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjk3NUE4NjRBMUI2QTExRTc5OERCQjQ1MTZGMTA2RDM2Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTc1QTg2NDcxQjZBMTFFNzk4REJCNDUxNkYxMDZEMzYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTc1QTg2NDgxQjZBMTFFNzk4REJCNDUxNkYxMDZEMzYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6H3G2rAAAC60lEQVR42uxbv2sUURD+3rsN8c4fiYqgSDQEYxEUNZ2NtY2HlRzaWVhYCSIIWoqI2BoQxFKChchxYBEIIf+AEcFCIRamSRDEeGbRy+04713uxwp6KWTusbMDe8nOvs3bmffNNzPvNoaI4GXWjKGIMgjX+WwK2ZT3MJhBjCoq9NkpjHdA1Zxjw5/zsZd1JWRbNtgJX/m4jDItGnqJ86x8wYrd0CSE7/x5yTlgiY0/BY1CeGvVrXyvsO2WvTCh1gFsu4VzgVZh2535pBgBFHnzjeCkF/v4uzYCbK5LOQDhhUBpXDwEgsOl5FRWdsbtPFQiOpsVjf/QEGB8FIQWBImkrwPkANLOAZDmgNAwIIkAnwYTxQhIWgiAYgTkWSDAQkj0cSi0AJDOAnCVoF4EmCD3A+Q5QG8vgLwbDDALQDoLhNYOSyIgzHZYtBsMMAuQdBawihFgcwTku8IBlsKiWSCvA3IOyL8XyHuBvBdQngWU9wKRR4CkC14FxLph1gEQ5gDl7whZ3esPRAPLAjuPA/vPAj9XgbU5fpjmQDggGggHnHkKHLzAZdhwa/rGOvDxIfDpsTgGIs8BksR8+gkwdoWN39HVDY0CJx7wzxHgw33xXkAOAePXgMOVtPFtKewCJm8BR69mOA0eu8mrvOfv1x0SJm9nNA0OH+CVH+o/zo3Zzrj/FgJSibDxDSge6T+uUAKShowDrGQIJL+ALwv9G6HV1xmuBJeYBJsb/yAlTkdvBElQ/A2RH8vA/EmesZGe1qGjGQO1feIbIvKFkHNCjdl+ivP96DSwWefQmOdC6NFAimH5dtiJC4N3NwJph9V3g+r3A4BYsQNi54AVxQ5YcZXgMyaDNXWmO5vZdosyVdHEHWaCuiLyq3ub2XbT+ff5qqmw8i57pshnE36YaTGlp8l0vkhfQ2dPoX1GW985UUdnOtfan109/fG3bY/O9IxF6t70/cChntVtvW5oto7u3cv8e4wC7rHxs07xW4ABAOmMUmthDITaAAAAAElFTkSuQmCC"/>
+    </symbol>
+    <g ed:width="154" transform="matrix(1,0,0,1,689.2,1135.8)" id="141" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L154,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">较早样式的循环关键字</tspan>
+        </text>
+    </g>
+    <g ed:width="469.2" transform="matrix(1,0,0,1,870.2,889.4)" id="143" ed:parentid="141" ed:height="209.5">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,209.5L469.2,209.5"/>
+        <image height="204" width="451.2" y="15" id="shape4" xlink:href="chapter5.html.files/image4.png" x="4"/>
+        <text class="st3"/>
+    </g>
+    <g ed:width="370.7" transform="matrix(1,0,0,1,870.2,1105.4)" id="146" ed:parentid="141" ed:height="211.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,211.1L370.7,211.1"/>
+        <image height="188" width="349.6" y="33" id="shape5" xlink:href="chapter5.html.files/image5.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">with_items关键字示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="362.6" transform="matrix(1,0,0,1,870.2,1323)" id="149" ed:parentid="141" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L362.6,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgCorrect"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">从Ansible 2.5开始，建议使用loop关键字编写循环。</tspan>
+        </text>
+    </g>
+    <symbol id="imgCorrect">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjc0QUJBOTYzMUI2ODExRTc4QzI1QjIzOEUwRERCODY3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjc0QUJBOTY0MUI2ODExRTc4QzI1QjIzOEUwRERCODY3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzRBQkE5NjExQjY4MTFFNzhDMjVCMjM4RTBEREI4NjciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NzRBQkE5NjIxQjY4MTFFNzhDMjVCMjM4RTBEREI4NjciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz53d789AAAGOUlEQVR42uRb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"/>
+    </symbol>
+    <g ed:width="486" transform="matrix(1,0,0,1,870.2,1352.6)" id="151" ed:parentid="141" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L486,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">但仍需了解旧语法，尤其是 </tspan>
+            <tspan class="st8" style="white-space:pre">with_items</tspan>
+            <tspan style="white-space:pre">，因为它广泛用于现有playbook。</tspan>
+        </text>
+    </g>
+    <g ed:width="490.8" transform="matrix(1,0,0,1,870.2,1382.2)" id="153" ed:parentid="141" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L490.8,23.1"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.4" x="8">可能会遇到继续使使用</tspan>
+            <tspan class="st9" style="white-space:pre"> </tspan>
+            <tspan style="white-space:pre">with_* </tspan>
+            <tspan class="st6" style="white-space:pre">关键字</tspan>
+            <tspan class="st5" style="white-space:pre">进行循环的playbook和角色（role）。</tspan>
+        </text>
+    </g>
+    <g ed:width="213.2" transform="matrix(1,0,0,1,689.2,1685)" id="155" ed:parentid="108" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L213.2,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">将register变量与loop一起使用</tspan>
+        </text>
+    </g>
+    <g ed:width="291.6" transform="matrix(1,0,0,1,929.4,1411.8)" id="157" ed:parentid="155" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L291.6,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">register关键字也可捕获循环任务的输出。</tspan>
+        </text>
+    </g>
+    <g ed:width="465.2" transform="matrix(1,0,0,1,929.4,1441.4)" id="160" ed:parentid="155" ed:height="308.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,308.7L465.2,308.7"/>
+        <image height="285.6" width="447.2" y="33" id="shape6" xlink:href="chapter5.html.files/image6.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">loop循环、register关键字与debug模块示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="218.8" transform="matrix(1,0,0,1,479.4,2890.6)" id="162" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L218.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">有条件（condition）地运行任务</tspan>
+        </text>
+    </g>
+    <g ed:width="474" transform="matrix(1,0,0,1,929.4,1756.6)" id="165" ed:parentid="155" ed:height="224.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,224.7L474,224.7"/>
+        <image height="201.6" width="456" y="33" id="shape7" xlink:href="chapter5.html.files/image7.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">运行结果示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="414.8" transform="matrix(1,0,0,1,725.2,1987.8)" id="168" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L414.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible可使用conditionals在符合特定条件时执行任务或play。</tspan>
+        </text>
+    </g>
+    <g ed:width="503.6" transform="matrix(1,0,0,1,725.2,2017.4)" id="170" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L503.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">如，可以利用一个条件在Ansible安装或配置服务前确定受管主机上的可用内存。</tspan>
+        </text>
+    </g>
+    <g ed:width="534.8" transform="matrix(1,0,0,1,725.2,2047)" id="172" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L534.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">管理员可利用条件来区分不同的受管主机，并根据它们所符合的条件来分配功能角色。</tspan>
+        </text>
+    </g>
+    <g ed:width="428.4" transform="matrix(1,0,0,1,725.2,2076.6)" id="174" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L428.4,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">playbook变量、注册的变量和Ansible事实都可通过条件来测试。</tspan>
+        </text>
+    </g>
+    <g ed:width="330.8" transform="matrix(1,0,0,1,725.2,2106.2)" id="176" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L330.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">可以使用比较字符串、数字数据和布尔值的运算符。</tspan>
+        </text>
+    </g>
+    <g ed:width="318" transform="matrix(1,0,0,1,725.2,2203.8)" id="178" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L318,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible中使用条件（conditionals）的场景示例</tspan>
+        </text>
+    </g>
+    <g ed:width="544.2" transform="matrix(1,0,0,1,1070.2,2135.8)" id="180" ed:parentid="178" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L544.2,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority1"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">可在变量中定义硬限制（如min_memory）并将它与受管主机上的可用内存进行比较。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority1">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDM1QTY0MTQ0RjFFMTFFNzk5OTg5NzAxRkFDRkJENTQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDM1QTY0MTM0RjFFMTFFNzk5OTg5NzAxRkFDRkJENTQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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"/>
+    </symbol>
+    <g ed:width="562.6" transform="matrix(1,0,0,1,1070.2,2165.4)" id="182" ed:parentid="178" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L562.6,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority2"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">Ansible可捕获并评估命令的输出，以确定任务在执行进一步操作前是否已经完成。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority2">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDY5M0Q3Mzc0RjFFMTFFNzgzRkJDQTZFQkVEQThDMkYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDY5M0Q3MzY0RjFFMTFFNzgzRkJDQTZFQkVEQThDMkYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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"/>
+    </symbol>
+    <g ed:width="495.4" transform="matrix(1,0,0,1,1070.2,2195)" id="184" ed:parentid="178" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L495.4,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority3"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">可利用Ansible事实来确定受管主机网络配置，并且决定要发送的模板文件。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority3">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDk4RkI2NjM0RjFFMTFFNzhBQzhGNjM2M0I4NUNFOEQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDk4RkI2NjI0RjFFMTFFNzhBQzhGNjM2M0I4NUNFOEQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6M2RhODcyYzEtZTY3ZS01NjRhLTg4OGUtOGMxNThkNWE3YzExIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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"/>
+    </symbol>
+    <g ed:width="379.4" transform="matrix(1,0,0,1,1070.2,2224.6)" id="186" ed:parentid="178" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L379.4,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority4"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">可评估CPU的数量，来确定如何正确调节某一Web服务器。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority4">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEMyQUFFRjk0RjFFMTFFNzk2NkM4RTM1QkFDMEZDNEQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEMyQUFFRjg0RjFFMTFFNzk2NkM4RTM1QkFDMEZDNEQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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"/>
+    </symbol>
+    <g ed:width="454.7" transform="matrix(1,0,0,1,1070.2,2254.2)" id="188" ed:parentid="178" ed:height="40.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,40.7L454.7,40.7"/>
+        <g transform="translate(7,11.35)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority5"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">将注册的变量与预定义的变量进行比较，以确定服务是否已更改。</tspan>
+            <tspan style="white-space:pre" y="34" x="27">如，测试服务配置文件的 MD5 校验和以查看服务是否已更改。</tspan>
+        </text>
+    </g>
+    <symbol id="imgpriority5">
+        <image height="16" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4RpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTc5MWZiNS1jNjU5LTdhNGMtYTdmZC1iOGU1NDQxOTk2OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEYxNzgxQjI0RjFFMTFFNzg3RDc5NDlEMEQ2MjhFMTYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEYxNzgxQjE0RjFFMTFFNzg3RDc5NDlEMEQ2MjhFMTYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjMwOGYyMTAtNTdmOC0wMjQ0LTljNTMtZWFlNGUwZGU3OGY5IiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTlkY2RhMjUtNGQwNC0xMWU3LTgyOTYt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"/>
+    </symbol>
+    <g ed:width="99.59999999999999" transform="matrix(1,0,0,1,725.2,2813.4)" id="195" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L99.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">条件任务语法</tspan>
+        </text>
+    </g>
+    <g ed:width="241.2" transform="matrix(1,0,0,1,851.8,2301.4)" id="197" ed:parentid="195" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L241.2,23.1"/>
+        <text class="st7">
+            <tspan class="st8" style="white-space:pre" y="16.4" x="8">when</tspan>
+            <tspan style="white-space:pre"> 语句用于有条件地运行任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="592.4" transform="matrix(1,0,0,1,851.8,2331)" id="199" ed:parentid="195" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L592.4,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">它将测试的条件作为值，若条件满足，则运行任务；若条件不满足，则跳过任务（</tspan>
+            <tspan class="st10" style="white-space:pre">skipping</tspan>
+            <tspan style="white-space:pre">）。</tspan>
+        </text>
+    </g>
+    <g ed:width="386.8" transform="matrix(1,0,0,1,851.8,2360.6)" id="201" ed:parentid="195" ed:height="215.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,215.1L386.8,215.1"/>
+        <image height="192" width="368.8" y="33" id="shape8" xlink:href="chapter5.html.files/image8.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例1：when语句条件值为布尔值（true或false）</tspan>
+        </text>
+    </g>
+    <g ed:width="399.6" transform="matrix(1,0,0,1,851.8,2582.2)" id="204" ed:parentid="195" ed:height="165.5">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,165.5L399.6,165.5"/>
+        <image height="142.4" width="381.6" y="33" id="shape9" xlink:href="chapter5.html.files/image9.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例2：when语句条件值为变量是否被定义</tspan>
+        </text>
+    </g>
+    <g ed:width="395.6" transform="matrix(1,0,0,1,851.8,2754.2)" id="207" ed:parentid="195" ed:height="360.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,360.7L395.6,360.7"/>
+        <image height="337.6" width="377.6" y="33" id="shape10" xlink:href="chapter5.html.files/image10.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">when语句的条件示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="468.4" transform="matrix(1,0,0,1,851.8,3121.4)" id="210" ed:parentid="195" ed:height="227.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,227.1L468.4,227.1"/>
+        <image height="204" width="450.4" y="33" id="shape11" xlink:href="chapter5.html.files/image11.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例3：when语句条件值使用事实变量</tspan>
+        </text>
+    </g>
+    <g ed:width="99.59999999999999" transform="matrix(1,0,0,1,725.2,3574.2)" id="213" ed:parentid="162" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L99.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">测试多个条件</tspan>
+        </text>
+    </g>
+    <g ed:width="562.8" transform="matrix(1,0,0,1,851.8,3355)" id="215" ed:parentid="213" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L562.8,23.1"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.4" x="8">可使用 </tspan>
+            <tspan style="white-space:pre">and</tspan>
+            <tspan class="st5" style="white-space:pre"> 或 </tspan>
+            <tspan style="white-space:pre">or</tspan>
+            <tspan class="st6" style="white-space:pre"> 关键字</tspan>
+            <tspan class="st5" style="white-space:pre">组合条件，并使用括号分组条件来实现when语句的多条件评估。</tspan>
+        </text>
+    </g>
+    <g ed:width="526.8" transform="matrix(1,0,0,1,851.8,3443.8)" id="217" ed:parentid="213" ed:height="73.5">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,73.5L526.8,73.5"/>
+        <image height="50.4" width="508.8" y="33" id="shape12" xlink:href="chapter5.html.files/image12.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例1：and关键字表示方法1</tspan>
+        </text>
+    </g>
+    <g ed:width="535.6" transform="matrix(1,0,0,1,851.8,3621.4)" id="219" ed:parentid="213" ed:height="52.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,52.7L535.6,52.7"/>
+        <image height="29.6" width="517.6" y="33" id="shape13" xlink:href="chapter5.html.files/image13.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">示例3：or关键字</tspan>
+        </text>
+    </g>
+    <g ed:width="527.6" transform="matrix(1,0,0,1,851.8,3680.6)" id="221" ed:parentid="213" ed:height="135.9">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,135.9L527.6,135.9"/>
+        <image height="112.8" width="509.6" y="33" id="shape14" xlink:href="chapter5.html.files/image14.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例4：</tspan>
+            <tspan class="st10" style="white-space:pre">使用括号分组</tspan>
+        </text>
+    </g>
+    <g ed:width="527.6" transform="matrix(1,0,0,1,851.8,3523.8)" id="223" ed:parentid="213" ed:height="91.09999999999999">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,91.1L527.6,91.1"/>
+        <image height="68" width="509.6" y="33" id="shape15" xlink:href="chapter5.html.files/image15.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例2：and关键字表示方法2</tspan>
+        </text>
+    </g>
+    <g ed:width="274.6" transform="matrix(1,0,0,1,851.8,3384.6)" id="225" ed:parentid="213" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L274.6,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">and关键字：条件测试两者必须都为真</tspan>
+        </text>
+    </g>
+    <g ed:width="281.8" transform="matrix(1,0,0,1,851.8,3414.2)" id="227" ed:parentid="213" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L281.8,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">or关键字：条件测试两者只需其一为真</tspan>
+        </text>
+    </g>
+    <g ed:width="162" transform="matrix(1,0,0,1,479.4,4106.2)" id="236" ed:parentid="102" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L162,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">组合循环和有条件任务</tspan>
+        </text>
+    </g>
+    <g ed:width="645.8" transform="matrix(1,0,0,1,668.4,3823)" id="238" ed:parentid="236" ed:height="253.5">
+        <path fill="#fcf384" d="M0,0L645.8,0L645.8,253.5L0,253.5L0,0z"/>
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,253.5L645.8,253.5"/>
+        <g transform="translate(7,117.75)">
+            <use transform="translate(0,0)" xlink:href="#imgCorrect"/>
+        </g>
+        <image height="230.4" width="608.8" y="33" id="shape16" xlink:href="chapter5.html.files/image16.png" x="4"/>
+        <text class="st3">
+            <tspan class="st10" style="white-space:pre" y="16.5" x="27">loop循环与when语句结合示例：</tspan>
+            <tspan style="white-space:pre">when语句对每次loop循环都做条件测试</tspan>
+        </text>
+    </g>
+    <g ed:width="497.8" transform="matrix(1,0,0,1,668.4,4083)" id="242" ed:parentid="236" ed:height="299.9">
+        <path fill="#fcf384" d="M0,0L497.8,0L497.8,299.9L0,299.9L0,0z"/>
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,299.9L497.8,299.9"/>
+        <g transform="translate(7,140.95)">
+            <use transform="translate(0,0)" xlink:href="#imgCorrect"/>
+        </g>
+        <image height="276.8" width="460.8" y="33" id="shape17" xlink:href="chapter5.html.files/image17.png" x="4"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.5" x="26">register关键字与when语句结合示例：</tspan>
+            <tspan class="st9" style="white-space:pre">关联各个任务间的状态</tspan>
+        </text>
+    </g>
+    <g ed:width="207.6" transform="matrix(1,0,0,1,523.4,4767.9)" id="247" ed:parentid="104" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L207.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible处理程序（handlers）</tspan>
+        </text>
+    </g>
+    <g ed:width="735.4" transform="matrix(1,0,0,1,668.4,4389.4)" id="249" ed:parentid="236" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L735.4,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgCorrect"/>
+        </g>
+        <text class="st11">
+            <tspan class="st12" style="white-space:pre" y="16.4" x="27">总结：</tspan>
+            <tspan class="st13" style="white-space:pre">loop循环的值由列表实现，且简单值、散列或字典、</tspan>
+            <tspan style="white-space:pre">Ansible事实变量</tspan>
+            <tspan class="st13" style="white-space:pre">可作为item循环变量（列表项）。</tspan>
+        </text>
+    </g>
+    <g ed:width="218" transform="matrix(1,0,0,1,758,4445.5)" id="252" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L218,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible模块设计为具有幂等性。</tspan>
+        </text>
+    </g>
+    <g ed:width="514" transform="matrix(1,0,0,1,758,4475.1)" id="254" ed:parentid="247" ed:height="40.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,40.7L514,40.7"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">在正确编写的playbook中，playbook及其任务可以运行多次而不会改变受管主机，</tspan>
+            <tspan style="white-space:pre" y="34" x="8">除非需要进行更改使受管主机进入所需的状态。</tspan>
+        </text>
+    </g>
+    <g ed:width="640.5" transform="matrix(1,0,0,1,758,4522.3)" id="256" ed:parentid="247" ed:height="40.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,40.7L640.5,40.7"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">有时在任务确实更改系统时，可能需要运行进一步的任务，如更改服务配置文件时可能要求重新加载该</tspan>
+            <tspan style="white-space:pre" y="34" x="8">服务以便使更改的配置生效。</tspan>
+        </text>
+    </g>
+    <g ed:width="522" transform="matrix(1,0,0,1,758,4569.5)" id="258" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L522,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">处理程序（handlers）是响应由其他任务触发的通知（notification）的任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="426" transform="matrix(1,0,0,1,758,4628.7)" id="260" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L426,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">仅当任务在受管主机上更改了某些内容时，任务才通知其处理程序。</tspan>
+        </text>
+    </g>
+    <g ed:width="464.4" transform="matrix(1,0,0,1,758,4658.3)" id="262" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L464.4,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">每个处理程序具有全局唯一的名称，在playbook中任务块的末尾触发。</tspan>
+        </text>
+    </g>
+    <g ed:width="385.2" transform="matrix(1,0,0,1,758,4687.9)" id="264" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L385.2,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">如果没有任务通过名称通知处理程序，处理程序就不会运行。</tspan>
+        </text>
+    </g>
+    <g ed:width="608.4" transform="matrix(1,0,0,1,758,4717.5)" id="266" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L608.4,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">如果一个或多个任务通知处理程序，处理程序就会在play中的所有其他任务完成后运行一次。</tspan>
+        </text>
+    </g>
+    <g ed:width="563.6" transform="matrix(1,0,0,1,758,4747.1)" id="268" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L563.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">因为处理程序就是任务（task），所以可以在处理程序中使用将用于任何其他任务的模块。</tspan>
+        </text>
+    </g>
+    <g ed:width="392.4" transform="matrix(1,0,0,1,758,4776.7)" id="270" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L392.4,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">通常而言，处理程序被用于重新引导主机和重新启动服务。</tspan>
+        </text>
+    </g>
+    <g ed:width="697.2" transform="matrix(1,0,0,1,758,4599.1)" id="272" ed:parentid="247" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L697.2,23.1"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.4" x="8">处理程序可视为非活动任务（inactive task），只有在使用 </tspan>
+            <tspan style="white-space:pre">notify</tspan>
+            <tspan class="st6" style="white-space:pre"> 语句</tspan>
+            <tspan class="st5" style="white-space:pre">显式调用时才会被触发（trigger）。</tspan>
+        </text>
+    </g>
+    <g ed:width="467.6" transform="matrix(1,0,0,1,758,4806.3)" id="324" ed:parentid="247" ed:height="307.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,307.1L467.6,307.1"/>
+        <image height="284" width="449.6" y="33" id="shape18" xlink:href="chapter5.html.files/image18.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">处理程序示例：一个task任务可同时调用触发一个或多个处理程序</tspan>
+        </text>
+    </g>
+    <g ed:width="167.6" transform="matrix(1,0,0,1,523.4,5267.9)" id="327" ed:parentid="104" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L167.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">描述使用处理程序的好处</tspan>
+        </text>
+    </g>
+    <g ed:width="397" transform="matrix(1,0,0,1,718,5119.9)" id="329" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L397,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority1"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">处理程序始终按照play的handlers部分指定的顺序运行。</tspan>
+        </text>
+    </g>
+    <g ed:width="397" transform="matrix(1,0,0,1,718,5179.1)" id="331" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L397,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority2"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">处理程序通常在相关play中的所有其他任务完成后运行。</tspan>
+        </text>
+    </g>
+    <g ed:width="482.8" transform="matrix(1,0,0,1,718,5149.5)" id="333" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L482.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">不按在任务中由notify语句列出的顺序运行，或按任务通知它们的顺序运行。</tspan>
+        </text>
+    </g>
+    <g ed:width="705.2" transform="matrix(1,0,0,1,718,5208.7)" id="336" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L705.2,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">playbook的tasks部分中某一任务调用的处理程序，将等到tasks下的所有任务都已处理后才会运行（也有例外）。</tspan>
+        </text>
+    </g>
+    <g ed:width="283.4" transform="matrix(1,0,0,1,718,5238.3)" id="339" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L283.4,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority3"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="26">处理程序名称存在于各play命名空间中。</tspan>
+        </text>
+    </g>
+    <g ed:width="398.8" transform="matrix(1,0,0,1,718,5267.9)" id="341" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L398.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">如果两个处理程序被错误地给予相同的名称，则仅会运行一个。</tspan>
+        </text>
+    </g>
+    <g ed:width="425.8" transform="matrix(1,0,0,1,718,5297.5)" id="344" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L425.8,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority4"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">即使有多个任务通知处理程序，该处理程序依然仅运行一次。</tspan>
+        </text>
+    </g>
+    <g ed:width="290" transform="matrix(1,0,0,1,718,5327.1)" id="347" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L290,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">如果没有任务通知处理程序，它就不会运行。</tspan>
+        </text>
+    </g>
+    <g ed:width="751.4" transform="matrix(1,0,0,1,718,5356.7)" id="349" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L751.4,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority5"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">如果包含notify语句的任务没有报告 changed 结果（如软件包已安装并且任务报告 </tspan>
+            <tspan class="st14" style="white-space:pre">ok</tspan>
+            <tspan style="white-space:pre">），则处理程序不会获得通知。</tspan>
+        </text>
+    </g>
+    <g ed:width="290" transform="matrix(1,0,0,1,718,5386.3)" id="351" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L290,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">处理程序将被跳过，直到有其他任务通知它。</tspan>
+        </text>
+    </g>
+    <g ed:width="435.6" transform="matrix(1,0,0,1,718,5415.9)" id="353" ed:parentid="327" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L435.6,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">只有相关任务报告了</tspan>
+            <tspan class="st8" style="white-space:pre"> changed </tspan>
+            <tspan style="white-space:pre">状态，Ansible才会通知处理程序。</tspan>
+        </text>
+    </g>
+    <g ed:width="155.6" transform="matrix(1,0,0,1,438.6,5501.6)" id="356" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L155.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">管理Play中的任务错误</tspan>
+        </text>
+    </g>
+    <g ed:width="543.6" transform="matrix(1,0,0,1,621.2,5472)" id="358" ed:parentid="356" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L543.6,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">Ansible评估各任务的返回代码（</tspan>
+            <tspan class="st10" style="white-space:pre">return code，rc</tspan>
+            <tspan style="white-space:pre">），从而确定任务是成功还是失败。</tspan>
+        </text>
+    </g>
+    <g ed:width="644.4" transform="matrix(1,0,0,1,621.2,5501.6)" id="360" ed:parentid="356" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L644.4,23.1"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="8">通常而言，当任务失败时，Ansible将立即在该主机上中止play的其余部分并且跳过所有后续任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="332.4" transform="matrix(1,0,0,1,621.2,5531.2)" id="362" ed:parentid="356" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L332.4,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">但有时可能希望即使在任务失败时也继续执行play。</tspan>
+        </text>
+    </g>
+    <g ed:width="118.6" transform="matrix(1,0,0,1,438.6,5661.6)" id="364" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L118.6,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority1"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">忽略任务失败</tspan>
+        </text>
+    </g>
+    <g ed:width="250.8" transform="matrix(1,0,0,1,584.2,5590.4)" id="366" ed:parentid="364" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L250.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">默认情况下，任务失败时play会中止。</tspan>
+        </text>
+    </g>
+    <g ed:width="458.1" transform="matrix(1,0,0,1,584.2,5620)" id="368" ed:parentid="364" ed:height="135.9">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,135.9L458.1,135.9"/>
+        <image height="112.8" width="424" y="33" id="shape19" xlink:href="chapter5.html.files/image19.png" x="4"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.5" x="8">可使用 </tspan>
+            <tspan style="white-space:pre">ignore_errors</tspan>
+            <tspan class="st6" style="white-space:pre"> 关键字</tspan>
+            <tspan class="st5" style="white-space:pre">来忽略失败的任务以继续执行playbook。</tspan>
+        </text>
+    </g>
+    <g ed:width="213.8" transform="matrix(1,0,0,1,438.6,5962.4)" id="371" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L213.8,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority2"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">任务失败后强制执行处理程序</tspan>
+        </text>
+    </g>
+    <g ed:width="633.2" transform="matrix(1,0,0,1,679.4,5762.4)" id="373" ed:parentid="371" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L633.2,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">通常而言，若任务失败并且play在该主机上中止，则收到play中早前任务通知的处理程序将不会运行。</tspan>
+        </text>
+    </g>
+    <g ed:width="691.6" transform="matrix(1,0,0,1,679.4,5792)" id="375" ed:parentid="371" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L691.6,23.1"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.4" x="8">若在play中设置 </tspan>
+            <tspan style="white-space:pre">force_handlers: yes</tspan>
+            <tspan class="st5" style="white-space:pre"> </tspan>
+            <tspan class="st6" style="white-space:pre">关键字</tspan>
+            <tspan class="st5" style="white-space:pre">，即使play因后续任务失败而中止也会调用被通知的处理程序。</tspan>
+        </text>
+    </g>
+    <g ed:width="513.2" transform="matrix(1,0,0,1,679.4,5821.6)" id="377" ed:parentid="371" ed:height="334.3">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,334.3L513.2,334.3"/>
+        <image height="311.2" width="495.2" y="33" id="shape20" xlink:href="chapter5.html.files/image20.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="692.2" transform="matrix(1,0,0,1,679.4,6162.4)" id="380" ed:parentid="371" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L692.2,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgAttention"/>
+        </g>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.4" x="27">处理程序会在任务报告 changed 结果时获得通知，而在任务报告 ok 或 failed 结果时不会获得通知。</tspan>
+        </text>
+    </g>
+    <g ed:width="145.8" transform="matrix(1,0,0,1,438.6,6373.6)" id="383" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L145.8,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority3"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">指定任务失败条件</tspan>
+        </text>
+    </g>
+    <g ed:width="454" transform="matrix(1,0,0,1,611.4,6192)" id="408" ed:parentid="383" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L454,23.1"/>
+        <text class="st7">
+            <tspan class="st9" style="white-space:pre" y="16.4" x="8">可以在任务中使用 </tspan>
+            <tspan class="st8" style="white-space:pre">failed_when</tspan>
+            <tspan style="white-space:pre"> 关键字</tspan>
+            <tspan class="st9" style="white-space:pre">来指定表示任务已失败的条件。</tspan>
+        </text>
+    </g>
+    <g ed:width="612.4" transform="matrix(1,0,0,1,611.4,6221.6)" id="410" ed:parentid="383" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L612.4,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">通常与command模块搭配使用，这些模块可能成功执行了某个命令，但命令的输出可能指示了失败。</tspan>
+        </text>
+    </g>
+    <g ed:width="541.2" transform="matrix(1,0,0,1,611.4,6251.2)" id="412" ed:parentid="383" ed:height="122.3">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,122.3L541.2,122.3"/>
+        <image height="99.2" width="523.2" y="33" id="shape21" xlink:href="chapter5.html.files/image21.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">failed_when关键字示例：</tspan>
+        </text>
+    </g>
+    <g ed:width="530.8" transform="matrix(1,0,0,1,611.4,6380)" id="415" ed:parentid="383" ed:height="198.3">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,198.3L530.8,198.3"/>
+        <image height="175.2" width="512.8" y="33" id="shape22" xlink:href="chapter5.html.files/image22.png" x="4"/>
+        <text class="st7">
+            <tspan class="st9" style="white-space:pre" y="16.4" x="8">fail模块与when语句示例：</tspan>
+            <tspan style="white-space:pre">fail模块可用于强制任务失败</tspan>
+        </text>
+    </g>
+    <g ed:width="237.8" transform="matrix(1,0,0,1,438.6,6727.2)" id="418" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L237.8,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority4"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">指定何时任务报告"Changed"结果</tspan>
+        </text>
+    </g>
+    <g ed:width="465.2" transform="matrix(1,0,0,1,703.4,6584.8)" id="420" ed:parentid="418" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L465.2,23.1"/>
+        <text class="st7">
+            <tspan class="st9" style="white-space:pre" y="16.4" x="8">当任务对受管主机进行了更改时，会报告</tspan>
+            <tspan class="st15" style="white-space:pre"> </tspan>
+            <tspan class="st8" style="white-space:pre">changed </tspan>
+            <tspan style="white-space:pre">状态</tspan>
+            <tspan class="st9" style="white-space:pre">并通知处理程序。</tspan>
+        </text>
+    </g>
+    <g ed:width="373.2" transform="matrix(1,0,0,1,703.4,6614.4)" id="422" ed:parentid="418" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L373.2,23.1"/>
+        <text class="st4">
+            <tspan class="st5" style="white-space:pre" y="16.4" x="8">若任务不需要进行更改，则会报告 </tspan>
+            <tspan style="white-space:pre">ok</tspan>
+            <tspan class="st5" style="white-space:pre"> 且不通知处理程序。</tspan>
+        </text>
+    </g>
+    <g ed:width="527.6" transform="matrix(1,0,0,1,703.4,6644)" id="424" ed:parentid="418" ed:height="248.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,248.7L527.6,248.7"/>
+        <image height="225.6" width="509.6" y="33" id="shape23" xlink:href="chapter5.html.files/image23.png" x="4"/>
+        <text class="st7">
+            <tspan class="st8" style="white-space:pre" y="16.5" x="8">changed_when</tspan>
+            <tspan style="white-space:pre"> 关键字</tspan>
+            <tspan class="st9" style="white-space:pre">可用于控制任务在何时报告它已进行了更改。</tspan>
+        </text>
+    </g>
+    <g ed:width="232.2" transform="matrix(1,0,0,1,438.6,7237.6)" id="427" ed:parentid="106" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L232.2,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgpriority5"/>
+        </g>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="27">Ansible块（block）和错误处理</tspan>
+        </text>
+    </g>
+    <g ed:width="591.4" transform="matrix(1,0,0,1,438.6,5560.8)" id="440" ed:parentid="106" ed:height="23.1">
+        <path fill="#fcf384" d="M0,0L591.4,0L591.4,23.1L0,23.1L0,0z"/>
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L591.4,23.1"/>
+        <g transform="translate(7,2.55)">
+            <use transform="translate(0,0)" xlink:href="#imgCorrect"/>
+        </g>
+        <text class="st16">
+            <tspan style="white-space:pre" y="16.4" x="27">推荐做法：</tspan>
+            <tspan class="st13" style="white-space:pre">register关键字、when语句、failed_when语句、changed_when语句结合使用</tspan>
+        </text>
+    </g>
+    <g ed:width="546.8" transform="matrix(1,0,0,1,697.8,6899.2)" id="443" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L546.8,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">playbook中，块（block）是对任务进行逻辑分组的子句，可用于控制任务的执行方式。</tspan>
+        </text>
+    </g>
+    <g ed:width="537.2" transform="matrix(1,0,0,1,697.8,6928.8)" id="445" ed:parentid="427" ed:height="268.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,268.7L537.2,268.7"/>
+        <image height="245.6" width="519.2" y="33" id="shape24" xlink:href="chapter5.html.files/image24.png" x="4"/>
+        <text class="st7">
+            <tspan style="white-space:pre" y="16.5" x="8">任务块可以含有 when 关键字，以将某一条件应用到多个任务。</tspan>
+        </text>
+    </g>
+    <g ed:width="378" transform="matrix(1,0,0,1,697.8,7204)" id="448" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L378,23.1"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.4" x="8">通过块，也可以结合 rescue 和 always 语句来处理错误。</tspan>
+        </text>
+    </g>
+    <g ed:width="203.6" transform="matrix(1,0,0,1,697.8,7233.6)" id="450" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L203.6,23.1"/>
+        <text class="st3">
+            <tspan class="st14" style="white-space:pre" y="16.4" x="8">block</tspan>
+            <tspan style="white-space:pre">：定义要运行的主要任务</tspan>
+        </text>
+    </g>
+    <g ed:width="382.8" transform="matrix(1,0,0,1,697.8,7263.2)" id="452" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L382.8,23.1"/>
+        <text class="st3">
+            <tspan class="st14" style="white-space:pre" y="16.4" x="8">rescue</tspan>
+            <tspan style="white-space:pre">：定义要在block子句中定义的任务失败时运行的任务</tspan>
+        </text>
+    </g>
+    <g ed:width="589.2" transform="matrix(1,0,0,1,697.8,7292.8)" id="454" ed:parentid="427" ed:height="23.1">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,23.1L589.2,23.1"/>
+        <text class="st3">
+            <tspan class="st14" style="white-space:pre" y="16.4" x="8">always</tspan>
+            <tspan style="white-space:pre">：定义始终都独立运行的任务，不论block和rescue语句中定义的任务是成功还是失败。</tspan>
+        </text>
+    </g>
+    <g ed:width="520.4" transform="matrix(1,0,0,1,697.8,7322.4)" id="456" ed:parentid="427" ed:height="276.7">
+        <path stroke="#696969" stroke-linejoin="round" fill="none" d="M0,276.7L520.4,276.7"/>
+        <image height="253.6" width="502.4" y="33" id="shape25" xlink:href="chapter5.html.files/image25.png" x="4"/>
+        <text class="st3">
+            <tspan style="white-space:pre" y="16.5" x="8">示例：</tspan>
+        </text>
+    </g>
+</svg>
+</div>
+      </div>
+    </div>
+  </body>
+</html>
