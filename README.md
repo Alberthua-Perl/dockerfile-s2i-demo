@@ -1,2 +1,2 @@
-# Dockerfile-examples
-Dockerfiles for different applications.
+# dockerfile-examples
+Dockerfile for different applications demo.
