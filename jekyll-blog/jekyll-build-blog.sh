@@ -47,4 +47,3 @@ if $(sudo netstat -tunlp | grep 8080 > /dev/null); then
 else
 	echo "--> Please check any ERRORs ..."
 fi
-
