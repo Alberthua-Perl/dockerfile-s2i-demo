@@ -1,5 +1,4 @@
 ## 基于 S2I 的 Golang 应用构建与部署示例
-[![Docker Repository on Quay](https://quay.io/repository/clcollins/golang-builder/status "Docker Repository on Quay")](https://quay.io/repository/clcollins/golang-builder)
 
 ##### 文档说明：
 
