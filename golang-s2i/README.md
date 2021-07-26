@@ -32,7 +32,7 @@
 
 7. S2I 脚本存放的默认目录，如下所示：
 
-   ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\基于S2I的Golang应用构建与部署示例\s2i-scripts.jpg)
+   ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/s2i-scripts.jpg)
 
    1）以上标记的相关文件与脚本是 S2I 构建过程中必须存在的。
 
@@ -50,7 +50,7 @@
    
    2）应用源代码 --> s2i command & 构建镜像 --> 应用镜像
    
-   ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\基于S2I的Golang应用构建与部署示例\S2I-Developer-WorkFlow.jpg)
+   ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/s2i-developer-workflow.jpg)
 
 #### 创建 Golang 构建镜像：
 
