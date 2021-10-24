@@ -1,4 +1,5 @@
 FROM httpd:alpine
+
 MAINTAINER lhua "hualongfeiyyy@163.com"
 MAINTAINER shw  "leo_wsy@outlook.com"
 
@@ -12,4 +13,5 @@ COPY ./server.crt /usr/local/apache2/conf
 COPY ./server.key /usr/local/apache2/conf
 
 EXPOSE 443
+
 CMD ["/usr/local/apache2/bin/httpd","-DFOREGROUND"]
