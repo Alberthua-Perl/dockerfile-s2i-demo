@@ -1,0 +1,26 @@
+version: "3"
+services:
+  postgresql:
+    image: docker.io/library/postgres:14.1-bullseye
+    container_name: "gogs-postgresql"
+    volumes:
+      - "./gogs-data/postgresql:/var/lib/postgresql:Z"
+    environment:
+      - "POSTGRES_USER=gogs"
+      - "POSTGRES_PASSWORD=redhat"
+      - "POSTGRES_DB=gogs"
+    ports:
+      - "5432:5432"
+
+  gogs:
+    image: docker.io/gogs/gogs:0.12
+    container_name: "gogs"
+    volumes:
+      - "./gogs-data/gogs:/data:Z"
+      #- "./entrypoint.sh:/entrypoint.sh:Z"
+    ports:
+      - "10022:22"
+      - "10800:3000"
+    links:
+      - postgresql
+    #entrypoint: "/entrypoint.sh"
