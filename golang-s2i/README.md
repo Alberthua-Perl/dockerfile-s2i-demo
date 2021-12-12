@@ -1,5 +1,7 @@
 ## 基于 S2I 的 Golang 应用构建与部署示例
 
+[![Docker Repository on Quay](https://quay.io/repository/alberthua/golang-builder/status "Docker Repository on Quay")](https://quay.io/repository/alberthua/golang-builder)
+
 ##### 文档说明：
 
 1. OS 版本：Red Hat Enterprise Linux Server release 7.5 (Maipo)
