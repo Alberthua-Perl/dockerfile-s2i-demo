@@ -204,9 +204,7 @@
 
 #### 创建 Golang 应用镜像：
 
-1. 该示例将部署基于 Golang 的 Web server，源代码位于：
-
-   https://github.com/Alberthua-Perl/gopl.io/blob/main/goSimpleWebServer.go
+1. 该示例将部署基于 Golang 的 Web server，源代码位于[该链接](https://github.com/Alberthua-Perl/go-kubernetes-learn-path/blob/main/goSimpleWebServer.go)。
 
 2. 使用 s2i 命令创建应用镜像：
 
