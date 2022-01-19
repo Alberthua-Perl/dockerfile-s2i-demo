@@ -180,7 +180,7 @@
    $ sudo docker build -t goland-builder:v1.0 $HOME/golang-s2i
    ```
 
-   > ✅注意✅：
+   > 💥 注意：
    >
    > Dockerfile 定义如何创建构建镜像，封装 S2I 脚本而不触发其执行，只有使用 s2i 命令创建应用镜像时才调用脚本进行源代码编译与构建。
 
@@ -235,11 +235,11 @@
    $ sudo docker run -d --rm --name=go-web-server -p 9090:9090 go-web-server:v1.0
    ```
 
-#### OpenShift 集成构建 Golang 应用：
+#### 🚀 OpenShift 集成构建 Golang 应用：
 
 1. 此处使用的 OCP 3.9 集群中已集成 docker-distribution 容器镜像仓库以及基于 Web 的 GitWeb 代码仓库。
 
-   > 💥注意💥：容器镜像仓库与代码仓库均运行于 registry.lab.example.com 节点上
+   > 💥 注意：容器镜像仓库与代码仓库均运行于 registry.lab.example.com 节点上
 
 2. 以上的两个组件均可直接推送或拉取镜像，以及匿名管理代码仓库，因此在使用 OCP `BuildConfig` 资源时无需创建 `secret` 资源对象，若使用 Quay、Harbor、GitHub、GitLab 等容器镜像仓库与代码仓库时，需配置所使用的用户名与密码以登录相应的仓库，否则应用构建（build）过程将失败。
 
