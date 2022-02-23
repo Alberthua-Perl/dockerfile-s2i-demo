@@ -22,6 +22,9 @@ LABEL io.k8s.description="Builder image for compiling and testing Go application
 # These scripts describe how to build & run the application, and extract artifacts 
 # for downstream builds
 COPY ./s2i/bin/ ${STI_SCRIPTS_PATH}
+# Must add exec permission otherwise build failed during 's2i build', and run application
+# container will fail.
+RUN chmod +x ${STI_SCRIPTS_PATH}/assemble ${STI_SCRIPTS_PATH}/run ${STI_SCRIPTS_PATH}/usage
 
 # The $SOURCE_DIR is dependent on the upstream golang image, based on the 
 # $GOPATH, etc. variable set there
