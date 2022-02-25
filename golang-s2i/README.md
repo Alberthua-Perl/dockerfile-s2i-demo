@@ -47,7 +47,7 @@
 
 - 用于创建 S2I 构建镜像的目录结构，如下所示：
   
-  ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\s2i-scripts.jpg)
+  ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/s2i-scripts.jpg)
   
   > 👉 后文中的示例将详细说明并使用以下文件
   
@@ -81,7 +81,7 @@
   
   👉 应用源代码 -> `s2i 命令直接构建` & `oc new-app 命令调用 S2I 构建` -> 应用镜像
   
-  ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\S2I-Developer-WorkFlow.jpg)
+  ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/S2I-Developer-WorkFlow.jpg)
 
 ### S2I 的使用方式：
 
@@ -132,11 +132,11 @@
   
   - 创建源代码与自定义 S2I 脚本，位于 [该 GitHub 链接](https://github.com/Alberthua-Perl/DO288-apps/tree/main/s2i-scripts)：
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\DO288-apps-s2i-scripts.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/DO288-apps-s2i-scripts.jpg)
   
   - 其中 .s2i/bin/assemble 脚本如下所示：
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\DO288-apps-s2i-scripts-custom-assemble.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/DO288-apps-s2i-scripts-custom-assemble.jpg)
   
   - 根据以上脚本，使用 oc new-app 命令构建应用镜像并部署应用时，可追踪到自定义脚本中注入的日志信息，如下所示：
     
@@ -147,7 +147,7 @@
     # 使用包含自定义 S2I 脚本的源代码目录构建应用镜像并部署应用
     ```
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\custom-s2i-script-log.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/custom-s2i-script-log.jpg)
 
 ### 创建自定义 S2I 构建镜像：Golang 构建镜像
 
@@ -372,7 +372,7 @@
   
   - `s2i build` 命令需要使用本地 Docker 服务，因为它直接使用 `Docker API` 通过 `socket` 套接字来创建 S2I 构建镜像，而在 RHEL 8 与 OCP 4.x 中底层容器运行时默认使用 `CRI-O` ，因此在使用该命令时将运行失败，这与 OCP 3.x 中使用 s2i build 命令的行为存在较大差异，报错如下所示：
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\s2i-build-error-without-docker-api.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/s2i-build-error-without-docker-api.jpg)
   
   - 若在 RHEL 8 与 OCP 4.x 中使用 s2i build 命令，可添加 `--add-dockerfile` 选项，那么该命令将应用源代码克隆至该 Dockerfile/Containerfile 所在的目录中，并生成新的用于创建应用镜像的 `Dockerfile/Containerfile`，新生成的 Dockerfile/Containerfile 中包括 S2I 构建镜像与源代码的信息，s2i 不再调用 Docker API 而需要开发人员再手动使用 `podman build` 命令调用新生成的 Dockerfile/Containerfile 重新构建应用镜像。
   
@@ -384,19 +384,19 @@
       --add-dockerfile /path/to/dockerfile_or_containerfile
     ```
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\regenerate-dockerfile-to-use-podman-build-1.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/regenerate-dockerfile-to-use-podman-build-1.jpg)
     
     在该示例中，笔者使用 Containerfile 用于 podman build 构建。
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\regenerate-dockerfile-to-use-podman-build-2.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/regenerate-dockerfile-to-use-podman-build-2.jpg)
     
     新生成的 Containerfile 用于创建应用镜像：
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\regenerate-dockerfile-to-use-podman-build-3.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/regenerate-dockerfile-to-use-podman-build-3.jpg)
     
     使用 podman 命令与 Containerfile 所在目录的上下文构建应用镜像，用于后续的与 OCP 4.6 的兼容性测试。
     
-    ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\regenerate-dockerfile-to-use-podman-build-4.jpg)
+    ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/regenerate-dockerfile-to-use-podman-build-4.jpg)
     
     podman run 命令使用新生成的应用镜像进行测试：
     
@@ -433,7 +433,7 @@
       # 查看指定容器镜像使用的镜像封装格式  
       ```
       
-      ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\imageformat-diff-between-podman-build-docker-build.jpg) 
+      ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/imageformat-diff-between-podman-build-docker-build.jpg) 
     
     - 🤘 这里要特别注意的是，若要将 S2I 构建镜像使用 OpenShift 的 oc import-image 命令创建 image stream tag 的引用，需要区分镜像的封装格式：
       
@@ -563,7 +563,7 @@
     
     - 使用个人账号登录 DockerHub 将该 S2I 构建镜像设置为 `private` 私有镜像。
       
-      ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\dockerhub-private-s2i-builder-image.jpg)
+      ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/dockerhub-private-s2i-builder-image.jpg)
     
     > 此处设置为 private 的目的在于演示如何导入外部的私有容器镜像。
     
@@ -591,7 +591,7 @@
       $ oc get all
       ```
       
-      ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\ocp46-import-image-dockerformat-success.jpg)
+      ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/ocp46-import-image-dockerformat-success.jpg)
     
     - 创建 service 资源对象与 route 资源对象暴露应用：
       
@@ -601,7 +601,7 @@
         Test S2I process!
       ```
       
-      ![](D:\Linux操作系统与编程语言汇总\Typora文档汇总\OpenShift\pictures\S2I基本原理与应用构建部署示例\ocp46-gowebserver-route.jpg)
+      ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/blob/master/golang-s2i/images/ocp46-gowebserver-route.jpg)
 
 ### 参考链接：
 
