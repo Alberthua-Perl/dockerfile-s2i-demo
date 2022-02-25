@@ -47,7 +47,7 @@
 
 - 用于创建 S2I 构建镜像的目录结构，如下所示：
   
-  ![](/s2i-scripts.jpg)
+  ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/tree/master/golang-s2i/images/s2i-scripts.jpg)
   
   > 👉 后文中的示例将详细说明并使用以下文件
   
@@ -81,7 +81,7 @@
   
   👉 应用源代码 -> `s2i 命令直接构建` & `oc new-app 命令调用 S2I 构建` -> 应用镜像
   
-  ![](/S2I-Developer-WorkFlow.jpg)
+  ![](https://github.com/Alberthua-Perl/dockerfile-s2i-demo/tree/master/golang-s2i/images/S2I-Developer-WorkFlow.jpg)
 
 ### S2I 的使用方式：
 
