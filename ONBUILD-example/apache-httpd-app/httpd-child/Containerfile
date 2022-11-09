@@ -1,6 +1,9 @@
 # Use the httpd-parent image as base
 # Containerfile to build child image
-FROM quay.io/redhattraining/httpd-parent:latest
+
+#FROM quay.io/redhattraining/httpd-parent:latest
+FROM httpd-parent:v1.0
+# use httpd-parent:v1.0 in local podman cache 
 
 # Then run ONBUILD instruction based parent image after FROM instruction.
 
