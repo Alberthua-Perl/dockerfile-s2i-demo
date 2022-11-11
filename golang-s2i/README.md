@@ -3,26 +3,43 @@
 ### 文档说明：
 
 - OS 版本：
+
   - Red Hat Enterprise Linux Server release 7.5 (Maipo)
+  
   - Red Hat Enterprise Linux Server release 8.4 (Ootpa)
+  
 - OCP 版本：
+
   - Red Hat OpenShift Container Platform 3.9.14（以下称 OCP 3.9）
+  
   - Red Hat OpenShift Container Platform 4.6.19（以下称 OCP 4.6）
+  
 - GitWeb 版本：gitweb-1.8.3.1-13.el7.noarch
+
 - S2I 版本：source-to-image-v1.3.1-a5a77147-linux-amd64
+
 - 关于 S2I 的中文文档相对较少，且相关文档中的构建步骤与说明语焉不详，因此该文档以 Apache HTTPD 与 Golang 应用为例完整地说明如何构建 S2I 构建镜像与应用镜像，以及如何集成至不同版本的 OpenShift 中进行应用构建与部署。
+
 - 该文档将 S2I 的功能在 OCP 3.9 与 OCP 4.6 平台中进行测试验证，需要注意的是在大版本的小版本间可能也会存在差异，此处仅提供解决思路。
+
 - 在 OCP 4.6 中的测试验证以 `💎 补充` 的方式展示，若未做说明，则示例依然在 OCP 3.9 上测试运行。
+
 - 示例中的源代码与脚本在 OCP 3.9 与 OCP 4.6 平台中均适用。
 
 ### 文档目录：
 
 - S2I 基本原理
+
 - S2I 的使用方式
+
 - 使用外部自定义 S2I 脚本构建 Apache HTTPD 应用镜像
+
 - 创建自定义 S2I 构建镜像：Golang 构建镜像
+
 - 创建自定义应用镜像：创建 Golang 应用镜像
+
 - OpenShift 集成构建与部署 Golang 应用
+
 - 参考链接
 
 ### S2I 基本原理：
