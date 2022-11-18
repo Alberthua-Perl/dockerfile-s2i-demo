@@ -16,8 +16,11 @@
     ├── [103M]  code-server_4.8.3_amd64.deb
     ├── [1.9K]  Dockerfile
     ├── [ 17K]  oh-my-zsh-install.sh
+    ├── [1.3K]  README.md
     └── [ 614]  sources.list
   $ sudo docker build -t golang-code-server:v1.1 .
+  $ sudo docker run -d --name=golang-code-server -p 8080:8080 golang-code-server:v1.1
+  # 使用构建的容器镜像运行容器，并登录访问 Web 界面。
   ```
 
 > 💥 注意：由于 `code-server_4.8.3_amd64.deb` 软件包的容量大小限制，可从  [百度网盘](https://pan.baidu.com/s/1ul4ZYZa1Cpmp_5fXxyGJtg) 下载，提取码为 `no8o`。

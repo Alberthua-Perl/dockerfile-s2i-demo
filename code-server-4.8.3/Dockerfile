@@ -52,4 +52,5 @@ WORKDIR ${GO_ROOT}/src
 EXPOSE 8080
 
 CMD ["/usr/bin/code-server", "--port", "8080", "--host", "0.0.0.0", "--auth", "none"]
+# use code-server without password - none, also use password according to config.yaml
 
