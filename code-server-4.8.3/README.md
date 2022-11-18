@@ -18,6 +18,7 @@
     ├── [ 17K]  oh-my-zsh-install.sh
     ├── [1.3K]  README.md
     └── [ 614]  sources.list
+
   $ sudo docker build -t golang-code-server:v1.1 .
   $ sudo docker run -d --name=golang-code-server -p 8080:8080 golang-code-server:v1.1
   # 使用构建的容器镜像运行容器，并登录访问 Web 界面。
