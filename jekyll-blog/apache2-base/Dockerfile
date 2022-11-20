@@ -1,5 +1,7 @@
 FROM docker.io/library/ubuntu:20.04
+
 MAINTAINER alberthua hualongfeiyyy@163.com
+
 ENV REFRESHED_AT=2021-07-15 \
     DEBIAN_FRONTEND=noninteractive \
     APACHE_RUN_USER=www-data \

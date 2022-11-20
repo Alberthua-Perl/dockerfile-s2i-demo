@@ -1,4 +1,5 @@
-# **loganalyzer-viewer** #
+## Loganalyzer Viewer
 
-Dockerfile is used to build apache-httpd and loganalyzer(php) container image.
-The container image works as web frontend to display rsyslog log data.
+- Dockerfile used to build `apache-httpd` and loganalyzer based `php` container image
+
+- Container works as `web frontend` connected MySQL database which store `rsyslog` log data to display them.
