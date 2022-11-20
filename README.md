@@ -1,24 +1,28 @@
 ## 🔥🐳 Dockerfile/Containerfile and S2I Demo
 
-- Based on Dockerfile or Containerfile:
+- Examples in the preceding directories are described below:
 
-  - 🌈 apache-rhce8.2-course-1.0: RHCEv8.2 course environment based Apache HTTPD
+  - Based on Dockerfile or Containerfile:
 
-  - 🏔 apache-rhce8.2-course-alpine: RHCEv8.2 course environment based Apache HTTPD on `Alpine 3.14.2`
+    - 🌈 apache-rhce8.2-course-1.0: RHCEv8.2 course environment based Apache HTTPD
 
-  - 🐱‍🏍 nginx-1.12.2-custom: customized `Nginx v1.12.2` with self-signed certification
+    - 🏔 apache-rhce8.2-course-alpine: RHCEv8.2 course environment based Apache HTTPD on `Alpine 3.14.2`
 
-  - 📜 loganalyzer-viewer: loganalyzer `php` application based Apache HTTPD 
+    - 🐱‍🏍 nginx-1.12.2-custom: customized `Nginx v1.12.2` with self-signed certification
 
-  - 🦄 code-server-4.8.3: `Golang v1.19.3` IDE used as VS Code based Code Server v4.8.3 with Web UI
+    - 📜 loganalyzer-viewer: loganalyzer `php` application based Apache HTTPD 
 
-  - 🧪 *jekyll-blog*: jekyll use `GitHub Page` to build blog with suffix `github.io`
+    - 🦄 code-server-4.8.3: `Golang v1.19.3` IDE used as VS Code based Code Server v4.8.3 with Web UI
 
-- Based on S2I:
+    - 🧪 *jekyll-blog*: jekyll use `GitHub Page` to build blog with suffix `github.io`
 
-  - ⭕ golang-s2i: Dockerfile to build `Golang v1.12` s2i-builder image in which insert code to generate application image
+    - ⛓ ONBUILD-example/apache-httpd-app: `ONBUILD` directive through httpd-parent and httpd-child container image 
 
-- Based on docker-compose or podman-compose:
+  - Based on S2I:
 
-  - 📥 gogs-postgres-compose: Source Control Management (`SCM`) application based `Gogs` and `PostgreSQL` deployed by `podman-compose`
+    - ⭕ golang-s2i: Dockerfile to build `Golang v1.12` s2i-builder image in which insert code to generate application image
+
+  - Based on docker-compose or podman-compose:
+
+    - 📥 gogs-postgres-compose: Source Control Management (`SCM`) application based `Gogs` and `PostgreSQL` deployed by `podman-compose`
 
