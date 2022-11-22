@@ -18,6 +18,8 @@ Examples in the preceding directories are described below:
 
   - 🥽 ONBUILD-example/apache-httpd-app: `ONBUILD` directive through httpd-parent and httpd-child container image 
 
+  - 💪 tl500-mono-repo
+
 - Based on S2I:
 
   - ⭕ golang-s2i: Dockerfile to build `Golang v1.12` s2i-builder image in which insert code to generate application image

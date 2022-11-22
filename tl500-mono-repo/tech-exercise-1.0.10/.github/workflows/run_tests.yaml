@@ -1,0 +1,79 @@
+name: Markdown Rundoc Testsuite
+
+on:
+  workflow_dispatch:
+    inputs:
+      TEAM_NAME:
+        description: 'Team Name [a-z0-9]'
+        required: false
+  schedule:
+    - cron: '5 19 * * *'  # everyday at 5 past 7pm UTC
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Install OpenShift CLI
+        uses: redhat-actions/oc-installer@v1
+
+      - name: Authenticate with OpenShift
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: ${{ secrets.OCP_SERVER }}
+          openshift_username: ${{ secrets.OCP_USER }}
+          openshift_password: ${{ secrets.OCP_PASSWORD }}
+          insecure_skip_tls_verify: true
+
+      - name: Run testsuite
+        id: testsuite
+        shell: bash
+        env:
+          TEAM_NAME: ${{ secrets.TEAM_NAME }}
+        run: |
+          repo=${{ github.repository }}
+          oc new-project ${repo##*/}-test || true
+          podname=test-$(date +"%Y-%m-%d-%H-%M-%S")
+          teamname=${{ env.TEAM_NAME }}
+          if [ ! -z "${{ github.event.inputs.TEAM_NAME }}" ]; then teamname=${{ github.event.inputs.TEAM_NAME }}; fi
+          oc -n ${repo##*/}-test run $podname --image=quay.io/eformat/tech-exercise-test:latest \
+            --env="CLUSTER_DOMAIN=${{ secrets.CLUSTER_DOMAIN }}" \
+            --env="GIT_SERVER=${{ secrets.GIT_SERVER }}" \
+            --env="TEAM_NAME=$teamname" \
+            --env="GITLAB_USER=${{ secrets.GITLAB_USER }}" \
+            --env="GITLAB_PASSWORD=${{ secrets.GITLAB_PASSWORD }}" \
+            --env="OCP_USER=${{ secrets.OCP_USER }}" \
+            --env="OCP_PASSWORD=${{ secrets.OCP_PASSWORD }}" \
+            --env="OCP_ADMIN_USER=${{ secrets.OCP_ADMIN_USER }}" \
+            --env="OCP_ADMIN_PASSWORD=${{ secrets.OCP_ADMIN_PASSWORD }}" \
+            --restart=Never
+
+          while test 0 == $(oc -n ${repo##*/}-test get pod -l run=$podname -o name 2>/dev/null | wc -l); do sleep 5; done
+          oc -n ${repo##*/}-test wait pod -l run=$podname --for=condition=Ready --timeout=200s
+
+          podphase=$(oc -n ${repo##*/}-test get pods -l run=$podname -o jsonpath='{.items[*].status.phase}')
+          while [ "$podphase" != "Failed" -a "$podphase" != "Succeeded" ]; do
+              echo "$podname phase $podphase ..."
+              sleep 10
+              podphase=$(oc -n ${repo##*/}-test get pods -l run=$podname -o jsonpath='{.items[*].status.phase}')
+          done
+
+          if [ "$podphase" != "Succeeded" ]; then
+              echo "🛑 test failed, exiting 🛑";
+              exit 1;
+          fi
+          echo "🦕 tests ran OK 🦕";
+
+      - name: Send mail
+        if: failure() && steps.testsuite.outcome == 'failure'
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: 🦀 ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          body: |-
+            ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}.
+            Login to OpenShift ${{ secrets.CLUSTER_DOMAIN }} to see full test log output.
+          to: ${{ secrets.EMAIL_ALERT_LIST }}
+          from: tech-exercise-tests@github.com
