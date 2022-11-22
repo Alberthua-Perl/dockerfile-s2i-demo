@@ -18,7 +18,7 @@ Examples in the preceding directories are described below:
 
   - 🥽 ONBUILD-example/apache-httpd-app: `ONBUILD` directive through httpd-parent and httpd-child container image 
 
-  - 💪 tl500-mono-repo
+  - 💪 tl500-mono-repo: `NodeJS` application apply `TL500` tech exercises instruction
 
 - Based on S2I:
 
