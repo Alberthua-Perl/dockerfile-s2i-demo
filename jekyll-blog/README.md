@@ -2,7 +2,6 @@
 
 [![Docker Repository on Quay](https://quay.io/repository/alberthua/jekyll-build/status "Docker Repository on Quay")](https://quay.io/repository/alberthua/jekyll-build)
 
-Use this Dockerfile to build customer blog according to Jekyll.
+- Use Dockerfile to build customized blog based `Jekyll`.
 
-But you should apply blog template to organize you blog like
-https://github.com/Alberthua-Perl/huxpro.github.io.git.
+- But you should apply blog template to organize you blog like [Huxpro](https://github.com/Alberthua-Perl/huxpro.github.io.git).
