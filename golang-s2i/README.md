@@ -1,5 +1,7 @@
 ## ⭕ S2I 基本原理与应用构建部署示例
 
+[![Docker Repository on Quay](https://quay.io/repository/alberthua/golang-builder/status "Docker Repository on Quay")](https://quay.io/repository/alberthua/golang-builder)
+
 ### 文档说明：
 
 - OS 版本：

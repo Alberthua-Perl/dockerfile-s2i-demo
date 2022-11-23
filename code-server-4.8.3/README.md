@@ -1,5 +1,7 @@
 ## Code Server v4.8.3 容器镜像构建
 
+[![Docker Repository on Quay](https://quay.io/repository/alberthua/golang-code-server/status "Docker Repository on Quay")](https://quay.io/repository/alberthua/golang-code-server)
+
 - 文档说明：
 
   - `Red Hat OpenShift` 中使用 `Red Hat Code Ready Workspace` 作为 PaaS 平台中的实时 IDE 开发平台，可兼容众多开发语言。
