@@ -38,6 +38,60 @@
   > 💥 注意：由于 `code-server_4.8.3_amd64.deb` 软件包的容量大小限制无法上传至 GitHub 中，可从  [百度网盘](https://pan.baidu.com/s/1ul4ZYZa1Cpmp_5fXxyGJtg) 下载，提取码为 `no8o`。
 
   - 该容器镜像可在 `Kubernetes` 或 `OpenShift` 集群外使用 `Docker` 或 `Podman` 先行测试，再导入容器镜像仓库 `registry`，用于后续的部署使用。
+  
+- 可使用如下所示的 [资源定义文件](https://github.com/Alberthua-Perl/go-kubernetes-learn-path/blob/hotfixes/golang-codeready-workspace-deployment.yml)，将该应用部署于 `Kubernetes` 或 `OpenShift` 集群中：
+
+  ```yaml
+  apiVersion: v1
+  kind: Service
+  metadata: 
+    labels: 
+      name: golang-codeready-workspace
+    name: golang-codeready-workspace
+    namespace: codeready-workspace
+  spec: 
+    ports:
+      # the port that this service should serve on
+      - port: 8080
+        protocol: TCP
+        targetPort: 8080
+        nodePort: 30001
+    # label keys and values that must match in order to receive traffic for this service
+    selector: 
+      app: golang-codeready-workspace
+    type: NodePort
+  ---  
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    labels:
+      app: golang-codeready-workspace
+    name: golang-codeready-workspace
+    namespace: codeready-workspace
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: golang-codeready-workspace
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: golang-codeready-workspace
+      spec:
+        containers:
+        - image: quay-registry.lab.example.com/godev/golang-code-server:v1.1
+          # image also pulled from quay.io/alberthua/golang-code-server:v1.1
+          imagePullPolicy: IfNotPresent
+          name: golang-codeready-workspace
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  ```
 
 - 参考链接：
 
