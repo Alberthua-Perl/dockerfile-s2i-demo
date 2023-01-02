@@ -8,7 +8,7 @@ Examples in the preceding directories are described below:
 
   - 🏔 apache-rhce8.2-course-alpine: RHCEv8.2 course environment based Apache HTTPD on `Alpine 3.14.2`
 
-  - 🐱‍🏍 nginx-1.12.2-custom: customized `Nginx v1.12.2` with self-signed certification
+  - 🐱‍🏍 nginx-ssl-1.12.2: customized `Nginx v1.12.2` with CA signed certification
 
   - 📜 loganalyzer-viewer: loganalyzer `php` application based Apache HTTPD 
 
