@@ -20,6 +20,8 @@ Examples in the preceding directories are described below:
 
   - 💪 tl500-mono-repo: `JavaScript` application in Node.js apply `TL500` tech exercises instruction
 
+  - 📦 nexus-3.30.1-01: `Nexus3` artifacts repository image used by [Nexus3 Chart](https://github.com/Alberthua-Perl/go-kubernetes-learn-path/tree/hotfixes/helm3-dev/nexus-3.30.1-01)
+
 - Based on S2I:
 
   - ⭕ golang-s2i: Dockerfile to build `Golang v1.12` s2i-builder image in which insert code to generate application image
