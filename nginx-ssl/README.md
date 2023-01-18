@@ -1,4 +1,4 @@
-## Nginx v1.12.2 Customized
+## Nginx v1.22.1 Customized for HTTPS Authentication
 
 [![Docker Repository on Quay](https://quay.io/repository/alberthua/nginx-ssl/status "Docker Repository on Quay")](https://quay.io/repository/alberthua/nginx-ssl)
 
