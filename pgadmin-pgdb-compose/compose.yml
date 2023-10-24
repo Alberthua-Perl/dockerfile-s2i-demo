@@ -1,6 +1,7 @@
 services:
   db-admin:
-    image: "registry.connect.redhat.com/crunchydata/crunchy-pgadmin4:ubi8-4.30-18"
+    image: "quay.io/alberthua/crunchy-pgadmin4:ubi8-4.30-18"
+    # mirror image from registry.connect.redhat.com/crunchydata/crunchy-pgadmin4:ubi8-4.30-18
     container_name: "compose_environments_pgadmin"
     environment:
       PGADMIN_SETUP_EMAIL: user@redhat.com
@@ -8,7 +9,8 @@ services:
     ports:
       - "5050:5050"
   db:
-    image: "registry.redhat.io/rhel9/postgresql-13:1"
+    image: "quay.io/alberthua/postgresql-13:1"
+    # mirror image from registry.redhat.io/rhel9/postgresql-13:1
     container_name: "compose_environments_postgresql"
     environment:
       POSTGRESQL_USER: backend
