@@ -1,3 +1,4 @@
+# use podman-compose to build frontend manage site and backend postgre db
 services:
   db-admin:
     image: "quay.io/alberthua/crunchy-pgadmin4:ubi8-4.30-1" 

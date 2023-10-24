@@ -30,3 +30,4 @@ Examples in the preceding directories are described below:
 
   - 📥 gogs-postgres-compose: Source Control Management (`SCM`) application based `Gogs` and `PostgreSQL` deployed by `podman-compose`
 
+  - 🐘 pgadmin-pgdb-compose: Postgre admin Web site used to connect with PostgreSQL database via podman-compose
