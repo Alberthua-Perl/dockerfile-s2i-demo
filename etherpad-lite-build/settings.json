@@ -1,0 +1,13 @@
+{
+  "dbType": "postgres",
+  "dbSettings": {
+    "user": "etherpad_user",
+    "host": "serverd.lab.example.com",
+    "port": 5432,
+    "password": "redhat",
+    "database": "etherpad_db"
+  },
+  "ip": "0.0.0.0",
+  "port": 9001,
+  "title": "Etherpad"
+}

@@ -1,0 +1,4 @@
+registry=http://nexus3.lab.example.com:8881/repository/npm-proxy/
+always-auth=true
+//nexus3.lab.example.com:8881/repository/npm-proxy/:_auth="ZGV2dXNlcjA6MXFhelpTRSQ="
+//nexus3.lab.example.com:8881/repository/npm-hosted/:_auth="ZGV2dXNlcjA6MXFhelpTRSQ="

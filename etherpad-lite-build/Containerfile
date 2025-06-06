@@ -1,0 +1,12 @@
+FROM quay.io/alberthua/node-pnpm:10.11.0
+#FROM nexus3.lab.example.com:8882/node-pnpm:10.11.0
+MAINTAINER hualongfeiyyy@163.com
+
+RUN mkdir /app
+ADD ./etherpad-lite-postgres /app
+WORKDIR /app
+RUN pnpm install --no-frozen-lockfile --force && \
+    pnpm run build:etherpad
+
+EXPOSE 9001
+ENTRYPOINT ["pnpm", "run", "prod"]
