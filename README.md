@@ -13,7 +13,7 @@ Examples in the preceding directories are described below:
   - 💪 **tl500-mono-repo**: `JavaScript` application in Node.js apply `TL500` tech exercises instruction
   - 📦 **nexus-3.30.1-01**: `Nexus3` artifacts repository image used by [Nexus3 Chart](https://github.com/Alberthua-Perl/go-kubernetes-learn-path/tree/hotfixes/helm3-dev/nexus-3.30.1-01)
   - **node-pnpm**: Node.js 18 and pnpm 10.11.0 runtime as base image
-  - **etherpad-lite-build**: etherpad-lite application in Node.js runtime which connect with postgres server through settings.json. The postgres server should be deployed before this application. Or remove settings.json, run this application directly.
+  - **etherpad-lite-build**: etherpad-lite application in Node.js runtime which connect with postgres server through settings.json. The postgres server should be deployed before this application. Or remove settings.json, run this application directly. etherpad-lite-postgres cloned from [etherpad-lite](https://github.com/ether/etherpad-lite) project *master* branch.
 
 - Based on S2I:
   - ⭕ **golang-s2i**: Dockerfile to build `Golang v1.12` s2i-builder image in which insert code to generate application image
