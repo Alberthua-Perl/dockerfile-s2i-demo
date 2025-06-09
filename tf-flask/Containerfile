@@ -1,0 +1,10 @@
+FROM docker.io/tensorflow/tensorflow:2.18.0
+# JUST using CPU not using GPU
+MAINTAINER hualongfeiyyy@163.com
+
+RUN mkdir /app && \
+    pip config set global.index-url https://mirrors.aliyun.com/pypi/simple && \
+    pip install --ignore-installed Pillow matplotlib flask
+    # Pillow module apply PIL depended by flask
+
+WORKDIR /app
