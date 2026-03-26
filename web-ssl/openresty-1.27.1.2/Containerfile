@@ -1,0 +1,72 @@
+FROM quay.io/alberthua/ubi9:9.7
+MAINTAINER <hualongfeiyyy@163.com>
+
+# install openresty dependent packages
+RUN dnf install -y gcc gcc-c++ make pcre-devel openssl openssl-devel zlib-devel perl && \
+    dnf clean all && \
+    mkdir -p /apps/nginx && \
+    useradd -u 2000 -M -s /sbin/nologin nginx
+    # create nginx user to run nginx worker processes
+
+# copy nginx stable tarball to container rootfs
+ADD openresty-1.27.1.2.tar.gz /tmp
+
+#echo "/apps/luajit/lib" > /etc/ld.so.conf.d/luajit.conf && \
+#ldconfig
+
+# make install openresty to support HTTP/2, HTTP/3
+RUN cd /tmp/openresty-1.27.1.2 && \
+    ./configure \
+    --user=nginx \
+    --group=nginx \
+    --prefix=/apps/nginx \
+    --sbin-path=/apps/nginx/sbin/nginx \
+    --conf-path=/apps/nginx/conf/nginx.conf \
+    --error-log-path=/apps/nginx/logs/error.log \
+    --http-log-path=/apps/nginx/logs/access.log \
+    --pid-path=/apps/nginx/logs/nginx.pid \
+    --lock-path=/apps/nginx/logs/nginx.lock \
+    --http-client-body-temp-path=/apps/nginx/temp/client_body \
+    --http-proxy-temp-path=/apps/nginx/temp/proxy \
+    --http-fastcgi-temp-path=/apps/nginx/temp/fastcgi \
+    --http-uwsgi-temp-path=/apps/nginx/temp/uwsgi \
+    --http-scgi-temp-path=/apps/nginx/temp/scgi \
+    --with-http_stub_status_module \
+    --with-http_ssl_module \
+    --with-http_v2_module \
+    --with-http_v3_module \
+    --with-http_gzip_static_module \
+    --with-http_realip_module \
+    --with-http_auth_request_module \
+    --with-openssl-opt=enable-tls1_3 \
+    --with-stream \
+    --with-stream_ssl_module \
+    --with-stream_realip_module \
+    --with-threads \
+    --with-file-aio && \
+    make && \
+    make install && \
+    mkdir -p /apps/nginx/{conf/extra,html/www,key,temp/client_body,temp/proxy,temp/fastcgi,temp/uwsgi,temp/scgi}
+
+# copy openresty files
+#ADD nginx.conf /apps/nginx/conf/
+#ADD ssl.conf /apps/nginx/conf/extra/
+#ADD status.conf /apps/nginx/conf/extra/
+ADD index.html /apps/nginx/html/www/
+#ADD certs/server.key /apps/nginx/key
+#ADD certs/client.key /apps/nginx/key
+#ADD certs/server.crt /apps/nginx/key
+#ADD certs/client.crt /apps/nginx/key
+#ADD certs/CA-center.crt /apps/nginx/key
+### NOT add virtual server conf file, and map it during running the container.
+
+RUN chown -R nginx:nginx /apps/nginx/
+
+WORKDIR /apps/nginx
+
+EXPOSE 80/tcp
+EXPOSE 443/tcp
+EXPOSE 443/udp
+
+# NOTE: Don't run nginx as backend daemon
+CMD ["/apps/nginx/sbin/nginx", "-g", "daemon off;"]
