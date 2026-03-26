@@ -3,6 +3,7 @@ MAINTAINER <hualongfeiyyy@163.com>
 
 # install openresty dependent packages
 RUN dnf install -y gcc gcc-c++ make pcre-devel openssl openssl-devel zlib-devel perl && \
+    dnf install -y iputils iproute less vim-enhanced && \
     dnf clean all && \
     mkdir -p /apps/nginx && \
     useradd -u 2000 -M -s /sbin/nologin nginx
@@ -11,6 +12,7 @@ RUN dnf install -y gcc gcc-c++ make pcre-devel openssl openssl-devel zlib-devel 
 # copy nginx stable tarball to container rootfs
 ADD openresty-1.27.1.2.tar.gz /tmp
 
+### deprecated: conf luajit
 #echo "/apps/luajit/lib" > /etc/ld.so.conf.d/luajit.conf && \
 #ldconfig
 
@@ -46,13 +48,18 @@ RUN cd /tmp/openresty-1.27.1.2 && \
     --with-file-aio && \
     make && \
     make install && \
-    mkdir -p /apps/nginx/{conf/extra,html/www,key,temp/client_body,temp/proxy,temp/fastcgi,temp/uwsgi,temp/scgi}
+    mkdir -p /apps/nginx/{temp/client_body,temp/proxy,temp/fastcgi,temp/uwsgi,temp/scgi}
+    #mkdir -p /apps/nginx/{conf/extra,html/www,key,temp/client_body,temp/proxy,temp/fastcgi,temp/uwsgi,temp/scgi}
 
 # copy openresty files
+ADD conf.tar /apps/nginx
+ADD html.tar /apps/nginx
+ADD key.tar /apps/nginx
+
 #ADD nginx.conf /apps/nginx/conf/
 #ADD ssl.conf /apps/nginx/conf/extra/
 #ADD status.conf /apps/nginx/conf/extra/
-ADD index.html /apps/nginx/html/www/
+#ADD index.html /apps/nginx/html/www/
 #ADD certs/server.key /apps/nginx/key
 #ADD certs/client.key /apps/nginx/key
 #ADD certs/server.crt /apps/nginx/key
@@ -62,6 +69,9 @@ ADD index.html /apps/nginx/html/www/
 
 RUN chown -R nginx:nginx /apps/nginx/
 
+### NOTE: DON'T use USER directive, or no permission to bind 80/tcp port.
+#USER nginx
+
 WORKDIR /apps/nginx
 
 EXPOSE 80/tcp
@@ -70,3 +80,4 @@ EXPOSE 443/udp
 
 # NOTE: Don't run nginx as backend daemon
 CMD ["/apps/nginx/sbin/nginx", "-g", "daemon off;"]
+
